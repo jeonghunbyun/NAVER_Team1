@@ -49,10 +49,17 @@ Copy-Item -Recurse -Force `
 ```powershell
 cd Desktop\cursor-agency-backup
 gh auth login
-gh repo create cursor-agency-backup --private --source=. --remote=origin --push
+gh repo create NAVER_Team1 --private --source=. --remote=origin --push
 ```
 
-공개 레포로 만들려면 `--public`로 바꾸세요. 레포 이름은 원하는 대로 변경 가능합니다.
+또는 이미 만든 레포에 푸시:
+
+```powershell
+git remote add origin https://github.com/jeonghunbyun/NAVER_Team1.git
+git push -u origin main
+```
+
+> **현재 백업 위치:** [github.com/jeonghunbyun/NAVER_Team1](https://github.com/jeonghunbyun/NAVER_Team1)
 
 ## 백업 갱신
 
