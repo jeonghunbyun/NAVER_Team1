@@ -1,36 +1,241 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[WK2][00] Nuri-Rookie Event Chain 작업 지시서</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="변경 주제 · 작업 지시서">
+<title>[06.06][변정훈] NAVER_Team 1_WK2_00</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-:root { color-scheme: light; }
-* { box-sizing: border-box; }
-body {
-  margin: 0; padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  line-height: 1.7; color: #1f2328; background: #f6f8fa;
+:root {
+  --naver-green: #03c75a;
+  --naver-green-soft: rgba(3, 199, 90, 0.14);
+  --bg: #000000;
+  --bg-elev: #0a0a0a;
+  --bg-card: #111315;
+  --border: #20232a;
+  --text: #ededed;
+  --text-muted: #8a8f98;
+  --text-dim: #6a6f78;
+  --hero-grad: radial-gradient(ellipse 80% 60% at top, rgba(3, 199, 90, 0.18) 0%, transparent 65%);
+  --toc-w: 280px;
+  --topbar-h: 52px;
+  --font-base: 17px;
+  --font-lead: 18px;
+  --scroll-pad: 88px;
 }
-main { max-width: 880px; margin: 0 auto; padding: 48px 28px 80px; background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0,0,0,.06); }
-h1 { font-size: 1.7rem; border-bottom: 2px solid #03c75a; padding-bottom: .4em; margin-top: 0; }
-h2 { font-size: 1.3rem; margin-top: 2em; border-left: 4px solid #03c75a; padding-left: .5em; }
-h3 { font-size: 1.08rem; margin-top: 1.6em; color: #036b34; }
-blockquote { margin: 1em 0; padding: .8em 1.1em; background: #eef7f1; border-left: 4px solid #03c75a;
-  border-radius: 0 6px 6px 0; color: #2b3a2f; }
-table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: .93rem; }
-th, td { border: 1px solid #d0d7de; padding: 9px 13px; text-align: left; vertical-align: top; }
-th { background: #03c75a; color: #fff; font-weight: 600; }
-tr:nth-child(even) td { background: #f6f8fa; }
-code { background: #eaeef2; padding: .15em .4em; border-radius: 4px; font-size: .88em; }
-a { color: #036b34; }
-hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: var(--scroll-pad); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: var(--font-base);
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+.read-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--naver-green), #22e584);
+  z-index: 1000; transition: width 0.12s ease-out;
+}
+.top-bar {
+  position: sticky; top: 0; z-index: 900; height: var(--topbar-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+}
+.top-bar .brand {
+  font-size: 0.82rem; font-weight: 600; color: var(--naver-green);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 55vw;
+}
+.top-bar-actions { display: flex; gap: 8px; align-items: center; }
+.btn-ghost {
+  background: var(--bg-card); border: 1px solid var(--border); color: var(--text);
+  padding: 8px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; font-family: inherit;
+}
+.btn-ghost:hover { border-color: var(--naver-green); color: var(--naver-green); }
+.hero {
+  background: var(--hero-grad), var(--bg);
+  padding: clamp(48px, 10vw, 80px) 24px clamp(36px, 8vw, 56px);
+  border-bottom: 1px solid var(--border); text-align: center;
+}
+.hero .badge {
+  display: inline-block; padding: 6px 14px; background: var(--naver-green-soft);
+  color: var(--naver-green); border: 1px solid var(--naver-green);
+  border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 20px;
+}
+.hero h1 {
+  margin: 0 0 12px; font-size: clamp(1.85rem, 6vw, 3.2rem); font-weight: 800;
+  letter-spacing: -0.04em; line-height: 1.2;
+  background: linear-gradient(180deg, #fff 0%, #b8bcc4 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero h2 { margin: 0 0 20px; font-size: clamp(1.05rem, 3.5vw, 1.55rem); font-weight: 500; color: var(--naver-green); }
+.hero .sub { color: var(--text-muted); font-size: 1rem; margin: 0 auto; max-width: 640px; line-height: 1.65; }
+.doc-layout { display: grid; grid-template-columns: 1fr; max-width: 1280px; margin: 0 auto; gap: 0; }
+.doc-main {
+  min-width: 0; max-width: 820px; margin: 0 auto;
+  padding: clamp(28px, 5vw, 48px) clamp(20px, 4vw, 40px) clamp(80px, 12vw, 120px);
+}
+.toc-sidebar { display: none; }
+@media (min-width: 1100px) {
+  .doc-layout { grid-template-columns: var(--toc-w) 1fr; padding-left: 24px; }
+  .toc-sidebar {
+    display: block; position: sticky; top: calc(var(--topbar-h) + 16px); align-self: start;
+    max-height: calc(100vh - var(--topbar-h) - 32px); overflow-y: auto;
+    padding: 20px 16px 24px 0; scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+  .toc-sidebar::-webkit-scrollbar { width: 5px; }
+  .toc-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .doc-main { margin: 0; max-width: none; padding-left: 32px; }
+  .btn-toc-toggle { display: none !important; }
+}
+.toc-panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 16px; }
+.toc-panel h2 {
+  margin: 0 0 14px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--naver-green); border: none; padding: 0;
+}
+.toc-list, .toc-list ol { list-style: none; margin: 0; padding: 0; }
+.toc-list ol { margin-left: 0; padding-left: 12px; border-left: 1px solid #1a1d22; margin-top: 4px; }
+.toc-list li { margin: 2px 0; }
+.toc-list a {
+  display: block; padding: 6px 10px; border-radius: 6px; font-size: 0.88rem; line-height: 1.45;
+  color: var(--text-muted); text-decoration: none; transition: background 0.15s, color 0.15s;
+}
+.toc-list a:hover { background: var(--naver-green-soft); color: var(--text); }
+.toc-list a.active { background: var(--naver-green-soft); color: var(--naver-green); font-weight: 600; }
+.toc-l1 > a { font-size: 0.92rem; font-weight: 600; color: var(--text); }
+.toc-l2 > a { font-size: 0.86rem; }
+.toc-l3 > a { font-size: 0.82rem; padding-left: 14px; }
+.toc-drawer {
+  position: fixed; inset: 0; z-index: 1100; pointer-events: none; opacity: 0; transition: opacity 0.25s ease;
+}
+.toc-drawer.open { pointer-events: auto; opacity: 1; }
+.toc-drawer-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.65); }
+.toc-drawer-panel {
+  position: absolute; top: 0; right: 0; width: min(320px, 88vw); height: 100%;
+  background: var(--bg-elev); border-left: 1px solid var(--border);
+  padding: 20px 16px 32px; overflow-y: auto; transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toc-drawer.open .toc-drawer-panel { transform: translateX(0); }
+.toc-drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.toc-drawer-header h2 { margin: 0; font-size: 1rem; color: var(--naver-green); }
+.back-top {
+  position: fixed; right: 20px; bottom: 24px; z-index: 800; width: 48px; height: 48px;
+  border-radius: 50%; border: 1px solid var(--naver-green); background: rgba(0,0,0,0.85);
+  color: var(--naver-green); font-size: 1.25rem; cursor: pointer; opacity: 0; visibility: hidden;
+  transform: translateY(12px); transition: opacity 0.2s, transform 0.2s, visibility 0.2s; backdrop-filter: blur(8px);
+}
+.back-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-top:hover { background: var(--naver-green); color: #000; }
+.heading-anchor { scroll-margin-top: var(--scroll-pad); }
+h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; color: var(--text); }
+h1 {
+  font-size: clamp(1.65rem, 4vw, 2.25rem); margin: clamp(44px, 7vw, 64px) 0 20px;
+  padding-bottom: 12px; border-bottom: 2px solid var(--naver-green);
+}
+h1:first-of-type { margin-top: 0; }
+h2 { font-size: clamp(1.35rem, 3.2vw, 1.65rem); margin: clamp(36px, 5vw, 48px) 0 16px; color: var(--naver-green); }
+h3 { font-size: clamp(1.12rem, 2.8vw, 1.28rem); margin: clamp(24px, 4vw, 32px) 0 12px; }
+h4 { font-size: 1.05rem; margin: 20px 0 8px; color: var(--text-muted); }
+p { margin: 0 0 1.1em; font-size: var(--font-base); }
+strong { color: #fff; font-weight: 700; }
+em { color: var(--text-muted); }
+code {
+  background: var(--bg-card); color: var(--naver-green); padding: 3px 8px; border-radius: 4px;
+  font-size: 0.9em; border: 1px solid var(--border);
+}
+pre {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px 20px; overflow-x: auto; font-size: 0.9rem; line-height: 1.6; margin: 20px 0 28px;
+}
+pre code { background: transparent; padding: 0; color: var(--text); border: none; }
+ul, ol { padding-left: 1.45em; margin: 0 0 1.1em; }
+li { margin: 0.4em 0; }
+a { color: var(--naver-green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote {
+  border-left: 4px solid var(--naver-green); padding: 16px 22px; margin: 24px 0 32px;
+  background: var(--bg-card); border-radius: 0 10px 10px 0; font-size: var(--font-lead); line-height: 1.75;
+}
+blockquote p:last-child { margin-bottom: 0; }
+hr { border: none; height: 1px; background: var(--border); margin: clamp(40px, 6vw, 56px) 0; }
+.table-wrap {
+  overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 20px 0 28px;
+  border-radius: 10px; border: 1px solid var(--border); background: var(--bg-card);
+}
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+thead { background: var(--bg-elev); }
+th, td {
+  padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--border);
+  vertical-align: top; line-height: 1.55;
+}
+th {
+  color: var(--naver-green); font-weight: 700; font-size: 0.8rem;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+tbody tr:hover { background: rgba(255,255,255,0.02); }
+footer {
+  max-width: 820px; margin: 0 auto; padding: 32px 24px 56px;
+  border-top: 1px solid var(--border); color: var(--text-dim);
+  font-size: 0.9rem; text-align: center; line-height: 1.7;
+}
+@media (max-width: 768px) {
+  :root { --font-base: 16px; --font-lead: 16.5px; --scroll-pad: 72px; }
+  th, td { padding: 11px 12px; font-size: 0.88rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .read-progress, .back-top, .toc-drawer, .toc-drawer-panel { transition: none; }
+}
 </style>
 </head>
 <body>
-<main>
-<h1 id="wk200-nurirookie-event-chain">[WK2][00] 변경 주제 리서치 플랜 — Nuri–Rookie Event Chain</h1>
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
+<header class="top-bar">
+  <span class="brand">WK2_00 · [WK2][00] Event Chain 플랜</span>
+  <div class="top-bar-actions">
+    <button type="button" class="btn-ghost btn-toc-toggle" id="tocToggle" aria-expanded="false">목차</button>
+  </div>
+</header>
+<header class="hero" role="banner">
+  <div class="badge">Week02 · Index</div>
+  <h1>[WK2][00] Event Chain 플랜</h1>
+  <h2>변경 주제 · 작업 지시서</h2>
+  <p class="sub">Nuri–Rookie Event Chain · RQ1–8 · 팀 역할<br><code>docs/week02/[WK2][00]_README.md</code></p>
+</header>
+<div class="doc-layout">
+  <aside class="toc-sidebar" aria-label="목차">
+    <nav class="toc-panel"><h2>목차</h2><ol class="toc-list">
+<ol>
+<li class="toc-l2"><a href="#sec-1" data-target="sec-1">0. 변경된 주제 정의</a></li>
+<li class="toc-l2"><a href="#sec-2" data-target="sec-2">1. 리서치 목표</a></li>
+<li class="toc-l2"><a href="#sec-3" data-target="sec-3">2. 핵심 리서치 질문</a></li>
+<li class="toc-l2"><a href="#sec-4" data-target="sec-4">3. WK2 문서별 역할</a></li>
+<li class="toc-l2"><a href="#sec-5" data-target="sec-5">4. 팀 역할 재분배</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-6" data-target="sec-6">4.1 [01] 데스크 리서치 · [02] As-Is 블루프린트</a></li>
+<li class="toc-l3"><a href="#sec-7" data-target="sec-7">4.2 [03] 페르소나 · [04] 저니맵</a></li>
+<li class="toc-l3"><a href="#sec-8" data-target="sec-8">4.3 [05] 로봇 개입 · [06] PM 수합</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-9" data-target="sec-9">5. 일정</a></li>
+<li class="toc-l2"><a href="#sec-10" data-target="sec-10">6. 발표 스토리라인 초안</a></li>
+<li class="toc-l2"><a href="#sec-11" data-target="sec-11">7. 제출 체크리스트</a></li>
+<li class="toc-l2"><a href="#sec-12" data-target="sec-12">8. 금지 메시지</a></li>
+<li class="toc-l2"><a href="#sec-13" data-target="sec-13">9. 최종 한 문장</a></li>
+</ol>
+</ol></nav>
+  </aside>
+  <main class="doc-main" role="main" id="mainContent">
 <blockquote>
 <p><strong>상태:</strong> 변경 주제 정본 · <code>[01]</code>~<code>[04]</code> 팀 리서치 반영본<br />
 <strong>주제:</strong> 사우디 국가행사를 위한 NAVER Physical AI 백오피스 운영 플랫폼<br />
@@ -39,7 +244,7 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <strong>캠페인 초안 동기화:</strong> <code>Desktop/AD_AGENCY/deliverables/my_ae_brief.md</code> · <code>my_copy.md</code> (my-agency) → <code>[WK2][06]</code> PM 수합에 반영 (2026-06-02)</p>
 </blockquote>
 <hr />
-<h2 id="0">0. 변경된 주제 정의</h2>
+<h2 id="sec-1" class="heading-anchor">0. 변경된 주제 정의</h2>
 <p>이번 주제는 기존의 <strong>사우디 낙타 유제 콜드체인</strong>에서 <strong>사우디 국가행사 백오피스 키트 물류</strong>로 전환한다.</p>
 <p>기존 콜드체인 안은 목장→가공장 사이의 냉장 운반과 할랄·품질 판정을 중심으로 설계했지만, 실제 서비스 블루프린트 기준으로는 메인 1안으로 쓰기 어렵다.</p>
 <ul>
@@ -54,14 +259,14 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <p>사우디 국가행사의 보이지 않는 백오피스 물류를 Nuri–Rookie와 NAVER 플랫폼으로 연결하고, 행사 이후에는 도시·주거단지의 프라이버시 라스트미터 배송 인프라로 확장한다.</p>
 </blockquote>
 <hr />
-<h2 id="1">1. 리서치 목표</h2>
+<h2 id="sec-2" class="heading-anchor">1. 리서치 목표</h2>
 <p>이번 리서치의 목표는 두 가지다.</p>
 <ol>
 <li>국가행사에서 <strong>키트 물류가 실제로 존재하는가</strong>를 확인한다.</li>
 <li>그 흐름에 <strong>Nuri–Rookie가 투입될 합리적 구간이 있는가</strong>를 검증한다.</li>
 </ol>
 <p>증명해야 할 네 가지:</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>#</th>
@@ -91,13 +296,13 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td><code>[05]</code>에서 검토</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
-<h2 id="2">2. 핵심 리서치 질문</h2>
+<h2 id="sec-3" class="heading-anchor">2. 핵심 리서치 질문</h2>
 <blockquote>
 <p><strong>RQ</strong>는 Research Question, 즉 리서치 질문이다. <strong>D1~D8</strong>은 <code>[WK2][01]</code>에서 근거를 모으는 자료 묶음 번호다.</p>
 </blockquote>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>RQ</th>
@@ -147,13 +352,13 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td><code>[05]</code> · <code>[06]</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
-<h2 id="3-wk2">3. WK2 문서별 역할</h2>
+<h2 id="sec-4" class="heading-anchor">3. WK2 문서별 역할</h2>
 <blockquote>
 <p><strong>WK2</strong>는 Week 2 문서 번호다. <code>[01]</code>~<code>[06]</code>은 리서치부터 캠페인 기획안까지 이어지는 작업 순서다. <strong>Tier</strong>는 출처 신뢰도 등급이다.</p>
 </blockquote>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>문서</th>
@@ -200,11 +405,11 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>답은 근거 확보 후 작성</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
-<h2 id="4">4. 팀 역할 재분배</h2>
-<h3 id="41-01-02-as-is">4.1 <code>[01]</code> 데스크 리서치 · <code>[02]</code> As-Is 블루프린트</h3>
-<table>
+<h2 id="sec-5" class="heading-anchor">4. 팀 역할 재분배</h2>
+<h3 id="sec-6" class="heading-anchor">4.1 <code>[01]</code> 데스크 리서치 · <code>[02]</code> As-Is 블루프린트</h3>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>담당</th>
@@ -233,9 +438,9 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>실제 운영 장면, 경쟁 대안, Event-to-City 확장 근거</td>
 </tr>
 </tbody>
-</table>
-<h3 id="42-03-04">4.2 <code>[03]</code> 페르소나 · <code>[04]</code> 저니맵</h3>
-<table>
+</table></div>
+<h3 id="sec-7" class="heading-anchor">4.2 <code>[03]</code> 페르소나 · <code>[04]</code> 저니맵</h3>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>담당</th>
@@ -258,12 +463,12 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>이동·인계·수령 기록에서 생기는 불편 지점</td>
 </tr>
 </tbody>
-</table>
-<h3 id="43-05-06-pm">4.3 <code>[05]</code> 로봇 개입 · <code>[06]</code> PM 수합</h3>
+</table></div>
+<h3 id="sec-8" class="heading-anchor">4.3 <code>[05]</code> 로봇 개입 · <code>[06]</code> PM 수합</h3>
 <blockquote>
 <p><strong>T1-T3</strong>는 <code>[05]</code>에서 검토하는 로봇 개입 후보 구간이다. <strong>PM</strong>은 전체 근거를 묶어 발표 결과물로 정리하는 역할이다.</p>
 </blockquote>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>담당</th>
@@ -278,10 +483,10 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td><code>[05]</code> 로봇 개입 검토표 · <code>[06]</code> 검증 질문, CX 변화, 발표 스토리라인</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
-<h2 id="5">5. 일정</h2>
-<table>
+<h2 id="sec-9" class="heading-anchor">5. 일정</h2>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>기간</th>
@@ -306,9 +511,9 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>T1-T3·Q&amp;A·발표 메시지</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
-<h2 id="6">6. 발표 스토리라인 초안</h2>
+<h2 id="sec-10" class="heading-anchor">6. 발표 스토리라인 초안</h2>
 <ol>
 <li>사우디는 국가행사와 스마트시티를 동시에 키우고 있다.</li>
 <li>관객이 보는 무대 뒤에는 VIP·미디어·운영 키트가 계속 움직인다.</li>
@@ -319,11 +524,11 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <p><strong>영문 카피:</strong> Backstage Moves the World. NAVER Moves the Backstage.<br />
 <strong>한국어 카피:</strong> 사람은 의전을 하고, 로봇은 보이지 않는 반복 이동을 맡는다.</p>
 <hr />
-<h2 id="7">7. 제출 체크리스트</h2>
+<h2 id="sec-11" class="heading-anchor">7. 제출 체크리스트</h2>
 <blockquote>
 <p><strong>T1-T3</strong>는 로봇 개입 후보, <strong>Q&amp;A</strong>는 발표 질의응답 대비 항목이다.</p>
 </blockquote>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>문서</th>
@@ -356,10 +561,10 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>검증 질문, CX 변화, 발표 메시지, 수업 이론 연결, Q&amp;A</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
-<h2 id="8">8. 금지 메시지</h2>
-<table>
+<h2 id="sec-12" class="heading-anchor">8. 금지 메시지</h2>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>금지</th>
@@ -388,12 +593,88 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>Pay·Commerce는 보조 확장 가능성으로만 둔다</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
-<h2 id="9">9. 최종 한 문장</h2>
+<h2 id="sec-13" class="heading-anchor">9. 최종 한 문장</h2>
 <blockquote>
 <p>Nuri–Rookie Event Chain은 사우디 국가행사의 VIP·미디어·운영 키트 물류를 실외 Nuri, 실내 Rookie, ARC·Maps·Works·NCP 기반 운영 로그로 연결하고, 행사 이후에는 주거단지 프라이버시 라스트미터 배송으로 확장되는 NAVER Physical AI 백오피스 플랫폼이다.</p>
 </blockquote>
-</main>
+  </main>
+</div>
+<div class="toc-drawer" id="tocDrawer" aria-hidden="true">
+  <div class="toc-drawer-backdrop" id="tocBackdrop"></div>
+  <div class="toc-drawer-panel">
+    <div class="toc-drawer-header"><h2>목차</h2><button type="button" class="btn-ghost" id="tocClose">닫기</button></div>
+    <nav class="toc-panel toc-panel--mobile"><ol class="toc-list">
+<ol>
+<li class="toc-l2"><a href="#sec-1" data-target="sec-1">0. 변경된 주제 정의</a></li>
+<li class="toc-l2"><a href="#sec-2" data-target="sec-2">1. 리서치 목표</a></li>
+<li class="toc-l2"><a href="#sec-3" data-target="sec-3">2. 핵심 리서치 질문</a></li>
+<li class="toc-l2"><a href="#sec-4" data-target="sec-4">3. WK2 문서별 역할</a></li>
+<li class="toc-l2"><a href="#sec-5" data-target="sec-5">4. 팀 역할 재분배</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-6" data-target="sec-6">4.1 [01] 데스크 리서치 · [02] As-Is 블루프린트</a></li>
+<li class="toc-l3"><a href="#sec-7" data-target="sec-7">4.2 [03] 페르소나 · [04] 저니맵</a></li>
+<li class="toc-l3"><a href="#sec-8" data-target="sec-8">4.3 [05] 로봇 개입 · [06] PM 수합</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-9" data-target="sec-9">5. 일정</a></li>
+<li class="toc-l2"><a href="#sec-10" data-target="sec-10">6. 발표 스토리라인 초안</a></li>
+<li class="toc-l2"><a href="#sec-11" data-target="sec-11">7. 제출 체크리스트</a></li>
+<li class="toc-l2"><a href="#sec-12" data-target="sec-12">8. 금지 메시지</a></li>
+<li class="toc-l2"><a href="#sec-13" data-target="sec-13">9. 최종 한 문장</a></li>
+</ol>
+</ol></nav>
+  </div>
+</div>
+<button type="button" class="back-top" id="backTop" aria-label="맨 위로">↑</button>
+<footer role="contentinfo">
+  <strong>[06.06][변정훈] NAVER_Team 1_WK2_00 · 변정훈 · 2026-06-06</strong><br>
+  NAVER LABS FROM LABS TO WORLD · docs/week01 정본
+</footer>
+<script>
+(function () {
+  var progress = document.getElementById('readProgress');
+  var backTop = document.getElementById('backTop');
+  var drawer = document.getElementById('tocDrawer');
+  var toggle = document.getElementById('tocToggle');
+  var closeBtn = document.getElementById('tocClose');
+  var backdrop = document.getElementById('tocBackdrop');
+  var links = document.querySelectorAll('.toc-list a[data-target]');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    if (progress) progress.style.width = Math.min(100, Math.max(0, pct)) + '%';
+    if (backTop) backTop.classList.toggle('visible', h.scrollTop > 400);
+    var y = window.scrollY + 100;
+    var active = null;
+    links.forEach(function (a) {
+      var el = document.getElementById(a.getAttribute('data-target'));
+      if (el && el.offsetTop <= y) active = a;
+    });
+    links.forEach(function (a) { a.classList.toggle('active', a === active); });
+  }
+  function openDrawer() {
+    if (!drawer) return;
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    if (!drawer) return;
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  if (toggle) toggle.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (backdrop) backdrop.addEventListener('click', closeDrawer);
+  links.forEach(function (a) { a.addEventListener('click', function () { closeDrawer(); }); });
+  if (backTop) backTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 </body>
 </html>
