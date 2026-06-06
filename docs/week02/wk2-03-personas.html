@@ -1,43 +1,264 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[WK2][03] 페르소나 P1-P5</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="Event Chain 행위자 5명">
+<title>[06.06][변정훈] NAVER_Team 1_WK2_03</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-:root { color-scheme: light; }
-* { box-sizing: border-box; }
-body {
-  margin: 0; padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  line-height: 1.7; color: #1f2328; background: #f6f8fa;
+:root {
+  --naver-green: #03c75a;
+  --naver-green-soft: rgba(3, 199, 90, 0.14);
+  --bg: #000000;
+  --bg-elev: #0a0a0a;
+  --bg-card: #111315;
+  --border: #20232a;
+  --text: #ededed;
+  --text-muted: #8a8f98;
+  --text-dim: #6a6f78;
+  --hero-grad: radial-gradient(ellipse 80% 60% at top, rgba(3, 199, 90, 0.18) 0%, transparent 65%);
+  --toc-w: 280px;
+  --topbar-h: 52px;
+  --font-base: 17px;
+  --font-lead: 18px;
+  --scroll-pad: 88px;
 }
-main { max-width: 880px; margin: 0 auto; padding: 48px 28px 80px; background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0,0,0,.06); }
-h1 { font-size: 1.7rem; border-bottom: 2px solid #03c75a; padding-bottom: .4em; margin-top: 0; }
-h2 { font-size: 1.3rem; margin-top: 2em; border-left: 4px solid #03c75a; padding-left: .5em; }
-h3 { font-size: 1.08rem; margin-top: 1.6em; color: #036b34; }
-blockquote { margin: 1em 0; padding: .8em 1.1em; background: #eef7f1; border-left: 4px solid #03c75a;
-  border-radius: 0 6px 6px 0; color: #2b3a2f; }
-table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: .93rem; }
-th, td { border: 1px solid #d0d7de; padding: 9px 13px; text-align: left; vertical-align: top; }
-th { background: #03c75a; color: #fff; font-weight: 600; }
-tr:nth-child(even) td { background: #f6f8fa; }
-code { background: #eaeef2; padding: .15em .4em; border-radius: 4px; font-size: .88em; }
-a { color: #036b34; }
-hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: var(--scroll-pad); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: var(--font-base);
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+.read-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--naver-green), #22e584);
+  z-index: 1000; transition: width 0.12s ease-out;
+}
+.top-bar {
+  position: sticky; top: 0; z-index: 900; height: var(--topbar-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+}
+.top-bar .brand {
+  font-size: 0.82rem; font-weight: 600; color: var(--naver-green);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 55vw;
+}
+.top-bar-actions { display: flex; gap: 8px; align-items: center; }
+.btn-ghost {
+  background: var(--bg-card); border: 1px solid var(--border); color: var(--text);
+  padding: 8px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; font-family: inherit;
+}
+.btn-ghost:hover { border-color: var(--naver-green); color: var(--naver-green); }
+.hero {
+  background: var(--hero-grad), var(--bg);
+  padding: clamp(48px, 10vw, 80px) 24px clamp(36px, 8vw, 56px);
+  border-bottom: 1px solid var(--border); text-align: center;
+}
+.hero .badge {
+  display: inline-block; padding: 6px 14px; background: var(--naver-green-soft);
+  color: var(--naver-green); border: 1px solid var(--naver-green);
+  border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 20px;
+}
+.hero h1 {
+  margin: 0 0 12px; font-size: clamp(1.85rem, 6vw, 3.2rem); font-weight: 800;
+  letter-spacing: -0.04em; line-height: 1.2;
+  background: linear-gradient(180deg, #fff 0%, #b8bcc4 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero h2 { margin: 0 0 20px; font-size: clamp(1.05rem, 3.5vw, 1.55rem); font-weight: 500; color: var(--naver-green); }
+.hero .sub { color: var(--text-muted); font-size: 1rem; margin: 0 auto; max-width: 640px; line-height: 1.65; }
+.doc-layout { display: grid; grid-template-columns: 1fr; max-width: 1280px; margin: 0 auto; gap: 0; }
+.doc-main {
+  min-width: 0; max-width: 820px; margin: 0 auto;
+  padding: clamp(28px, 5vw, 48px) clamp(20px, 4vw, 40px) clamp(80px, 12vw, 120px);
+}
+.toc-sidebar { display: none; }
+@media (min-width: 1100px) {
+  .doc-layout { grid-template-columns: var(--toc-w) 1fr; padding-left: 24px; }
+  .toc-sidebar {
+    display: block; position: sticky; top: calc(var(--topbar-h) + 16px); align-self: start;
+    max-height: calc(100vh - var(--topbar-h) - 32px); overflow-y: auto;
+    padding: 20px 16px 24px 0; scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+  .toc-sidebar::-webkit-scrollbar { width: 5px; }
+  .toc-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .doc-main { margin: 0; max-width: none; padding-left: 32px; }
+  .btn-toc-toggle { display: none !important; }
+}
+.toc-panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 16px; }
+.toc-panel h2 {
+  margin: 0 0 14px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--naver-green); border: none; padding: 0;
+}
+.toc-list, .toc-list ol { list-style: none; margin: 0; padding: 0; }
+.toc-list ol { margin-left: 0; padding-left: 12px; border-left: 1px solid #1a1d22; margin-top: 4px; }
+.toc-list li { margin: 2px 0; }
+.toc-list a {
+  display: block; padding: 6px 10px; border-radius: 6px; font-size: 0.88rem; line-height: 1.45;
+  color: var(--text-muted); text-decoration: none; transition: background 0.15s, color 0.15s;
+}
+.toc-list a:hover { background: var(--naver-green-soft); color: var(--text); }
+.toc-list a.active { background: var(--naver-green-soft); color: var(--naver-green); font-weight: 600; }
+.toc-l1 > a { font-size: 0.92rem; font-weight: 600; color: var(--text); }
+.toc-l2 > a { font-size: 0.86rem; }
+.toc-l3 > a { font-size: 0.82rem; padding-left: 14px; }
+.toc-drawer {
+  position: fixed; inset: 0; z-index: 1100; pointer-events: none; opacity: 0; transition: opacity 0.25s ease;
+}
+.toc-drawer.open { pointer-events: auto; opacity: 1; }
+.toc-drawer-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.65); }
+.toc-drawer-panel {
+  position: absolute; top: 0; right: 0; width: min(320px, 88vw); height: 100%;
+  background: var(--bg-elev); border-left: 1px solid var(--border);
+  padding: 20px 16px 32px; overflow-y: auto; transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toc-drawer.open .toc-drawer-panel { transform: translateX(0); }
+.toc-drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.toc-drawer-header h2 { margin: 0; font-size: 1rem; color: var(--naver-green); }
+.back-top {
+  position: fixed; right: 20px; bottom: 24px; z-index: 800; width: 48px; height: 48px;
+  border-radius: 50%; border: 1px solid var(--naver-green); background: rgba(0,0,0,0.85);
+  color: var(--naver-green); font-size: 1.25rem; cursor: pointer; opacity: 0; visibility: hidden;
+  transform: translateY(12px); transition: opacity 0.2s, transform 0.2s, visibility 0.2s; backdrop-filter: blur(8px);
+}
+.back-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-top:hover { background: var(--naver-green); color: #000; }
+.heading-anchor { scroll-margin-top: var(--scroll-pad); }
+h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; color: var(--text); }
+h1 {
+  font-size: clamp(1.65rem, 4vw, 2.25rem); margin: clamp(44px, 7vw, 64px) 0 20px;
+  padding-bottom: 12px; border-bottom: 2px solid var(--naver-green);
+}
+h1:first-of-type { margin-top: 0; }
+h2 { font-size: clamp(1.35rem, 3.2vw, 1.65rem); margin: clamp(36px, 5vw, 48px) 0 16px; color: var(--naver-green); }
+h3 { font-size: clamp(1.12rem, 2.8vw, 1.28rem); margin: clamp(24px, 4vw, 32px) 0 12px; }
+h4 { font-size: 1.05rem; margin: 20px 0 8px; color: var(--text-muted); }
+p { margin: 0 0 1.1em; font-size: var(--font-base); }
+strong { color: #fff; font-weight: 700; }
+em { color: var(--text-muted); }
+code {
+  background: var(--bg-card); color: var(--naver-green); padding: 3px 8px; border-radius: 4px;
+  font-size: 0.9em; border: 1px solid var(--border);
+}
+pre {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px 20px; overflow-x: auto; font-size: 0.9rem; line-height: 1.6; margin: 20px 0 28px;
+}
+pre code { background: transparent; padding: 0; color: var(--text); border: none; }
+ul, ol { padding-left: 1.45em; margin: 0 0 1.1em; }
+li { margin: 0.4em 0; }
+a { color: var(--naver-green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote {
+  border-left: 4px solid var(--naver-green); padding: 16px 22px; margin: 24px 0 32px;
+  background: var(--bg-card); border-radius: 0 10px 10px 0; font-size: var(--font-lead); line-height: 1.75;
+}
+blockquote p:last-child { margin-bottom: 0; }
+hr { border: none; height: 1px; background: var(--border); margin: clamp(40px, 6vw, 56px) 0; }
+.table-wrap {
+  overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 20px 0 28px;
+  border-radius: 10px; border: 1px solid var(--border); background: var(--bg-card);
+}
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+thead { background: var(--bg-elev); }
+th, td {
+  padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--border);
+  vertical-align: top; line-height: 1.55;
+}
+th {
+  color: var(--naver-green); font-weight: 700; font-size: 0.8rem;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+tbody tr:hover { background: rgba(255,255,255,0.02); }
+footer {
+  max-width: 820px; margin: 0 auto; padding: 32px 24px 56px;
+  border-top: 1px solid var(--border); color: var(--text-dim);
+  font-size: 0.9rem; text-align: center; line-height: 1.7;
+}
+@media (max-width: 768px) {
+  :root { --font-base: 16px; --font-lead: 16.5px; --scroll-pad: 72px; }
+  th, td { padding: 11px 12px; font-size: 0.88rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .read-progress, .back-top, .toc-drawer, .toc-drawer-panel { transition: none; }
+}
 </style>
 </head>
 <body>
-<main>
-<h1 id="wk203-event-chain-5">[WK2][03] 페르소나 — Event Chain 행위자 5명</h1>
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
+<header class="top-bar">
+  <span class="brand">WK2_03 · [WK2][03] 페르소나</span>
+  <div class="top-bar-actions">
+    <button type="button" class="btn-ghost btn-toc-toggle" id="tocToggle" aria-expanded="false">목차</button>
+  </div>
+</header>
+<header class="hero" role="banner">
+  <div class="badge">Week02 · Persona</div>
+  <h1>[WK2][03] 페르소나</h1>
+  <h2>Event Chain 행위자 5명</h2>
+  <p class="sub">P1–P5 · 정보 공백 · 반복 부담 · 디야파<br><code>docs/week02/[WK2][03]_personas.md</code></p>
+</header>
+<div class="doc-layout">
+  <aside class="toc-sidebar" aria-label="목차">
+    <nav class="toc-panel"><h2>목차</h2><ol class="toc-list">
+<ol>
+<li class="toc-l2"><a href="#sec-1" data-target="sec-1">0. 페르소나 전체 구조</a></li>
+<li class="toc-l2"><a href="#sec-2" data-target="sec-2">1. P1 — Venue Operations Manager</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-3" data-target="sec-3">이해하기 쉽게 풀면</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-4" data-target="sec-4">2. P2 — VIP Hospitality Coordinator</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-5" data-target="sec-5">이해하기 쉽게 풀면</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-6" data-target="sec-6">3. P3 — Media Center Manager</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-7" data-target="sec-7">이해하기 쉽게 풀면</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-8" data-target="sec-8">4. P4 — Backstage Logistics Staff</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-9" data-target="sec-9">이해하기 쉽게 풀면</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-10" data-target="sec-10">5. P5 — Security / Accreditation Officer</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-11" data-target="sec-11">이해하기 쉽게 풀면</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-12" data-target="sec-12">6. 공통 인사이트 — 다섯 페르소나가 공유하는 것</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-13" data-target="sec-13">① 정보 공백 — 운영 총괄(P1)·VIP 의전 담당(P2)·미디어 담당(P3)</a></li>
+<li class="toc-l3"><a href="#sec-14" data-target="sec-14">② 반복·물리 부담 — 물류 스태프(P4)·보안·인증 담당(P5)</a></li>
+<li class="toc-l3"><a href="#sec-15" data-target="sec-15">③ 디야파(국가 환대) 압박 — 다섯 명 모두 (P1~P5)</a></li>
+<li class="toc-l3"><a href="#sec-16" data-target="sec-16">④ 통제와 환대의 줄다리기 — 보안·인증 담당(P5)·VIP 의전 담당(P2)</a></li>
+<li class="toc-l3"><a href="#sec-17" data-target="sec-17">⑤ 책임의 비대칭 — 운영 총괄(P1)·보안·인증 담당(P5)</a></li>
+<li class="toc-l3"><a href="#sec-18" data-target="sec-18">⑥ 사람 판단의 불가침 — 다섯 명 모두 (P1~P5)</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-19" data-target="sec-19">7. [06]로 넘길 검증 질문</a></li>
+</ol>
+</ol></nav>
+  </aside>
+  <main class="doc-main" role="main" id="mainContent">
 <blockquote>
 <p><strong>입력:</strong> <code>[WK2][01]</code> 통합 리서치 · <code>[WK2][02]</code> As-Is 블루프린트 · 실제 공개 자료·사례 기반 페르소나 정리<br />
 <strong>원칙:</strong> 실제 인터뷰가 없으므로 1인칭 문장은 <strong>가상 1인칭·인터뷰 전 가설</strong>로 표시한다. 이 문서는 로봇 메시지가 아니라 사람과 업무를 이해하는 문서다.</p>
 </blockquote>
 <hr />
-<h2 id="0">0. 페르소나 전체 구조</h2>
-<table>
+<h2 id="sec-1" class="heading-anchor">0. 페르소나 전체 구조</h2>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>ID</th>
@@ -84,14 +305,14 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>수령·인계 기록을 나중에 입증 가능하게 남기고 싶다.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
-<h2 id="1-p1-venue-operations-manager">1. P1 — Venue Operations Manager</h2>
+<h2 id="sec-2" class="heading-anchor">1. P1 — Venue Operations Manager</h2>
 <blockquote>
 <p>"52,000명이 있는데, 누가 지금 뭘 들고 어디 있는지 아는 사람이 한 명도 없다."<br />
 가상 1인칭 · 인터뷰 전 가설</p>
 </blockquote>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>항목</th>
@@ -136,16 +357,16 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>Expo 2030 Riyadh Company/PIF 운영 맥락, Expo 2030 Riyadh 마스터플랜·Arab News 부지 규모 보도, Paris 2024 CrowdStrike 장애 보도, G20 Riyadh International Media Center 운영 사례</td>
 </tr>
 </tbody>
-</table>
-<h3 id="_1">이해하기 쉽게 풀면</h3>
+</table></div>
+<h3 id="sec-3" class="heading-anchor">이해하기 쉽게 풀면</h3>
 <p>P1은 “물건을 나르는 사람”이 아니라, 문제가 터졌을 때 책임지는 사람이다. 그에게 가장 큰 불편은 박스를 직접 들고 다니는 것이 아니라 <strong>현재 상황을 한 번에 볼 수 없다는 것</strong>이다. 키트가 어디 있는지, 누가 받았는지, 어느 구역에서 지연되는지 알 수 없으면 의사결정이 늦고, 문제가 생긴 뒤에야 보고를 받게 된다.</p>
 <hr />
-<h2 id="2-p2-vip-hospitality-coordinator">2. P2 — VIP Hospitality Coordinator</h2>
+<h2 id="sec-4" class="heading-anchor">2. P2 — VIP Hospitality Coordinator</h2>
 <blockquote>
 <p>"VIP가 오시기 전에 박스가 어디 있는지 찾아야 하는데, 저도 지금 무전으로 묻고 있어요."<br />
 가상 1인칭 · 인터뷰 전 가설</p>
 </blockquote>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>항목</th>
@@ -190,16 +411,16 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>FIFA World Cup VIP hospitality 자료, Saudi Press Agency(SPA) 낙타축제 외교단 방문 보도, GEA 행사 허가·VIP 운영 규정, Expo 2030 다국가 행사 맥락</td>
 </tr>
 </tbody>
-</table>
-<h3 id="_2">이해하기 쉽게 풀면</h3>
+</table></div>
+<h3 id="sec-5" class="heading-anchor">이해하기 쉽게 풀면</h3>
 <p>P2에게 키트는 “박스”가 아니라 <strong>국가의 손님맞이</strong>다. 사우디의 디야파 문화에서는 VIP에게 흠 있는 선물을 주거나, 이름이 잘못 붙은 박스를 전달하거나, 박스가 늦게 도착하는 일이 단순 실수로 보이지 않는다. 그래서 P2의 불편은 물리적 이동보다 <strong>VIP 도착 직전까지 박스 상태를 확신할 수 없는 불안</strong>에 가깝다.</p>
 <hr />
-<h2 id="3-p3-media-center-manager">3. P3 — Media Center Manager</h2>
+<h2 id="sec-6" class="heading-anchor">3. P3 — Media Center Manager</h2>
 <blockquote>
 <p>"팀원이 collection email을 못 받았어요. 개막식이 3시간 후인데 오늘 못 들어가는 건가요?"<br />
 가상 1인칭 · 인터뷰 전 가설</p>
 </blockquote>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>항목</th>
@@ -244,16 +465,16 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>Expo 2030 Riyadh News Hub press kit·media contact, FIFA media accreditation·collection email 규정, Paris 2024 CrowdStrike 인증 데스크 장애 보도, G20 Riyadh International Media Center·Hajj Media Hub 운영 사례</td>
 </tr>
 </tbody>
-</table>
-<h3 id="_3">이해하기 쉽게 풀면</h3>
+</table></div>
+<h3 id="sec-7" class="heading-anchor">이해하기 쉽게 풀면</h3>
 <p>P3는 “기자가 자료를 받게 하는 사람”이 아니라 <strong>취재 가능 여부를 보장해야 하는 사람</strong>이다. 배지·패스가 늦어지면 기자는 행사장에 들어가지 못하고, 취재를 놓치면 바로 보도 품질과 언론 평판으로 이어진다. P3의 불편은 “줄이 길다”보다 더 깊다. <strong>시스템이나 이메일 하나가 빠지면 취재 전체가 막힌다</strong>는 불안이다.</p>
 <hr />
-<h2 id="4-p4-backstage-logistics-staff">4. P4 — Backstage Logistics Staff</h2>
+<h2 id="sec-8" class="heading-anchor">4. P4 — Backstage Logistics Staff</h2>
 <blockquote>
 <p>"더운 땡볕에 카트 끌고 UAC랑 현장을 왕복하는데, 정오엔 움직이지도 못하니 시간이 너무 빠듯해요."<br />
 가상 1인칭 · 인터뷰 전 가설</p>
 </blockquote>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>항목</th>
@@ -298,16 +519,16 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>Tokyo 2020 Overlay Book 운영 사례, Expo 2030 Riyadh 부지·물류 구역 규모 보도, Saudi HRSD 장관 결정 3337호(정오 야외 작업 제한), Paris 2024 필리핀 골프팀 유니폼 통관 지연 사례</td>
 </tr>
 </tbody>
-</table>
-<h3 id="_4">이해하기 쉽게 풀면</h3>
+</table></div>
+<h3 id="sec-9" class="heading-anchor">이해하기 쉽게 풀면</h3>
 <p>P4는 가장 몸으로 부담을 느끼는 사람이다. 리야드 폭염과 넓은 행사장, 분산된 거점 때문에 같은 이동을 계속 반복한다. 특히 중요한 발견은 <strong>분류를 두 번 하는 중복 작업</strong>이다. 4단계에서 등급별로 나눈 키트를 운반 효율 때문에 다시 섞어 싣고, 현장에 도착해서 다시 풀어 분류하면 시간도 쓰고 오류 가능성도 커진다.</p>
 <hr />
-<h2 id="5-p5-security-accreditation-officer">5. P5 — Security / Accreditation Officer</h2>
+<h2 id="sec-10" class="heading-anchor">5. P5 — Security / Accreditation Officer</h2>
 <blockquote>
 <p>"전산이 먹통 되면 종이 명단으로 확인해야 해요. 나중엔 누가 뭘 받았는지 증명도 어렵습니다."<br />
 가상 1인칭 · 인터뷰 전 가설</p>
 </blockquote>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>항목</th>
@@ -352,33 +573,33 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>GEA 군중관리·보안 인증 요구, TT-SEC Riyadh Season 인증 운영 사례, FIFA accreditation vs match access 규정, FIFA collection email 규정, Paris 2024 CrowdStrike 수기 명단 전환 보도</td>
 </tr>
 </tbody>
-</table>
-<h3 id="_5">이해하기 쉽게 풀면</h3>
+</table></div>
+<h3 id="sec-11" class="heading-anchor">이해하기 쉽게 풀면</h3>
 <p>P5는 환대와 통제 사이에 있다. 사우디 국가행사는 손님을 정중하게 맞아야 하지만, 동시에 보안·인증은 절대 느슨해질 수 없다. 그래서 P5의 핵심 불편은 “검색 업무가 많다”가 아니라 <strong>정중함을 유지하면서 빠르고 정확하게 확인해야 하는 압박</strong>이다. 기록이 남지 않으면 나중에 분쟁이 생겼을 때 책임을 설명하기 어렵다.</p>
 <hr />
-<h2 id="6">6. 공통 인사이트 — 다섯 페르소나가 공유하는 것</h2>
+<h2 id="sec-12" class="heading-anchor">6. 공통 인사이트 — 다섯 페르소나가 공유하는 것</h2>
 <blockquote>
 <p><strong>한 줄 요약.</strong> 다섯 명은 역할이 달라도 결국 같은 <strong>두 압박(정보 공백 · 반복 부담)</strong>과 하나의 <strong>문화(디야파)</strong> 위에 서 있다. 그래서 한 사람만을 위한 해결이 아니라, <strong>다섯 명을 같은 흐름으로 잇는 관점</strong>이 필요하다.</p>
 </blockquote>
 <p><br></p>
-<h3 id="1-p1vip-p2-p3">① 정보 공백 — 운영 총괄(P1)·VIP 의전 담당(P2)·미디어 담당(P3)</h3>
+<h3 id="sec-13" class="heading-anchor">① 정보 공백 — 운영 총괄(P1)·VIP 의전 담당(P2)·미디어 담당(P3)</h3>
 <p>운영 총괄은 6단계 인계와 8단계 기록에서 구역별 현황이 실시간으로 보이지 않아 “누가 뭘 들고 어디 있는지 모른다”고 느낀다. 미디어 담당은 수령 안내 메일 한 통이 누락되면 팀 전체 취재가 막힐까 불안하다. <strong>이들이 원하는 건 더 빠른 운반이 아니라, 키트·수령 현황을 한 화면에서 실시간으로 보는 것</strong>이다. → <code>[04]</code> 정보 공백 라인과 <code>[05]</code> 운영 로그(T3)로 이어진다.</p>
-<h3 id="2-p4-p5">② 반복·물리 부담 — 물류 스태프(P4)·보안·인증 담당(P5)</h3>
+<h3 id="sec-14" class="heading-anchor">② 반복·물리 부담 — 물류 스태프(P4)·보안·인증 담당(P5)</h3>
 <p>물류 스태프는 5단계 이동에서 폭염 속 왕복과 재분류를 몸으로 반복하고, HRSD 3337호 정오 작업 제한 탓에 시간까지 압축된다. 보안·인증 담당은 6단계 인계에서 수기 확인을 거듭한다. <strong>이들이 원하는 건 위험하고 반복적인 이동 구간을 사람이 직접 뛰지 않는 것</strong>이다. → <code>[05]</code>의 T1·T2 이동 분담과 Human-Stay로 이어진다.</p>
-<h3 id="3-p1p5">③ 디야파(국가 환대) 압박 — 다섯 명 모두 (P1~P5)</h3>
+<h3 id="sec-15" class="heading-anchor">③ 디야파(국가 환대) 압박 — 다섯 명 모두 (P1~P5)</h3>
 <p>VIP 박스 오구성은 외교 결례로, 키트 누락은 국가 이미지 훼손으로 읽힌다. 사우디에서는 작은 운영 실수가 “손님을 제대로 대접하지 못했다”는 환대 실패로 확대되기 쉽다. <strong>이들이 원하는 건 작은 실수가 ‘환대 실패’로 보이지 않는다는 안심</strong>이다. → 캠페인의 정서 소구 축(<code>[06]</code> 빅 아이디어)으로 이어진다.</p>
-<h3 id="4-p5vip-p2">④ 통제와 환대의 줄다리기 — 보안·인증 담당(P5)·VIP 의전 담당(P2)</h3>
+<h3 id="sec-16" class="heading-anchor">④ 통제와 환대의 줄다리기 — 보안·인증 담당(P5)·VIP 의전 담당(P2)</h3>
 <p>6단계 인계에서 보안 검색의 엄격함과 손님 응대의 정중함이 정면으로 충돌한다. 느슨해질 수 없는 보안과, 흠 없이 정중해야 하는 의전이 같은 지점에서 만난다. <strong>이들이 원하는 건 빠르고 정확하게, 그러나 정중하게 확인하는 방법</strong>이다. → “보안 최종 판단은 사람” 메시지(<code>[05]</code> §6)로 이어진다.</p>
-<h3 id="5-p1-p5">⑤ 책임의 비대칭 — 운영 총괄(P1)·보안·인증 담당(P5)</h3>
+<h3 id="sec-17" class="heading-anchor">⑤ 책임의 비대칭 — 운영 총괄(P1)·보안·인증 담당(P5)</h3>
 <p>문제는 현장에서 터지지만 책임은 운영 총괄과 보안이 진다. 그런데 8단계에서 ‘누가·언제·무엇을 받았는지’ 기록이 흩어져 있어 사후 입증이 어렵다. <strong>이들이 원하는 건 나중에 책임을 설명할 수 있는, 입증 가능한 기록이 남는 것</strong>이다. → 운영 로그를 ‘책임 방어 자산’으로 제시하는 방향으로 이어진다.</p>
-<h3 id="6-p1p5">⑥ 사람 판단의 불가침 — 다섯 명 모두 (P1~P5)</h3>
+<h3 id="sec-18" class="heading-anchor">⑥ 사람 판단의 불가침 — 다섯 명 모두 (P1~P5)</h3>
 <p>의전, 보안 최종 승인, 미디어 현장 대응, 디야파 판단은 어떤 경우에도 사람의 몫이다. <strong>자동화가 들어와도 최종 판단권은 사람이 쥐고 있어야 한다.</strong> → Human-Stay 원칙의 근거(<code>[05]</code> §6)가 된다.</p>
 <blockquote>
 <p><strong>주의(검증).</strong> 위 1인칭 문장과 ★ 강도는 모두 <strong>인터뷰 전 가설</strong>이다. 실제 인터뷰·현장 영상·운영 SOP로 확인해 강도와 근거를 보강한다. (검증 질문은 §7)</p>
 </blockquote>
 <hr />
-<h2 id="7-06">7. <code>[06]</code>로 넘길 검증 질문</h2>
-<table>
+<h2 id="sec-19" class="heading-anchor">7. <code>[06]</code>로 넘길 검증 질문</h2>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>#</th>
@@ -425,9 +646,101 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>미확보</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <p><em>다음: <code>[WK2][04]</code> — 이 다섯 페르소나의 불편 지점을 8단계 시간축에 올린다.</em></p>
-</main>
+  </main>
+</div>
+<div class="toc-drawer" id="tocDrawer" aria-hidden="true">
+  <div class="toc-drawer-backdrop" id="tocBackdrop"></div>
+  <div class="toc-drawer-panel">
+    <div class="toc-drawer-header"><h2>목차</h2><button type="button" class="btn-ghost" id="tocClose">닫기</button></div>
+    <nav class="toc-panel toc-panel--mobile"><ol class="toc-list">
+<ol>
+<li class="toc-l2"><a href="#sec-1" data-target="sec-1">0. 페르소나 전체 구조</a></li>
+<li class="toc-l2"><a href="#sec-2" data-target="sec-2">1. P1 — Venue Operations Manager</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-3" data-target="sec-3">이해하기 쉽게 풀면</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-4" data-target="sec-4">2. P2 — VIP Hospitality Coordinator</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-5" data-target="sec-5">이해하기 쉽게 풀면</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-6" data-target="sec-6">3. P3 — Media Center Manager</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-7" data-target="sec-7">이해하기 쉽게 풀면</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-8" data-target="sec-8">4. P4 — Backstage Logistics Staff</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-9" data-target="sec-9">이해하기 쉽게 풀면</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-10" data-target="sec-10">5. P5 — Security / Accreditation Officer</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-11" data-target="sec-11">이해하기 쉽게 풀면</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-12" data-target="sec-12">6. 공통 인사이트 — 다섯 페르소나가 공유하는 것</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-13" data-target="sec-13">① 정보 공백 — 운영 총괄(P1)·VIP 의전 담당(P2)·미디어 담당(P3)</a></li>
+<li class="toc-l3"><a href="#sec-14" data-target="sec-14">② 반복·물리 부담 — 물류 스태프(P4)·보안·인증 담당(P5)</a></li>
+<li class="toc-l3"><a href="#sec-15" data-target="sec-15">③ 디야파(국가 환대) 압박 — 다섯 명 모두 (P1~P5)</a></li>
+<li class="toc-l3"><a href="#sec-16" data-target="sec-16">④ 통제와 환대의 줄다리기 — 보안·인증 담당(P5)·VIP 의전 담당(P2)</a></li>
+<li class="toc-l3"><a href="#sec-17" data-target="sec-17">⑤ 책임의 비대칭 — 운영 총괄(P1)·보안·인증 담당(P5)</a></li>
+<li class="toc-l3"><a href="#sec-18" data-target="sec-18">⑥ 사람 판단의 불가침 — 다섯 명 모두 (P1~P5)</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-19" data-target="sec-19">7. [06]로 넘길 검증 질문</a></li>
+</ol>
+</ol></nav>
+  </div>
+</div>
+<button type="button" class="back-top" id="backTop" aria-label="맨 위로">↑</button>
+<footer role="contentinfo">
+  <strong>[06.06][변정훈] NAVER_Team 1_WK2_03 · 변정훈 · 2026-06-06</strong><br>
+  NAVER LABS FROM LABS TO WORLD · docs/week01 정본
+</footer>
+<script>
+(function () {
+  var progress = document.getElementById('readProgress');
+  var backTop = document.getElementById('backTop');
+  var drawer = document.getElementById('tocDrawer');
+  var toggle = document.getElementById('tocToggle');
+  var closeBtn = document.getElementById('tocClose');
+  var backdrop = document.getElementById('tocBackdrop');
+  var links = document.querySelectorAll('.toc-list a[data-target]');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    if (progress) progress.style.width = Math.min(100, Math.max(0, pct)) + '%';
+    if (backTop) backTop.classList.toggle('visible', h.scrollTop > 400);
+    var y = window.scrollY + 100;
+    var active = null;
+    links.forEach(function (a) {
+      var el = document.getElementById(a.getAttribute('data-target'));
+      if (el && el.offsetTop <= y) active = a;
+    });
+    links.forEach(function (a) { a.classList.toggle('active', a === active); });
+  }
+  function openDrawer() {
+    if (!drawer) return;
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    if (!drawer) return;
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  if (toggle) toggle.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (backdrop) backdrop.addEventListener('click', closeDrawer);
+  links.forEach(function (a) { a.addEventListener('click', function () { closeDrawer(); }); });
+  if (backTop) backTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 </body>
 </html>
