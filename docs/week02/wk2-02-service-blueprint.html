@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[WK2][02] As-Is 서비스 블루프린트</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  line-height: 1.7; color: #1f2328; background: #f6f8fa;
+}
+main { max-width: 880px; margin: 0 auto; padding: 48px 28px 80px; background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+h1 { font-size: 1.7rem; border-bottom: 2px solid #03c75a; padding-bottom: .4em; margin-top: 0; }
+h2 { font-size: 1.3rem; margin-top: 2em; border-left: 4px solid #03c75a; padding-left: .5em; }
+h3 { font-size: 1.08rem; margin-top: 1.6em; color: #036b34; }
+blockquote { margin: 1em 0; padding: .8em 1.1em; background: #eef7f1; border-left: 4px solid #03c75a;
+  border-radius: 0 6px 6px 0; color: #2b3a2f; }
+table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: .93rem; }
+th, td { border: 1px solid #d0d7de; padding: 9px 13px; text-align: left; vertical-align: top; }
+th { background: #03c75a; color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: #f6f8fa; }
+code { background: #eaeef2; padding: .15em .4em; border-radius: 4px; font-size: .88em; }
+a { color: #036b34; }
+hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
+</style>
+</head>
+<body>
+<main>
+<h1 id="wk202-as-is">[WK2][02] 서비스 블루프린트 — As-Is</h1>
+<blockquote>
+<p><strong>주제:</strong> 사우디 국가행사 백오피스 키트 물류<br />
+<strong>입력:</strong> <code>[WK2][01]</code> 통합 리서치와 실제 공개 자료·사례 기반 <code>[03]</code>, <code>[04]</code> 정리본<br />
+<strong>원칙:</strong> 이 문서에는 Nuri, Rookie, 로봇 개입안, To-Be를 쓰지 않는다. 현재 사람이 어떻게 일하고 어디서 막히는지만 정리한다.</p>
+</blockquote>
+<hr />
+<h2 id="0">0. 이 문서를 읽는 법</h2>
+<p>이 블루프린트는 VIP·미디어·운영·인증 키트가 행사 전부터 사후 기록까지 어떻게 흐르는지 보여준다. 전체 흐름은 4개 묶음, 8단계로 나눈다.</p>
+<pre><code class="language-text">묶음 A 준비기       묶음 B 요청·구성       묶음 C 현장 이동·전달       묶음 D 사후
+[1 수요] [2 입고]  [3 요청] [4 구성]      [5 이동] [6 인계] [7 전달]  [8 기록]
+</code></pre>
+<p>핵심은 <strong>현장 이동·인계·전달 구간</strong>이다. 자료를 종합하면 <strong>시간이 가장 많이 들고 담당자들이 가장 불안해하는 순간</strong>은 <strong>5 이동 → 6 인계 → 7 전달</strong>에 몰린다.</p>
+<hr />
+<h2 id="1-as-is-8">1. As-Is 운영 흐름 8단계</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>단계</th>
+<th>장소·환경</th>
+<th>주요 행위자</th>
+<th>물품</th>
+<th>현재 행동</th>
+<th>물리적 증거</th>
+<th>출처 라벨</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>행사 전 수요 예측·품목 구성</td>
+<td>운영본부·사무</td>
+<td>Venue Operations Manager</td>
+<td>키트 수량·품목표</td>
+<td>참가국·미디어·VIP·스태프 규모를 보고 필요한 키트 종류와 수량을 산정한다.</td>
+<td>허가 신청서, 쿼터표, 자원봉사 계획</td>
+<td><code>[01]</code> D1·D5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>백오피스 창고·보관소 입고</td>
+<td>중앙 물류 구역·창고</td>
+<td>물류 운영사, 창고팀</td>
+<td>유니폼, 배지 카드, 프레스 자료, VIP 물품</td>
+<td>생산·통관된 물품을 중앙 창고에 받아 검수·보관한다.</td>
+<td>입고 검수 기록, 창고 재고</td>
+<td><code>[01]</code> D2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>VIP·미디어·운영팀 요청 발생</td>
+<td>온라인 포털·운영본부</td>
+<td>운영 총괄, 의전팀, 미디어팀</td>
+<td>VIP 키트, 프레스 키트, 운영 장비</td>
+<td>각 팀이 필요한 물품을 요청하고 운영본부가 승인·우선순위를 조정한다.</td>
+<td>News Hub, 신청 메일, 운영 요청서</td>
+<td><code>[01]</code> D1·D3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>키트 구성과 확인</td>
+<td>UAC·발급 데스크</td>
+<td>UAC 스태프, 물류 스태프, 보안 보조</td>
+<td>유니폼, 인증 배지, VIP 박스</td>
+<td>사람별·등급별로 키트를 구성하고 신분·이름·구역 권한을 대조한다.</td>
+<td>UAC 데스크, AD 카드, 수기 명단</td>
+<td><code>[01]</code> D1·D4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>실외·반실외 백오피스 이동</td>
+<td>BOH 도로, 마샬링 야드</td>
+<td>Backstage Logistics Staff</td>
+<td>구성 완료 키트, 박스, 장비</td>
+<td>중앙 창고·UAC에서 현장 VAO·게이트·로딩존으로 카트·밴·셔틀로 왕복 이동한다.</td>
+<td>골프카트, 밴, 무전기, 인계증</td>
+<td><code>[01]</code> D2·D3·D5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>인계와 보안 확인</td>
+<td>보안 게이트·인계 데스크</td>
+<td>Security / Accreditation Officer, 의전팀, 미디어팀</td>
+<td>배지, 패스, 수령 대상 키트</td>
+<td>물품과 사람이 보안 검색을 통과하고, 배지·구역 권한·수령 자격을 확인한다.</td>
+<td>검색대, 스캔 단말, 수령 데스크</td>
+<td><code>[01]</code> D3·D4</td>
+</tr>
+<tr>
+<td>7</td>
+<td>실내 최종 전달</td>
+<td>VIP 라운지, 프레스센터, 운영본부</td>
+<td>의전 담당, 미디어 담당, 물류 스태프</td>
+<td>VIP 박스, 프레스 키트, 운영 키트</td>
+<td>실내 목적지까지 최종 전달하고 수령자에게 넘긴다.</td>
+<td>VIP 라운지, MPC, 수령대</td>
+<td><code>[01]</code> D1·D3</td>
+</tr>
+<tr>
+<td>8</td>
+<td>수령 확인과 사후 기록</td>
+<td>운영본부·VAO·시스템</td>
+<td>운영 총괄, 보안·인증 담당</td>
+<td>수령 로그, 재발급 기록</td>
+<td>누가 무엇을 받았는지, 반납·재발급이 있었는지 기록을 맞춘다.</td>
+<td>수령 명단, 재발급 기록, 사후 보고서</td>
+<td><code>[01]</code> D4</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-5">2. 5레이어 통합 블루프린트</h2>
+<table>
+<thead>
+<tr>
+<th>레이어</th>
+<th>1 수요</th>
+<th>2 입고</th>
+<th>3 요청</th>
+<th>4 구성</th>
+<th>5 이동</th>
+<th>6 인계</th>
+<th>7 전달</th>
+<th>8 기록</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>환경</td>
+<td>사무</td>
+<td>물류 구역·창고</td>
+<td>온라인·사무</td>
+<td>실내 UAC</td>
+<td>실외·반실외</td>
+<td>실외↔실내 경계</td>
+<td>실내 목적지</td>
+<td>사무·시스템</td>
+</tr>
+<tr>
+<td>키트 흐름</td>
+<td>수량·품목 확정</td>
+<td>중앙 집결</td>
+<td>요청 발생</td>
+<td>사람별 세트 구성</td>
+<td>중앙→현장 이동</td>
+<td>검색·인계</td>
+<td>최종 수령자 전달</td>
+<td>로그·반납·재발급</td>
+</tr>
+<tr>
+<td>프론트스테이지</td>
+<td>없음</td>
+<td>없음</td>
+<td>VIP·미디어 요청</td>
+<td>대면 발급</td>
+<td>없음</td>
+<td>게이트 통과·수령 대기</td>
+<td>VIP·기자·스태프 수령</td>
+<td>수령 확인</td>
+</tr>
+<tr>
+<td>백스테이지</td>
+<td>수요 산정</td>
+<td>검수·보관</td>
+<td>승인·우선순위</td>
+<td>조립·대조</td>
+<td>배차·무전 지시</td>
+<td>권한 대조</td>
+<td>내부 분배</td>
+<td>수기·분산 기록 대조</td>
+</tr>
+<tr>
+<td>지원 프로세스</td>
+<td>GEA 허가</td>
+<td>통관·물류 계약</td>
+<td>News Hub·메일</td>
+<td>인증 규칙</td>
+<td>폭염 시간·동선 관리</td>
+<td>군중관리·보안 규정</td>
+<td>미디어·의전 운영</td>
+<td>감사·컴플라이언스</td>
+</tr>
+<tr>
+<td>핵심 불편</td>
+<td>수량 예측 어려움</td>
+<td>물량 방대</td>
+<td>요청 동시 발생</td>
+<td>오구성·누락</td>
+<td>반복 왕복·재분류</td>
+<td>대기·수기 인계</td>
+<td>다지점 전달 지연</td>
+<td>기록 불일치</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3">3. 핵심 행위자</h2>
+<blockquote>
+<p><code>[03]</code> 페르소나는 아래 5명만 사용한다. 운영 흐름에 없는 사람을 새로 만들지 않는다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>행위자</th>
+<th>쉬운 설명</th>
+<th>등장 단계</th>
+<th><code>[03]</code> 반영</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Venue Operations Manager</td>
+<td>전체 운영·일정·현황을 총괄하는 결정권자</td>
+<td>1·3·6·8</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>VIP Hospitality Coordinator</td>
+<td>VIP 웰컴박스, 동선, 의전 품질을 챙기는 담당자</td>
+<td>3·4·5·6·7</td>
+<td>P2</td>
+</tr>
+<tr>
+<td>Media Center Manager</td>
+<td>미디어 인증, 프레스 키트, 기자 수령 흐름을 관리하는 담당자</td>
+<td>3·4·6·7</td>
+<td>P3</td>
+</tr>
+<tr>
+<td>Backstage Logistics Staff</td>
+<td>키트 적재·운반·인계를 직접 수행하는 현장 물류 인력</td>
+<td>4·5·6·7</td>
+<td>P4</td>
+</tr>
+<tr>
+<td>Security / Accreditation Officer</td>
+<td>배지·구역 권한·검색·재발급·기록을 담당하는 보안 인력</td>
+<td>6·8</td>
+<td>P5</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-f1-f6">4. 막히는 지점 F1-F6</h2>
+<blockquote>
+<p><strong>F</strong>는 Fail point, 즉 운영 흐름에서 막히는 지점이다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>단계</th>
+<th>막히는 일</th>
+<th>누가 불편한가</th>
+<th>왜 중요한가</th>
+<th><code>[04]</code>로 넘길지</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1</td>
+<td>3 요청</td>
+<td>여러 구역·행사의 요청이 동시에 들어와 승인·우선순위가 밀린다.</td>
+<td>P1, P3</td>
+<td>요청 단계가 밀리면 구성·이동·전달 일정이 모두 줄어든다.</td>
+<td>검토</td>
+</tr>
+<tr>
+<td>F2</td>
+<td>4 구성</td>
+<td>등급별 키트 오구성·누락·혼입이 생긴다.</td>
+<td>P2, P4, P5</td>
+<td>잘못 만든 키트는 뒤 단계에서 재작업과 보안 문제를 만든다.</td>
+<td>검토</td>
+</tr>
+<tr>
+<td>F3</td>
+<td>5 이동</td>
+<td>폭염·거리·거점 분산 때문에 중앙↔현장 반복 왕복이 몰린다.</td>
+<td>P4, P2</td>
+<td>이동 지연이 인계·전달로 연쇄된다.</td>
+<td>우선 검토</td>
+</tr>
+<tr>
+<td>F3b</td>
+<td>5 이동·7 전달</td>
+<td>분류해 둔 키트를 섞어 적재했다가 현장에서 다시 재분류한다.</td>
+<td>P4</td>
+<td>분류 작업을 두 번 하며 시간과 오류 가능성이 늘어난다.</td>
+<td>우선 검토</td>
+</tr>
+<tr>
+<td>F4</td>
+<td>6 인계</td>
+<td>전원 보안 검색, 수기 인계, 인증과 구역 권한 이중 확인으로 대기가 생긴다.</td>
+<td>P1, P3, P5</td>
+<td>인계가 막히면 입장·취재·의전이 동시에 지연된다.</td>
+<td>우선 검토</td>
+</tr>
+<tr>
+<td>F5</td>
+<td>7 전달</td>
+<td>건물 내부 다지점 전달과 VIP 박스 오구성 발견이 늦어진다.</td>
+<td>P2, P3, P4</td>
+<td>의전·방송·취재 시간에 직접 영향을 준다.</td>
+<td>우선 검토</td>
+</tr>
+<tr>
+<td>F6</td>
+<td>8 기록</td>
+<td>기록이 중앙·분점·게이트로 흩어지고 수기에 의존한다.</td>
+<td>P1, P5</td>
+<td>사후 감사·분쟁·재발급 때 입증이 막힌다.</td>
+<td>검토</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5">5. 사람이 남아야 하는 일</h2>
+<p>아래 일은 불편이 크더라도 자동화 대상으로 넘기지 않는다. <code>[05]</code>에서도 Human-Stay 영역으로 유지해야 한다.</p>
+<table>
+<thead>
+<tr>
+<th>사람이 남는 일</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VIP 대면 응대</td>
+<td>의전·문화·프라이버시는 사람이 판단해야 한다.</td>
+</tr>
+<tr>
+<td>보안 최종 승인</td>
+<td>책임과 권한이 걸린 판단이다.</td>
+</tr>
+<tr>
+<td>기자·미디어 현장 문제 대응</td>
+<td>배지 미수령, 취재 구역 오류, 보안 이슈처럼 현장에서 바로 판단·조율해야 하는 일이 생긴다.</td>
+</tr>
+<tr>
+<td>키트 구성의 최종 판단</td>
+<td>이름·국가·선물 구성 오류는 사람이 최종 확인해야 한다.</td>
+</tr>
+<tr>
+<td>긴급 우선순위 결정</td>
+<td>현장 책임자가 상황을 보고 결정해야 한다.</td>
+</tr>
+<tr>
+<td>디야파 판단</td>
+<td>손님을 어떻게 맞이할지는 문화적·정서적 판단이다.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6">6. 핵심 인사이트 — 페인포인트와 니즈</h2>
+<blockquote>
+<p><strong>As-Is가 말하는 것.</strong> 막히는 지점(F1–F6)을 한데 모아 보면, 현장의 불편은 결국 <strong>두 갈래</strong>로 수렴한다 — ① 무엇이 어디 있는지 안 보이는 <strong>정보 공백</strong>, ② 폭염 속 같은 일을 반복하는 <strong>물리 부담</strong>.</p>
+</blockquote>
+<p><br></p>
+<h3 id="a-p1p2p3">A. 정보 공백 — 주로 P1·P2·P3</h3>
+<p>요청·키트·수령 현황이 <strong>실시간으로 보이지 않아</strong> 결정과 대응이 늦어진다. 운영 총괄은 구역별 숫자가 안 맞아 판단이 어렵고(F1), 의전·미디어는 박스 위치와 수령 여부를 무전으로 쫓는다(F4·F5). 기록까지 흩어지면 사후 입증도 막힌다(F6).</p>
+<h3 id="b-p4p5">B. 반복·물리 부담 — 주로 P4·P5</h3>
+<p>같은 이동과 확인이 <strong>사람 몸으로 반복</strong>된다. 폭염 속 중앙↔현장 왕복과 재분류가 겹치고(F2·F3·F3b), 보안 인계는 수기로 이뤄져 대기가 쌓인다(F4). 체력·시간이 소모되고 오류 가능성도 커진다.</p>
+<h3 id="_1">페인포인트 → 숨은 니즈</h3>
+<blockquote>
+<p>아래 니즈는 "이렇게 해결하라"가 아니라 <strong>현장이 원하는 결과</strong>다. 해결 방법은 <code>[05]</code>에서 검토한다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>페인포인트 (지금 겪는 불편)</th>
+<th>단계·막힘</th>
+<th>누가</th>
+<th>숨은 니즈 (그래서 원하는 것)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>요청이 한꺼번에 몰려 승인·우선순위가 밀린다</td>
+<td>3단계 요청 (F1)</td>
+<td>P1·P3</td>
+<td>흩어진 요청을 한곳에서 보고 우선순위를 빠르게 정하고 싶다</td>
+</tr>
+<tr>
+<td>등급별 키트가 잘못 구성되거나 누락·혼입된다</td>
+<td>4단계 구성 (F2)</td>
+<td>P2·P4·P5</td>
+<td>보내기 전에 구성이 맞는지 미리 걸러졌으면 좋겠다</td>
+</tr>
+<tr>
+<td>폭염 속 중앙↔현장 반복 왕복과 재분류가 겹친다</td>
+<td>5단계 이동 (F3·F3b)</td>
+<td>P4·P2</td>
+<td>위험하고 반복적인 이동 구간을 사람이 직접 안 뛰었으면</td>
+</tr>
+<tr>
+<td>보안 인계에서 대기·수기 확인이 길어진다</td>
+<td>6단계 인계 (F4)</td>
+<td>P1·P3·P5</td>
+<td>보안 판단은 사람이 하되, 수령·인계는 자동으로 기록되면</td>
+</tr>
+<tr>
+<td>실내 다지점 전달이 늦고 오구성이 뒤늦게 발견된다</td>
+<td>7단계 전달 (F5)</td>
+<td>P2·P3·P4</td>
+<td>키트가 실내 어디로 가는지 보이고, 도착 알림이 오면</td>
+</tr>
+<tr>
+<td>기록이 중앙·게이트로 흩어지고 수기에 의존한다</td>
+<td>8단계 기록 (F6)</td>
+<td>P1·P5</td>
+<td>누가·언제·무엇을 받았는지 한 곳에 남으면</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>이 여섯 니즈가 <code>[04]</code> 저니맵과 <code>[05]</code> 개입 검토의 출발점이 된다.</p>
+</blockquote>
+<hr />
+<h2 id="7-0304">7. <code>[03]</code>·<code>[04]</code>로 넘길 핵심</h2>
+<ol>
+<li>페르소나는 P1~P5 다섯 명으로 확정한다.</li>
+<li>가장 중요한 불편은 <strong>5 이동·6 인계·7 전달</strong>에 몰린다.</li>
+<li>P1·P2·P3은 주로 <strong>실시간 정보 공백</strong>을 겪는다.</li>
+<li>P4·P5는 주로 <strong>폭염·반복 이동·대기·수기 기록</strong>을 겪는다.</li>
+<li>모든 페르소나는 디야파, 즉 “국가의 손님맞이”라는 문화적 압박을 함께 받는다.</li>
+</ol>
+<hr />
+<p><em>다음: <code>[WK2][03]</code> — 이 운영 흐름에 등장한 행위자만 페르소나로 만든다.</em></p>
+</main>
+</body>
+</html>
