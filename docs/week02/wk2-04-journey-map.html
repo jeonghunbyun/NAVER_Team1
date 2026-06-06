@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[WK2][04] 저니맵</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  line-height: 1.7; color: #1f2328; background: #f6f8fa;
+}
+main { max-width: 880px; margin: 0 auto; padding: 48px 28px 80px; background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+h1 { font-size: 1.7rem; border-bottom: 2px solid #03c75a; padding-bottom: .4em; margin-top: 0; }
+h2 { font-size: 1.3rem; margin-top: 2em; border-left: 4px solid #03c75a; padding-left: .5em; }
+h3 { font-size: 1.08rem; margin-top: 1.6em; color: #036b34; }
+blockquote { margin: 1em 0; padding: .8em 1.1em; background: #eef7f1; border-left: 4px solid #03c75a;
+  border-radius: 0 6px 6px 0; color: #2b3a2f; }
+table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: .93rem; }
+th, td { border: 1px solid #d0d7de; padding: 9px 13px; text-align: left; vertical-align: top; }
+th { background: #03c75a; color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: #f6f8fa; }
+code { background: #eaeef2; padding: .15em .4em; border-radius: 4px; font-size: .88em; }
+a { color: #036b34; }
+hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
+</style>
+</head>
+<body>
+<main>
+<h1 id="wk204">[WK2][04] 저니맵 — 현재 불편 지점</h1>
+<blockquote>
+<p><strong>입력:</strong> <code>[WK2][02]</code> As-Is 운영 흐름 · <code>[WK2][03]</code> 페르소나 · 실제 공개 자료·사례 기반 저니맵<br />
+<strong>원칙:</strong> To-Be, Nuri, Rookie, 로봇 개입안은 쓰지 않는다. 이 문서는 현재 불편을 시간축에 올리는 문서다.</p>
+</blockquote>
+<hr />
+<h2 id="0">0. 핵심 결론</h2>
+<p>다섯 페르소나의 불편은 모두 <strong>현장 이동·인계·전달 구간: 5 이동 → 6 인계 → 7 전달</strong>에 몰린다. 다만 불편의 성격은 두 갈래로 나뉜다.</p>
+<blockquote>
+<p><strong>약어 먼저 보기:</strong><br />
+<strong>OCS</strong>는 운영 통제 시스템(Operations Control System), 즉 행사 전체 현황을 보는 관리 화면이다.<br />
+<strong>UAC</strong>는 유니폼·인증 발급 센터(Uniform &amp; Accreditation Centre), 즉 배지·유니폼·키트를 사람별로 구성하고 발급하는 곳이다.<br />
+<strong>VAO</strong>는 현장 인증 사무소(Venue Accreditation Office), 즉 중앙에서 온 배지·키트를 행사장 현장에서 확인하고 넘기는 지점이다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>갈래</th>
+<th>해당 페르소나</th>
+<th>불편의 본질</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>정보 공백</td>
+<td>P1 운영 총괄, P2 의전, P3 미디어</td>
+<td>키트가 어디 있고, 누가 받았고, 무엇이 지연되는지 실시간으로 모른다.</td>
+</tr>
+<tr>
+<td>반복·물리 부담</td>
+<td>P4 물류, P5 보안·인증</td>
+<td>폭염·대기·수기 기록·반복 왕복 때문에 몸과 시간이 소모된다.</td>
+</tr>
+</tbody>
+</table>
+<p>이 두 갈래는 서로 따로 있는 문제가 아니다. P4가 현장에서 키트를 찾고 재분류하느라 늦어지면 P2는 VIP 박스 위치를 모르게 되고, P5가 수기 인계로 막히면 P1은 전체 현황을 볼 수 없고 P3은 취재 시작이 늦어진다.</p>
+<hr />
+<h2 id="1-4-8">1. 시간축 — 4개 흐름, 8단계</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>단계</th>
+<th>흐름</th>
+<th>주 환경</th>
+<th>출처 상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>행사 전 수요 예측·품목 구성</td>
+<td>A 준비기</td>
+<td>운영본부·사무</td>
+<td><code>[01]</code>·<code>[02]</code> 반영</td>
+</tr>
+<tr>
+<td>2</td>
+<td>백오피스 창고·보관소 입고</td>
+<td>A 준비기</td>
+<td>물류 구역·창고</td>
+<td><code>[01]</code>·<code>[02]</code> 반영</td>
+</tr>
+<tr>
+<td>3</td>
+<td>VIP·미디어·운영팀 요청 발생</td>
+<td>B 요청·구성</td>
+<td>온라인·사무</td>
+<td><code>[01]</code>·<code>[02]</code> 반영</td>
+</tr>
+<tr>
+<td>4</td>
+<td>키트 구성과 확인</td>
+<td>B 요청·구성</td>
+<td>실내 UAC(유니폼·인증 발급 센터)</td>
+<td><code>[01]</code>·<code>[02]</code> 반영</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>실외·반실외 백오피스 이동</strong></td>
+<td><strong>C 현장 ★</strong></td>
+<td>실외·반실외</td>
+<td><code>[02]</code>·<code>[03]</code> 반영</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td><strong>인계와 보안 확인</strong></td>
+<td><strong>C 현장 ★</strong></td>
+<td>실외↔실내 경계</td>
+<td><code>[02]</code>·<code>[03]</code> 반영</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td><strong>실내 최종 전달</strong></td>
+<td><strong>C 현장 ★</strong></td>
+<td>실내 목적지</td>
+<td><code>[02]</code>·<code>[03]</code> 반영</td>
+</tr>
+<tr>
+<td>8</td>
+<td>수령 확인과 사후 기록</td>
+<td>D 사후</td>
+<td>운영본부·시스템</td>
+<td><code>[02]</code>·<code>[03]</code> 반영</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2">2. 페르소나별 불편 지점</h2>
+<blockquote>
+<p><strong>P1~P5</strong>는 <code>[WK2][03]</code>의 페르소나 번호다. 빈칸은 해당 단계의 핵심 불편이 아직 약하거나 직접 근거가 부족하다는 뜻이다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>P1 운영 총괄</th>
+<th>P2 의전</th>
+<th>P3 미디어</th>
+<th>P4 물류</th>
+<th>P5 보안·인증</th>
+<th>근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 수요</td>
+<td>197개국·대규모 인원 기준으로 품목·수량 예측 부담</td>
+<td>VIP별 국가·격식 반영 필요</td>
+<td>취재 인원·구역 예측 필요</td>
+<td></td>
+<td></td>
+<td><code>[01]</code> D1·D5</td>
+</tr>
+<tr>
+<td>2 입고</td>
+<td>창고·입고 현황을 보고받지만 실시간성은 제한</td>
+<td>VIP 박스가 제대로 들어왔는지 불안</td>
+<td></td>
+<td>대량 입고·검수 부담</td>
+<td></td>
+<td><code>[02]</code> 2단계</td>
+</tr>
+<tr>
+<td>3 요청</td>
+<td>다구역 요청 승인·우선순위 조정 부담</td>
+<td>VIP 명단·일정 변경 대응</td>
+<td>팀 인증 신청·이메일 대기</td>
+<td></td>
+<td></td>
+<td>F1</td>
+</tr>
+<tr>
+<td>4 구성</td>
+<td>품질 현황을 보고받지만 세부 오류는 현장 의존</td>
+<td>이름·국가·선물 오구성 불안</td>
+<td>팀원 이메일 미수신 확인·독촉</td>
+<td>등급별 키트 구성·적재</td>
+<td>신분·권한 대조 보조</td>
+<td>F2</td>
+</tr>
+<tr>
+<td><strong>5 이동</strong></td>
+<td>구역별 진행 현황을 실시간으로 보기 어려움</td>
+<td><strong>박스가 어디 있는지 무전으로 찾아야 함</strong></td>
+<td>MPC 이동·취재 일정 압박</td>
+<td><strong>폭염 속 반복 왕복, 섞어 적재 후 재분류</strong></td>
+<td></td>
+<td>F3·F3b</td>
+</tr>
+<tr>
+<td><strong>6 인계</strong></td>
+<td><strong>VIP 키트 인계 현황을 한 화면에서 볼 수 없음</strong></td>
+<td>VIP 도착 직전 박스 최종 확인 압박</td>
+<td><strong>수령 데스크 대기·IT 장애 시 취재 차질</strong></td>
+<td>인계 데스크 대기</td>
+<td><strong>검색·스캔·이중 권한 확인으로 줄 폭증</strong></td>
+<td>F4</td>
+</tr>
+<tr>
+<td><strong>7 전달</strong></td>
+<td>전달 결과 보고를 기다림</td>
+<td><strong>VIP 앞에서 오구성 발견 시 교체 불가</strong></td>
+<td>배지 배분 후 취재 구역 이동</td>
+<td>도착 후 재분류·다지점 분배</td>
+<td></td>
+<td>F5·F5b</td>
+</tr>
+<tr>
+<td>8 기록</td>
+<td><strong>구역별 수기 집계가 달라 숫자가 맞지 않음</strong></td>
+<td>전달 결과 사후 확인</td>
+<td>인증 이력·반납 기록 확인</td>
+<td></td>
+<td><strong>수령·재발급·반납 기록이 분산됨</strong></td>
+<td>F6</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3">3. 감정 여정 요약</h2>
+<table>
+<thead>
+<tr>
+<th>페르소나</th>
+<th>감정이 내려가는 순간</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1 운영 총괄</td>
+<td>6 인계~8 기록</td>
+<td>현황을 실시간으로 볼 수 없고, 사후 숫자가 맞지 않을 수 있다.</td>
+</tr>
+<tr>
+<td>P2 의전</td>
+<td>5 이동~7 전달</td>
+<td>VIP 도착 직전 박스 위치·구성·전달 여부를 확신하기 어렵다.</td>
+</tr>
+<tr>
+<td>P3 미디어</td>
+<td>4 구성~6 인계</td>
+<td>이메일 미수신, 수령 대기, IT 장애가 취재 지연으로 바로 이어진다.</td>
+</tr>
+<tr>
+<td>P4 물류</td>
+<td>5 이동~7 전달</td>
+<td>폭염 속 반복 왕복과 재분류 작업이 몰린다.</td>
+</tr>
+<tr>
+<td>P5 보안·인증</td>
+<td>6 인계~8 기록</td>
+<td>대기 줄과 수기 기록, 전산 장애 후퇴 부담이 크다.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4">4. 불편이 겹치는 단계</h2>
+<blockquote>
+<p>여러 페르소나의 불편이 같은 단계에 겹칠수록 <code>[05]</code>에서 우선 검토할 가치가 높다. 여기서는 해결책이 아니라 <strong>검토 우선순위</strong>만 표시한다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>후보 단계</th>
+<th>겹치는 불편 지점</th>
+<th>관련 페르소나</th>
+<th>근거</th>
+<th><code>[05]</code> 검토 여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4 키트 구성과 확인</td>
+<td>오구성·누락·이메일 미수신이 뒤 단계로 전이된다.</td>
+<td>P2, P3, P4, P5</td>
+<td>F2 · <code>[03]</code> P2/P3/P4</td>
+<td>검토</td>
+</tr>
+<tr>
+<td><strong>5 실외·반실외 백오피스 이동</strong></td>
+<td>박스 위치 확인 불가, 폭염 속 반복 왕복, 섞어 적재 후 재분류가 겹친다.</td>
+<td><strong>P2, P4</strong>, P1</td>
+<td>F3·F3b · <code>[03]</code> P2/P4</td>
+<td><strong>우선 검토</strong></td>
+</tr>
+<tr>
+<td><strong>6 인계와 보안 확인</strong></td>
+<td>보안 검색·수기 인계·이중 권한 확인·IT 장애 대기가 겹친다.</td>
+<td><strong>P1, P3, P5</strong>, P2</td>
+<td>F4 · <code>[03]</code> P1/P3/P5</td>
+<td><strong>우선 검토</strong></td>
+</tr>
+<tr>
+<td><strong>7 실내 최종 전달</strong></td>
+<td>VIP 앞 오구성 발견, 다지점 전달 지연, 도착 후 재분류가 겹친다.</td>
+<td><strong>P2, P4</strong>, P1/P3</td>
+<td>F5·F5b · <code>[03]</code> P2/P4</td>
+<td><strong>우선 검토</strong></td>
+</tr>
+<tr>
+<td>8 수령 확인과 사후 기록</td>
+<td>수기·분산 기록 때문에 숫자가 맞지 않고 사후 입증이 어렵다.</td>
+<td>P1, P5, P3</td>
+<td>F6 · <code>[03]</code> P1/P5</td>
+<td>검토</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-5">5. 지금 상태의 핵심 불편 5개</h2>
+<blockquote>
+<p><strong>한 줄 요약.</strong> 다섯 불편은 결국 두 갈래(<strong>정보 공백 / 반복·물리 부담</strong>)로 모이고, 모두 <strong>5–7단계 현장 구간</strong>에서 가장 커진다.</p>
+</blockquote>
+<p><br></p>
+<h3 id="1-p1">① 운영 총괄(P1) — 키트 위치·수령 현황을 실시간으로 볼 수 없다</h3>
+<p>6단계 인계와 8단계 기록에서 구역별 현황이 한 화면에 모이지 않는다. 그래서 문제가 생긴 뒤에야 보고를 받고, 판단이 늦어진다. 박스를 직접 나르는 부담이 아니라 <strong>‘지금 상황을 한 번에 볼 수 없다’는 불편</strong>이다.
+<em>근거: Paris 2024 CrowdStrike 장애 보도, Expo 2030 Riyadh Company/PIF 운영 맥락, G20 Riyadh IMC 운영 사례.</em></p>
+<h3 id="2-vip-p2-vip">② VIP 의전 담당(P2) — VIP 박스 위치·구성을 도착 직전까지 확신하기 어렵다</h3>
+<p>5단계 이동부터 7단계 전달까지, 웰컴박스가 어디 있는지 무전으로 찾고 오구성을 뒤늦게 발견할까 불안하다. 디야파 문화에서 VIP 앞 실수는 단순 오류가 아니라 외교적 결례로 읽히기 때문에 <strong>도착 직전까지 박스 상태를 확신할 수 없는 불안</strong>이 크다.
+<em>근거: FIFA World Cup VIP hospitality 자료, SPA 낙타축제 외교단 방문 보도, GEA 행사 허가·의전 맥락.</em></p>
+<h3 id="3-p3-it">③ 미디어 담당(P3) — 수령 안내 메일 누락·IT 장애·대기가 취재 지연으로 이어진다</h3>
+<p>4단계 구성과 6단계 인계에서, 키트 수령 안내 메일 한 통이 누락되거나 IT가 멈추면 기자가 행사장에 못 들어간다. <strong>시스템이나 메일 하나가 빠지면 취재 전체가 막힌다는 불안</strong>이 핵심이다.
+<em>근거: FIFA media accreditation·수령 안내 메일(collection email) 규정, Expo 2030 Riyadh News Hub, Paris 2024 CrowdStrike 인증 데스크 장애 보도.</em></p>
+<h3 id="4-p4">④ 물류 스태프(P4) — 폭염과 넓은 동선에 반복 왕복·재분류 부담이 크다</h3>
+<p>5단계 이동과 7단계 전달에서, 폭염 속 중앙↔현장 왕복이 반복되고 섞어 실은 키트를 현장에서 다시 분류한다. HRSD 3337호 정오 작업 제한까지 겹쳐 시간이 압축된다. <strong>같은 이동과 분류를 몸으로 두 번 반복하는 부담</strong>이다.
+<em>근거: Saudi HRSD 결정 3337호(12–15시 작업 제한), Expo 2030 Riyadh 부지·물류 구역 규모 보도, Tokyo 2020 Overlay Book 운영 사례.</em></p>
+<h3 id="5-p5-p1">⑤ 보안·인증 담당(P5)·운영 총괄(P1) — 수령·인계·재발급 기록이 수기·분산된다</h3>
+<p>6단계 인계와 8단계 기록에서, 기록이 중앙·게이트로 흩어지고 수기에 의존한다. 전산이 멈추면 종이 명단으로 후퇴한다. 그 결과 <strong>나중에 ‘누가·언제·무엇을 받았는지’ 입증하기 어려운 불편</strong>이 남는다.
+<em>근거: TT-SEC Riyadh Season 인증 운영 사례, FIFA accreditation vs match access 규정, Paris 2024 CrowdStrike 수기 명단 전환 보도.</em></p>
+<hr />
+<h2 id="6">6. 로봇 개입 후보에서 제외할 일</h2>
+<table>
+<thead>
+<tr>
+<th>제외할 일</th>
+<th>이유</th>
+<th>관련 페르소나</th>
+<th>근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VIP 대면 응대</td>
+<td>의전·문화·프라이버시 판단이 필요하다.</td>
+<td>P2</td>
+<td><code>[03]</code> P2</td>
+</tr>
+<tr>
+<td>보안 최종 승인</td>
+<td>권한·책임이 있는 판단이다.</td>
+<td>P5</td>
+<td><code>[03]</code> P5</td>
+</tr>
+<tr>
+<td>기자·미디어 현장 문제 대응</td>
+<td>배지 미수령, 취재 구역 오류, 보안 이슈처럼 현장에서 바로 판단·조율해야 하는 일이 생긴다.</td>
+<td>P3</td>
+<td><code>[03]</code> P3</td>
+</tr>
+<tr>
+<td>키트 구성의 최종 판단</td>
+<td>이름·국가·선물 구성 오류는 사람이 확인해야 한다.</td>
+<td>P2, P4</td>
+<td><code>[03]</code> P2/P4</td>
+</tr>
+<tr>
+<td>긴급 우선순위 판단</td>
+<td>현장 책임자가 상황을 보고 결정해야 한다.</td>
+<td>P1, P4</td>
+<td><code>[03]</code> P1/P4</td>
+</tr>
+<tr>
+<td>디야파 판단</td>
+<td>손님을 어떻게 정중히 맞이할지는 문화적 판단이다.</td>
+<td>P1, P2, P5</td>
+<td>Saudi hospitality(Diyafa) 문화 자료, UNESCO Arabic coffee cultural heritage 자료, SPA 외교단·국가행사 보도</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7">7. 아직 검증할 것</h2>
+<table>
+<thead>
+<tr>
+<th>미확보 항목</th>
+<th>왜 필요한가</th>
+<th>연결 질문</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OCS(운영 통제 시스템)가 실제로 키트 이동을 실시간 추적하는지</td>
+<td>P1의 정보 공백을 확인하기 위해</td>
+<td>Q-P1</td>
+</tr>
+<tr>
+<td>VIP 웰컴박스 위치 추적과 오구성 교체 절차</td>
+<td>P2의 의전 리스크를 정량화하기 위해</td>
+<td>Q-P2</td>
+</tr>
+<tr>
+<td>collection email 미수신 빈도와 MPC 대기 시간</td>
+<td>P3의 취재 지연 리스크를 확인하기 위해</td>
+<td>Q-P3</td>
+</tr>
+<tr>
+<td>UAC(유니폼·인증 발급 센터)↔VAO(현장 인증 사무소) 거리, 운반 횟수, 재분류 소요 시간</td>
+<td>P4의 반복 부담을 수치화하기 위해</td>
+<td>Q-P4</td>
+</tr>
+<tr>
+<td>수기·앱 기록 체계와 전산 장애 후퇴 절차</td>
+<td>P5의 사후 입증 문제를 확인하기 위해</td>
+<td>Q-P5</td>
+</tr>
+<tr>
+<td>디야파가 실제 KPI·교육에 반영되는지</td>
+<td>문화적 압박을 과장하지 않기 위해</td>
+<td>Q-공통</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>다음: <code>[WK2][05]</code> — 여기서 처음 로봇 개입 구간을 검토한다.</em></p>
+</main>
+</body>
+</html>
