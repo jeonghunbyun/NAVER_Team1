@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[WK2][05] 로봇 개입 T1-T3</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  line-height: 1.7; color: #1f2328; background: #f6f8fa;
+}
+main { max-width: 880px; margin: 0 auto; padding: 48px 28px 80px; background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+h1 { font-size: 1.7rem; border-bottom: 2px solid #03c75a; padding-bottom: .4em; margin-top: 0; }
+h2 { font-size: 1.3rem; margin-top: 2em; border-left: 4px solid #03c75a; padding-left: .5em; }
+h3 { font-size: 1.08rem; margin-top: 1.6em; color: #036b34; }
+blockquote { margin: 1em 0; padding: .8em 1.1em; background: #eef7f1; border-left: 4px solid #03c75a;
+  border-radius: 0 6px 6px 0; color: #2b3a2f; }
+table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: .93rem; }
+th, td { border: 1px solid #d0d7de; padding: 9px 13px; text-align: left; vertical-align: top; }
+th { background: #03c75a; color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: #f6f8fa; }
+code { background: #eaeef2; padding: .15em .4em; border-radius: 4px; font-size: .88em; }
+a { color: #036b34; }
+hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
+</style>
+</head>
+<body>
+<main>
+<h1 id="wk205">[WK2][05] 로봇 개입 최적점</h1>
+<blockquote>
+<p><strong>입력:</strong> <code>[WK2][02]</code> As-Is 운영 흐름 · <code>[WK2][04]</code> 불편 지점 겹침<br />
+<strong>원칙:</strong> 이 문서에서 처음 Nuri·Rookie·T1-T3를 쓴다. <code>[04]</code>에서 확인된 불편에서 출발하고, 근거가 약하면 <code>검증 필요</code>로 둔다.</p>
+</blockquote>
+<hr />
+<h2 id="0">0. 이 문서가 하는 일</h2>
+<p><code>[01]~[04]</code>는 “지금 사람이 어떻게 일하고 어디서 막히는지”를 정리했다. 이 문서는 그 막히는 지점 중에서 <strong>로봇·플랫폼이 실제로 줄일 수 있는 곳만</strong> 골라낸다. 빈손에서 로봇을 끼워 넣지 않고, <code>[04]</code>의 핵심 불편에서 거꾸로 출발한다.</p>
+<p>작성 규칙은 다음과 같다.</p>
+<ul>
+<li>로봇이 “할 수 있다”는 주장보다, <code>[04]</code>에서 확인된 불편을 줄일 수 있는지를 본다.</li>
+<li>운반 대상은 소·중형 키트, 토트, 박스, 운영·장비 박스로 제한한다.</li>
+<li>사람의 의전, 보안 최종 승인, 미디어 응대, 예외 판단은 그대로 사람이 맡는다.</li>
+<li>Pay·Commerce는 보조 확장으로만 쓴다.</li>
+</ul>
+<hr />
+<h2 id="1-04">1. <code>[04]</code> 불편을 로봇 후보로 옮기기</h2>
+<blockquote>
+<p>아래 표는 <code>[04]</code>에서 확정된 <strong>지금 막히는 불편 5개</strong>를, 로봇·플랫폼 후보(<code>T1</code>·<code>T2</code>·<code>T3</code>)로 옮기거나 사람이 계속 맡을 일(<code>Human-Stay</code>)로 나눈 것이다. 이 표가 이 문서의 출발점이다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><code>[04]</code> 핵심 불편</th>
+<th>단계</th>
+<th>누가 (페르소나)</th>
+<th>옮길 후보</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>키트 위치·수령 현황을 실시간으로 못 본다</td>
+<td>6·8</td>
+<td>운영 총괄(P1)</td>
+<td><strong>T3</strong> 운영·수령 로그</td>
+</tr>
+<tr>
+<td>VIP 박스 위치·구성을 도착 직전까지 확신 못 함</td>
+<td>5·6·7</td>
+<td>VIP 의전 담당(P2)</td>
+<td><strong>T1·T2</strong> 이동 + <strong>T3</strong> 위치 기록 (구성·대면은 사람)</td>
+</tr>
+<tr>
+<td>미수신·대기·IT 장애로 취재가 지연된다</td>
+<td>4·6</td>
+<td>미디어 담당(P3)</td>
+<td><strong>T3</strong> 알림·현황 (수령·보안은 사람)</td>
+</tr>
+<tr>
+<td>폭염 속 반복 왕복·재분류 부담이 크다</td>
+<td>5·7</td>
+<td>물류 스태프(P4)</td>
+<td><strong>T1·T2</strong> 이동</td>
+</tr>
+<tr>
+<td>수령·인계·재발급 기록이 흩어진다</td>
+<td>6·8</td>
+<td>보안·인증 담당(P5)</td>
+<td><strong>T3</strong> 기록 (보안 최종 승인은 사람)</td>
+</tr>
+<tr>
+<td>보안 검색·구역 권한 최종 확인</td>
+<td>6</td>
+<td>보안·인증 담당(P5)</td>
+<td><strong>Human-Stay</strong> — 로봇 개입 대상 아님</td>
+</tr>
+</tbody>
+</table>
+<p>핵심은 이렇게 정리된다. <strong>반복 이동(5·7)</strong> 은 로봇이 맡고, <strong>정보 공백·기록(3·6·8)</strong> 은 운영 로그가 메우며, <strong>보안 인계 판단(6)</strong> 은 사람이 계속 맡는다.</p>
+<hr />
+<h2 id="2-t1-t3">2. T1-T3 검토표</h2>
+<blockquote>
+<p><strong>T1-T3</strong>의 T는 Touchpoint, 즉 로봇이나 플랫폼이 개입할 수 있는 후보 구간이다. <strong>BOH</strong>는 Back of House, 즉 관객에게 보이지 않는 백오피스 구역이다.</p>
+</blockquote>
+<h3 id="20">2.0 투입 지점 한눈에 보기</h3>
+<blockquote>
+<p><code>[02]</code>의 운영 흐름 8단계 위에 T1·T2·T3가 <strong>언제 어디에</strong> 들어가는지 표시한 그림이다. 핵심은 셋이다 — <strong>반복 이동(5·7)은 로봇</strong>, <strong>보안 인계(6)는 사람</strong>, <strong>기록(3·6·8)은 운영 로그</strong>.</p>
+</blockquote>
+<pre><code class="language-text">시간 흐름 ─────────────────────────────────────────────────────────────────▶
+
+ A 준비기          B 요청·구성        C 현장  ★불편 집중★              D 사후
+ ──────────        ──────────        ───────────────────────          ──────
+ 1 수요            3 요청            5 이동  →  6 인계  →  7 전달        8 기록
+ 2 입고            4 구성             (실외)     (경계)     (실내)
+                                       │          │          │
+ [로봇 투입]                          ▼          ▼          ▼
+                                   ┌──────┐   ┌──────┐   ┌──────┐
+                                   │  T1  │   │ 사람  │   │  T2  │
+                                   │ Nuri │   │보안검색│   │Rookie│
+                                   │실외   │   │·최종  │   │실내   │
+                                   │반복   │   │ 승인  │   │다지점 │
+                                   │이동   │   │      │   │전달   │
+                                   └──────┘   └──────┘   └──────┘
+                                            (=Human-Stay)
+
+ [운영 로그]  T3 ════════════════════════════════════════════════════════▶
+   Works 요청 → ARC 배차 → 이동·인계·수령 자동 기록 → NCP 로그
+   └ 3 요청·6 인계·8 기록 단계를 가로질러 전 과정을 한 곳에 남긴다
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>T</th>
+<th>구간 (<code>[02]</code> 단계)</th>
+<th>맡길 수 있는 일</th>
+<th>불편 근거</th>
+<th>검증이 남은 것</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>중앙 창고·UAC → VAO·게이트·로딩존 (5 이동)</td>
+<td>실외·반실외 반복 이동</td>
+<td><code>[04]</code> 물류 스태프(P4) 폭염 반복 왕복 · F3·F3b</td>
+<td>행사장 실외 연속주행·노면·보안구역</td>
+<td>근거 있음·검증 필요</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>게이트·VAO → VIP 라운지·프레스센터·운영본부 (7 전달)</td>
+<td>실내 다지점 최종 이동·도착 알림</td>
+<td><code>[04]</code> 물류 스태프(P4) 다지점 분배·VIP 의전(P2) 도착 · F5</td>
+<td>행사장 실내 동선·혼잡·출입 규정</td>
+<td>근거 있음·검증 필요</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>요청·배차·인계·수령 기록 (3·6·8 데이터 구간)</td>
+<td>요청·배차·출발·도착·수령자·인계 상태 기록</td>
+<td><code>[04]</code> 운영 총괄(P1) 정보 공백·보안·인증(P5) 기록 분산 #1·#5</td>
+<td>행사 로그 요구사항·OCS 연동</td>
+<td>근거 있음·검증 필요</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-t1-nuri-5-uac">3. T1 상세 — 실외·반실외 백오피스 이동 (Nuri) · 5단계 이동 · 중앙 창고·UAC → 게이트·로딩존</h2>
+<blockquote>
+<p><strong>T1</strong>은 중앙 창고·UAC에서 현장 게이트·로딩존까지, 보안 검색 <strong>전</strong>의 백오피스 구간에서 반복되는 실외·반실외 이동이다. <code>[04]</code>에서 물류 스태프(P4)의 가장 큰 불편이 몰리는 곳이다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>대상 물품</td>
+<td>구성 완료된 인증 배지·유니폼 세트, 프레스 키트, VIP 웰컴박스, 운영·장비 박스 (소·중형)</td>
+</tr>
+<tr>
+<td>출발지</td>
+<td>중앙 창고·UAC(유니폼·인증 발급 센터)</td>
+</tr>
+<tr>
+<td>도착지</td>
+<td>VAO(현장 인증 사무소)·보안 게이트·로딩존</td>
+</tr>
+<tr>
+<td>반복성 근거</td>
+<td><code>[02]</code> 5단계 중앙↔현장 카트·밴·셔틀 반복 왕복, <code>[04]</code> 물류 스태프(P4) 반복 왕복 + 섞어 적재 후 재분류</td>
+</tr>
+<tr>
+<td>폭염·노동 리스크 근거</td>
+<td><code>[01]</code> D5 리야드 여름 43℃ 이상·정오 야외 작업 제한(HRSD 결정 3337호), <code>[03]</code> 물류 스태프(P4) 정오 압축</td>
+</tr>
+<tr>
+<td>보안·출입 제약</td>
+<td><code>[01]</code> D5 GEA 허가·보안구역 — 보안 검색 전 BOH 도로·마샬링 야드 중심으로 운행 범위 제한</td>
+</tr>
+<tr>
+<td>Nuri 적합성 근거</td>
+<td>실외 자율주행·보도 통행 안전인증, 캠퍼스·단지 라스트마일 강점. 단 행사장 실외 연속 주행은 <code>[01]</code> D6 기준 별도 검증</td>
+</tr>
+<tr>
+<td>사람이 남는 일</td>
+<td>키트 구성, 품질·구성 최종 확인, 보안 승인</td>
+</tr>
+<tr>
+<td>상태</td>
+<td>근거 있음 · 현장 적용 검증 필요</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-t2-rookie-7-vao-vip">4. T2 상세 — 실내 최종 전달 (Rookie) · 7단계 전달 · 게이트·VAO → VIP 라운지·프레스센터·운영본부</h2>
+<blockquote>
+<p><strong>T2</strong>는 게이트·VAO를 지난 뒤, 건물 안 여러 목적지(VIP 라운지·프레스센터·운영본부)로 키트를 나누어 전달하는 구간이다. <code>[04]</code>에서 물류 스태프(P4)의 “도착 후 재분류·다지점 분배”와 VIP 의전 담당(P2)의 “박스 도착 확인”이 겹친다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>대상 물품</td>
+<td>VIP 박스, 프레스 키트, 운영 키트</td>
+</tr>
+<tr>
+<td>출발지</td>
+<td>보안 게이트·로딩존·VAO (실내 진입 지점)</td>
+</tr>
+<tr>
+<td>도착지</td>
+<td>VIP 라운지, MPC(메인 프레스 센터), 운영본부 등 건물 내부 다지점</td>
+</tr>
+<tr>
+<td>반복성 근거</td>
+<td><code>[02]</code> 7단계 실내 다지점 전달, <code>[04]</code> 물류 스태프(P4) 도착 후 재분류·다지점 분배 · F5</td>
+</tr>
+<tr>
+<td>실내 동선 근거</td>
+<td><code>[01]</code> D2 허브 앤 스포크 — 한 진입점에서 여러 실내 목적지로 분기</td>
+</tr>
+<tr>
+<td>Rookie 적합성 근거</td>
+<td><code>[01]</code> D6 1784 Rookie 100대+ 실내 반복 이동·엘리베이터·RoboPort 연동 레퍼런스. 행사장 적용은 검증 필요</td>
+</tr>
+<tr>
+<td>사람이 남는 일</td>
+<td>VIP 대면 응대, 미디어 응대, 현장 예외 판단</td>
+</tr>
+<tr>
+<td>상태</td>
+<td>근거 있음 · 행사장 적용 검증 필요</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-t3-368">5. T3 상세 — 운영·인계·수령 로그 · 3·6·8단계 · 요청부터 수령 기록까지 전 과정</h2>
+<blockquote>
+<p><strong>T3</strong>는 물건을 옮기는 일이 아니라 “누가, 언제, 어디서, 무엇을 받았는지”를 한 곳에 기록하는 데이터 구간이다. <code>[04]</code>의 가장 큰 불편 묶음인 <strong>정보 공백(운영 총괄 P1·VIP 의전 P2·미디어 P3)</strong> 과 <strong>기록 분산(보안·인증 P5)</strong> 을 정면으로 다룬다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>기록해야 할 항목</td>
+<td>요청(누가 무엇을), 배차, 출발·도착 시각, 인계 담당, 수령자, 수령 확인, 재발급·반납</td>
+</tr>
+<tr>
+<td>현재 기록 방식</td>
+<td><code>[01]</code> D3·D4 무전·메신저·수기 명단, <code>[02]</code> 8단계 중앙·분점·게이트 기록 분산</td>
+</tr>
+<tr>
+<td>기록 부재 리스크</td>
+<td><code>[01]</code> D4 파리 2024 CrowdStrike 장애 시 수기 명단 후퇴, <code>[04]</code> 핵심 불편 #1·#5 사후 입증 곤란</td>
+</tr>
+<tr>
+<td>ARC·NCP 적합성 근거</td>
+<td><code>[01]</code> D7 배차·경로·상태·수령/인계 로그를 한 곳에 모음. 행사 로그 요구사항 매칭은 검증 필요</td>
+</tr>
+<tr>
+<td>Works 알림·승인 역할</td>
+<td><code>[01]</code> D7 요청→승인→알림→담당자 협업. 운영 총괄(P1) 실시간 현황, 미디어 담당(P3) 미수신 알림 보완</td>
+</tr>
+<tr>
+<td>사람이 남는 일</td>
+<td>최종 확인, 예외 처리, 책임 서명</td>
+</tr>
+<tr>
+<td>상태</td>
+<td>근거 있음 · 행사 운영 요구사항 매칭 검증 필요</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-human-stay">6. 사람이 꼭 하는 일 (Human-Stay)</h2>
+<blockquote>
+<p><code>[02]</code> §5, <code>[04]</code> §6에서 “로봇 개입 대상에서 제외”로 확정한 일을 다시 못 박는다. 이 칸이 흔들리면 “사람을 대체하는 무인 행사”로 오해된다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>일</th>
+<th>이유</th>
+<th>쓰면 안 되는 표현</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VIP 의전 대면</td>
+<td>문화·프라이버시·예외 판단</td>
+<td>로봇이 VIP를 응대한다</td>
+</tr>
+<tr>
+<td>보안 검색·최종 승인</td>
+<td>권한·책임이 걸린 판단</td>
+<td>무인 행사 운영</td>
+</tr>
+<tr>
+<td>기자·미디어 현장 문제 대응</td>
+<td>보도 일정·현장 설명·조율</td>
+<td>스태프 대체</td>
+</tr>
+<tr>
+<td>키트 구성의 최종 판단</td>
+<td>이름·국가·선물 구성 품질</td>
+<td>로봇이 의전을 판단한다</td>
+</tr>
+<tr>
+<td>긴급 우선순위 결정</td>
+<td>현장 책임·위험 판단</td>
+<td>완전 자동화</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-naver">7. NAVER 플랫폼 연결</h2>
+<blockquote>
+<p>각 인프라를 ① 어느 후보 구간(<code>T1</code>·<code>T2</code>·<code>T3</code>)에 붙는지, ② <strong>확인된 근거</strong>(이미 공개 자료로 사실인 것), ③ <strong>남은 확인사항</strong>(가능성과, 그래도 확인할 것)으로 나눈다. 사우디 도시 디지털 트윈·지도는 이미 네이버가 수주·구축한 사업이라, 다수 항목은 “처음부터 검증”이 아니라 “행사장 단위로 좁혀 확인”하는 단계다. “없으면 서비스가 성립하지 않는” 것은 <strong>필수</strong>, 나중에 붙일 수 있는 것은 <strong>보조</strong>다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>인프라</th>
+<th>역할·붙는 곳</th>
+<th>필수/보조</th>
+<th>확인된 근거 (공개 자료)</th>
+<th>남은 확인사항 — 가능성과 확인할 점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nuri(룽고)</td>
+<td>실외·반실외 이동 · T1</td>
+<td>필수 후보</td>
+<td>네이버랩스 실외 로봇 <strong>룽고</strong>(= Nuri)가 KIRIA 운행안전인증 획득(보도·횡단보도, 적재 10kg·5.4km/h·등판 5°, ARC Brain 관제) [E1]. 유사 하드웨어 실외 배송 로봇이 사우디 NEOM Oxagon에서 실증(Neubility, <code>[01]</code> D6)</td>
+<td><strong>가능성 높음</strong> — 사람은 정오 야외 작업 제한(HRSD 3337호)을 받지만 로봇은 그 제약이 없어 오히려 폭염 구간에 유리하고, 유사 기체가 사우디 실외에서 이미 달린다. <strong>확인할 점</strong>: 특정 행사장 노면·보안구역 운행 승인 범위</td>
+</tr>
+<tr>
+<td>Rookie</td>
+<td>실내 다지점 최종 이동 · T2</td>
+<td>필수 후보</td>
+<td>1784에서 루키 <strong>100여 대</strong>가 ARC 관제로 운행, 로보포트·엘리베이터·자동문 연동 [E2]. ARC eye·ALIKE로 공항·쇼핑몰 규모 <strong>대규모 실내공간 디지털 트윈</strong> 구축 역량 보유(“1784처럼 대규모 실내 구현은 네이버가 유일”) [E5]</td>
+<td><strong>가능성 높음</strong> — 협업이 성사되면 행사장을 디지털 트윈으로 떠서 다수 로봇을 군집 제어하는 것은 기술보다 구축 일정 문제에 가깝다. <strong>확인할 점</strong>: 행사장 디지털 트윈 구축 기간·비용, 임시 동선·출입 통제 반영</td>
+</tr>
+<tr>
+<td>ARC · NCP</td>
+<td>배차·경로·인계·수령 로그 · T3</td>
+<td>필수 후보</td>
+<td>ARC Brain(NCP)이 디지털 트윈 기반 멀티로봇 제어·트래픽·우선순위·실시간 모니터링 제공, <strong>로봇 제어 API/SDK 공개</strong> [E3]</td>
+<td><strong>난이도 낮음</strong> — ‘수령자·인계·재발급’ 같은 기록 항목 추가는 표준 개발 범위다. <strong>확인할 점</strong>: 행사 운영 요구사항 정의와 OCS(운영 통제 시스템) 연동 스펙</td>
+</tr>
+<tr>
+<td>Maps · HD Map</td>
+<td>경로·인계 지점 데이터 · T1·T2</td>
+<td>필수 후보</td>
+<td>네이버가 사우디 5개 도시 디지털 트윈·매핑 사업 수주, <strong>메카·메디나·제다 3개 도시(6,800km²·92만 동) 구축 완료</strong>, NHC 합작법인 ‘네이버 이노베이션’ 설립, 활용처에 서비스 로봇·자율주행·AI지도 명시 [E4]</td>
+<td><strong>상당 부분 확보됨</strong> — 사우디 도시 단위 정밀지도는 이미 네이버 자산이다. <strong>확인할 점</strong>: 특정 행사장(Expo 부지) 실내 정밀지도·인계 지점·보안구역 레이어 추가</td>
+</tr>
+<tr>
+<td>Works</td>
+<td>요청·승인·알림·협업 · T3</td>
+<td>필수 후보</td>
+<td>네이버웍스(협업 메신저·승인·알림) 상용 서비스, 사우디 합작법인으로 현지 사업 기반 보유 [E4]</td>
+<td><strong>가능성 있음(가장 솔직한 변수)</strong> — UX·UI를 현지화하면 채택 가능성은 충분하다. <strong>확인할 점</strong>: 운영 주체의 기존 도구·보안 정책과의 호환</td>
+</tr>
+<tr>
+<td>Place</td>
+<td>라운지·프레스룸·픽업존 목적지 · T2</td>
+<td>보조 후보</td>
+<td>ARC eye 디지털 트윈으로 행사장 공간을 목적지 좌표로 등록 가능 [E5]</td>
+<td><strong>가능성 높음</strong> — 디지털 트윈을 뜨면 임시 공간도 목적지로 등록된다. <strong>확인할 점</strong>: 임시 행사 공간 등록·관리 운영 방식</td>
+</tr>
+<tr>
+<td>Pay · Commerce</td>
+<td>굿즈·스폰서 키트 결제 + IP 굿즈 커머스 · 보조</td>
+<td>보조 후보</td>
+<td>네이버페이가 상용 결제 인프라로 존재, 사우디 합작법인으로 현지 사업 기반 보유 [E4]</td>
+<td><strong>연계 가능</strong> — 핵심 키트 물류와는 분리하되, 행사 굿즈·IP 상품 결제로 네이버페이를 붙일 수 있다. <strong>확인할 점</strong>: 행사 공식 결제·제휴 범위</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>출처 [E1]</strong> KIRIA 운행안전인증(KIRIA-01-25-005-01, 2025.12.26)·전자신문 2025.12.29 — 룽고 인증·스펙. <strong>[E2]</strong> NAVER Corp. ‘100대의 로봇과 공존하는 곳’, 연합뉴스 2022.04.14 — 루키 1784·ARC·로보포트. <strong>[E3]</strong> NCP <code>ARC brain 개요</code>(guide.ncloud-docs.com) — 멀티로봇 제어·API/SDK. <strong>[E4]</strong> NAVER Corp. 보도자료·중앙일보 2024 — 사우디 자치행정주택부(MOMRAH) 디지털 트윈 5개 도시 수주(1억 달러)·3개 도시 구축 완료·NHC 합작법인. <strong>[E5]</strong> 헤럴드경제·중앙일보 — ALIKE·ARC eye 대규모 실내외 디지털 트윈 솔루션.</p>
+<p><em>참고: 대규모 실내공간(공항·쇼핑몰) 디지털 트윈의 빠른 재현 가능성은 네이버 측 강연에서도 언급된 바 있으나, 본 표는 공식 보도·자료(서울 605km² 약 47일 등)를 근거로 삼는다.</em></p>
+</blockquote>
+<hr />
+<h2 id="8-event-chain">8. 다른 방법과 비교 — 왜 Event Chain인가</h2>
+<blockquote>
+<p>같은 문제를 풀 수 있는 다른 방법과 견줘 Event Chain이 무엇이 다른지 본다. 상태 칸의 <code>확인됨</code>은 공개 자료로 뒷받침되는 비교, <code>추가 리서치</code>는 이번에 근거를 보강한 항목이다.<br />
+<strong>AGV</strong>는 Automated Guided Vehicle, 즉 정해진 경로(자기테이프·QR마커 등)만 따라 움직이는 창고·공장용 무인운반차다. 스스로 경로를 바꾸는 자율주행 로봇과 다르다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>다른 방법</th>
+<th>지금의 한계</th>
+<th>Event Chain은 무엇이 다른가</th>
+<th>근거·확인 상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>사람·카트 직접 이동</td>
+<td>폭염 속 반복 왕복과 수기 기록 부담이 크다</td>
+<td>T1·T2가 반복 이동을, T3가 기록 공백을 함께 줄인다</td>
+<td><code>확인됨</code> — 현재 방식·폭염 제한·반복 부담이 1차/공개 자료로 확인 (<code>[01]</code> D3·D5, <code>[04]</code> 물류 스태프 P4)</td>
+</tr>
+<tr>
+<td>한 구간만 도는 배송 로봇</td>
+<td>실외 로봇은 건물·엘리베이터 진입 불가, 실내 로봇은 실외 주행 불가 — 한 기체로 전 구간을 못 잇는다</td>
+<td>실외 Nuri(룽고)→실내 Rookie→운영 로그를 <strong>로봇 릴레이 + 중앙 관제(ARC)</strong> 로 하나로 잇는다</td>
+<td><code>확인됨(추가 리서치)</code> — 실내외는 별개 로봇이라 끊김 없는 배송은 릴레이·인프라 연동이 필요(ITU-T Y.4607 표준, 현대건설 D2D, 우주항공청 드론-로봇) [E6]. 룽고는 실내외 기술 접목, ARC는 멀티로봇 관제</td>
+</tr>
+<tr>
+<td>창고 AGV (<code>[01]</code> D6)</td>
+<td>Starlinks×Geek+ 등 창고 <strong>안</strong>만 자동화한다</td>
+<td>창고가 아니라 창고→현장→실내까지 <strong>이어지는 이동</strong>을 다룬다</td>
+<td><code>확인됨</code> — 해당 사례는 창고 내부 피킹·소팅 자동화에 한정 (<code>[01]</code> D6)</td>
+</tr>
+<tr>
+<td>디지털 인증·운영 SW (무전·앱 포함)</td>
+<td>사람·배지 인증과 체크인은 추적하지만, <strong>물건이 누구 손에 어디로 가는지</strong>는 사람 입력·무전에 의존한다</td>
+<td>로봇의 배차·이동·인계·수령을 <strong>자동 로그</strong>로 남겨, 사람 인증 기록과 물류 흐름을 잇는다</td>
+<td><code>확인됨(추가 리서치)</code> — 사우디·GCC에 StampIQ 등 클라우드 행사 인증 플랫폼이 이미 운영 중(20만+ 인증) [E7]. 단 인증·출입 추적 중심이라 로봇 운반과는 분리됨</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>출처 [E6]</strong> ITU-T Y.4607(자율배송로봇–도시 인프라 연동 표준)·현대건설 D2D 실내외 통합 배송·우주항공청·ETRI 드론-로봇 협업 배송 — 실외/실내 로봇 분리와 릴레이·관제 연동 근거. <strong>[E7]</strong> StampIQ(사우디 클라우드 행사 인증 플랫폼, GCC 20+ 행사·20만+ 인증)·Aramis accreditation — 디지털 인증·실시간 로그 수요와 한계.</p>
+</blockquote>
+<hr />
+<h2 id="9">9. 행사 이후 확장 로드맵</h2>
+<blockquote>
+<p><strong>핵심 가설은 하나다.</strong> 행사용으로 한 번 만든 자산(로봇 플릿·정밀지도·운영 로그)은 행사가 끝나면 버려지는 게 아니라, <strong>다음 행사·도시·주거단지로 그대로 옮길 수 있다.</strong> 아래는 옮길 대상과, 그 타당성·가능성·이점이다. 가능성은 <code>높음</code>/<code>중상</code>/<code>가설(검증 필요)</code>로 표시한다.</p>
+<p><strong>NHC</strong>는 사우디 국립주택공사, <strong>ROSHN</strong>은 국부펀드(PIF) 산하 대형 부동산 디벨로퍼, <strong>마즐리스(majlis)</strong> 는 사우디 가정의 손님 응접 공간이다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>확장 대상</th>
+<th>가설 · 재사용 자산</th>
+<th>가능성·타당성 (왜)</th>
+<th>확장 시 좋은 점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Expo 2030 본행사</td>
+<td>파일럿에서 검증한 <strong>T1·T2·T3 체인</strong>을 본행사 전체로 확대</td>
+<td><strong>높음</strong> — 네이버가 이미 리야드 디지털 트윈을 구축했고, Expo 2030 리야드는 개최 확정 (<code>[01]</code> D5·D8, <code>[E4]</code>)</td>
+<td>전 세계 미디어가 보는 무대에서 운영 효율과 NAVER 기술을 동시에 쇼케이스</td>
+</tr>
+<tr>
+<td>2</td>
+<td>FIFA World Cup 2034</td>
+<td>행사 운영 체인·로그를 <strong>표준 운영 레이어</strong>로 다른 메가이벤트에 복제</td>
+<td><strong>중상</strong> — 사우디 2034 단독 개최가 확정됐고, 다도시 분산이라 표준화 가치가 크다 (<code>[01]</code> D5)</td>
+<td>행사마다 새로 짜지 않는 반복 사업 구조 + 레퍼런스 축적</td>
+</tr>
+<tr>
+<td>3</td>
+<td>리야드 시즌·낙타축제·국제 포럼</td>
+<td>같은 플릿·로그를 <strong>연례·반복 행사</strong>에 재투입</td>
+<td><strong>높음</strong> — 매년 열리는 행사라 반복 수요가 안정적이다 (<code>[01]</code> D5)</td>
+<td>로봇 가동률 상승, 운영 데이터 누적으로 정밀도↑, 빠른 투자 회수</td>
+</tr>
+<tr>
+<td>4</td>
+<td>NHC·ROSHN 주거단지</td>
+<td>행사장 <strong>플릿·경로·인계 지점</strong> 개념을 주거단지 배송으로 전환</td>
+<td><strong>중상</strong> — 네이버가 NHC와 합작법인 ‘네이버 이노베이션’을 세웠고 ROSHN은 PIF 대형 디벨로퍼라 제도적 연결이 있다 (<code>[01]</code> D8, <code>[E4]</code>)</td>
+<td>일회성 행사에서 <strong>상시 도시 인프라 사업</strong>으로 전환, 디지털 트윈 자산 활용 극대화</td>
+</tr>
+<tr>
+<td>5</td>
+<td>마즐리스 프라이버시 라스트미터</td>
+<td>사우디 주거문화상 ‘집 앞 직접 대면’보다 <strong>지정 지점 수령</strong>을 선호한다는 가정</td>
+<td><strong>가설</strong> — 디야파·프라이버시 존중 문화와 논리적으로 잘 맞는다 (<code>[01]</code> D5·D8)</td>
+<td>문화 적합형 라스트마일, 여성 가구·보수적 가정의 수용성과 프라이버시 차별화</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>공통 이점:</strong> 이 로드맵이 성립하면 NAVER LABS는 <em>로봇을 파는 회사</em>가 아니라 <strong>행사·도시 운영을 잇는 Physical AI 레이어를 제공하는 회사</strong>가 되고, 사우디는 Vision 2030 스마트시티 자산을 행사마다 새로 만들지 않고 <strong>누적</strong>할 수 있다. (발표 기대효과는 <code>[06]</code> §6과 연결)</p>
+</blockquote>
+<hr />
+<h2 id="10-nurirookie-ip">10. 캠페인 자산화 — Nuri·Rookie IP (메모)</h2>
+<blockquote>
+<p>로봇을 운반 도구로만 두지 않고 <strong>기억되는 캠페인 캐릭터</strong>로 활용하는 방향이다. 상세 기획은 <code>[06]</code> §5.1이 정본이며, 여기서는 <code>[05]</code>와의 연결점만 둔다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>캐릭터 설정</td>
+<td><strong>Nuri</strong>(아랍어 ‘빛’)=실외 백오피스 크루, <strong>Rookie</strong>=실내 라운지 크루로 캐릭터화</td>
+</tr>
+<tr>
+<td>활용 자산</td>
+<td>배지·스티커·안내 카드, 굿즈, 광고 영상·키 비주얼, 대시보드 아이콘</td>
+</tr>
+<tr>
+<td>커머스 연결</td>
+<td>행사 굿즈·IP 상품 결제는 §7 Pay·Commerce(네이버페이)와 연결</td>
+</tr>
+<tr>
+<td>톤 기준</td>
+<td>과한 캐릭터 상품화보다 B2B 신뢰감 유지 (<code>[06]</code> §5.2 비주얼 톤 가이드)</td>
+</tr>
+<tr>
+<td>주의</td>
+<td>핵심 메시지는 ‘운영을 잇는 로봇’이며, IP·굿즈는 이를 <strong>기억시키는 보조 자산</strong>으로 둔다</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>다음: <code>[WK2][06]</code> — 이 검토 결과를 검증 질문·CX 변화·발표 메시지로 수합한다.</em></p>
+</main>
+</body>
+</html>
