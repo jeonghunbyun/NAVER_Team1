@@ -1,43 +1,273 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[WK3][02] 스토리라인</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="74p · 15분">
+<title>[06.08][변정훈] NAVER_Team 1_WK3_02</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-:root { color-scheme: light; }
-* { box-sizing: border-box; }
-body {
-  margin: 0; padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
-  line-height: 1.7; color: #1f2328; background: #f6f8fa;
+:root {
+  --naver-green: #03c75a;
+  --naver-green-soft: rgba(3, 199, 90, 0.14);
+  --bg: #000000;
+  --bg-elev: #0a0a0a;
+  --bg-card: #111315;
+  --border: #20232a;
+  --text: #ededed;
+  --text-muted: #8a8f98;
+  --text-dim: #6a6f78;
+  --hero-grad: radial-gradient(ellipse 80% 60% at top, rgba(3, 199, 90, 0.18) 0%, transparent 65%);
+  --toc-w: 280px;
+  --topbar-h: 52px;
+  --font-base: 17px;
+  --font-lead: 18px;
+  --scroll-pad: 88px;
 }
-main { max-width: 880px; margin: 0 auto; padding: 48px 28px 80px; background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,.06); }
-h1 { font-size: 1.7rem; border-bottom: 2px solid #03c75a; padding-bottom: .4em; margin-top: 0; }
-h2 { font-size: 1.3rem; margin-top: 2em; border-left: 4px solid #03c75a; padding-left: .5em; }
-h3 { font-size: 1.08rem; margin-top: 1.6em; color: #036b34; }
-blockquote { margin: 1em 0; padding: .8em 1.1em; background: #eef7f1; border-left: 4px solid #03c75a;
-  border-radius: 0 6px 6px 0; }
-table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: .93rem; }
-th, td { border: 1px solid #d0d7de; padding: 9px 13px; text-align: left; vertical-align: top; }
-th { background: #03c75a; color: #fff; font-weight: 600; }
-tr:nth-child(even) td { background: #f6f8fa; }
-code { background: #eaeef2; padding: .15em .4em; border-radius: 4px; font-size: .88em; }
-a { color: #036b34; }
-hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: var(--scroll-pad); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: var(--font-base);
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+.read-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--naver-green), #22e584);
+  z-index: 1000; transition: width 0.12s ease-out;
+}
+.top-bar {
+  position: sticky; top: 0; z-index: 900; height: var(--topbar-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+}
+.top-bar .brand {
+  font-size: 0.82rem; font-weight: 600; color: var(--naver-green);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 55vw;
+}
+.top-bar-actions { display: flex; gap: 8px; align-items: center; }
+.btn-ghost {
+  background: var(--bg-card); border: 1px solid var(--border); color: var(--text);
+  padding: 8px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; font-family: inherit;
+}
+.btn-ghost:hover { border-color: var(--naver-green); color: var(--naver-green); }
+.hero {
+  background: var(--hero-grad), var(--bg);
+  padding: clamp(48px, 10vw, 80px) 24px clamp(36px, 8vw, 56px);
+  border-bottom: 1px solid var(--border); text-align: center;
+}
+.hero .badge {
+  display: inline-block; padding: 6px 14px; background: var(--naver-green-soft);
+  color: var(--naver-green); border: 1px solid var(--naver-green);
+  border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 20px;
+}
+.hero h1 {
+  margin: 0 0 12px; font-size: clamp(1.85rem, 6vw, 3.2rem); font-weight: 800;
+  letter-spacing: -0.04em; line-height: 1.2;
+  background: linear-gradient(180deg, #fff 0%, #b8bcc4 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero h2 { margin: 0 0 20px; font-size: clamp(1.05rem, 3.5vw, 1.55rem); font-weight: 500; color: var(--naver-green); }
+.hero .sub { color: var(--text-muted); font-size: 1rem; margin: 0 auto; max-width: 640px; line-height: 1.65; }
+.doc-layout { display: grid; grid-template-columns: 1fr; max-width: 1280px; margin: 0 auto; gap: 0; }
+.doc-main {
+  min-width: 0; max-width: 820px; margin: 0 auto;
+  padding: clamp(28px, 5vw, 48px) clamp(20px, 4vw, 40px) clamp(80px, 12vw, 120px);
+}
+.toc-sidebar { display: none; }
+@media (min-width: 1100px) {
+  .doc-layout { grid-template-columns: var(--toc-w) 1fr; padding-left: 24px; }
+  .toc-sidebar {
+    display: block; position: sticky; top: calc(var(--topbar-h) + 16px); align-self: start;
+    max-height: calc(100vh - var(--topbar-h) - 32px); overflow-y: auto;
+    padding: 20px 16px 24px 0; scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+  .toc-sidebar::-webkit-scrollbar { width: 5px; }
+  .toc-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .doc-main { margin: 0; max-width: none; padding-left: 32px; }
+  .btn-toc-toggle { display: none !important; }
+}
+.toc-panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 16px; }
+.toc-panel h2 {
+  margin: 0 0 14px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--naver-green); border: none; padding: 0;
+}
+.toc-list, .toc-list ol { list-style: none; margin: 0; padding: 0; }
+.toc-list ol { margin-left: 0; padding-left: 12px; border-left: 1px solid #1a1d22; margin-top: 4px; }
+.toc-list li { margin: 2px 0; }
+.toc-list a {
+  display: block; padding: 6px 10px; border-radius: 6px; font-size: 0.88rem; line-height: 1.45;
+  color: var(--text-muted); text-decoration: none; transition: background 0.15s, color 0.15s;
+}
+.toc-list a:hover { background: var(--naver-green-soft); color: var(--text); }
+.toc-list a.active { background: var(--naver-green-soft); color: var(--naver-green); font-weight: 600; }
+.toc-l1 > a { font-size: 0.92rem; font-weight: 600; color: var(--text); }
+.toc-l2 > a { font-size: 0.86rem; }
+.toc-l3 > a { font-size: 0.82rem; padding-left: 14px; }
+.toc-drawer {
+  position: fixed; inset: 0; z-index: 1100; pointer-events: none; opacity: 0; transition: opacity 0.25s ease;
+}
+.toc-drawer.open { pointer-events: auto; opacity: 1; }
+.toc-drawer-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.65); }
+.toc-drawer-panel {
+  position: absolute; top: 0; right: 0; width: min(320px, 88vw); height: 100%;
+  background: var(--bg-elev); border-left: 1px solid var(--border);
+  padding: 20px 16px 32px; overflow-y: auto; transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toc-drawer.open .toc-drawer-panel { transform: translateX(0); }
+.toc-drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.toc-drawer-header h2 { margin: 0; font-size: 1rem; color: var(--naver-green); }
+.back-top {
+  position: fixed; right: 20px; bottom: 24px; z-index: 800; width: 48px; height: 48px;
+  border-radius: 50%; border: 1px solid var(--naver-green); background: rgba(0,0,0,0.85);
+  color: var(--naver-green); font-size: 1.25rem; cursor: pointer; opacity: 0; visibility: hidden;
+  transform: translateY(12px); transition: opacity 0.2s, transform 0.2s, visibility 0.2s; backdrop-filter: blur(8px);
+}
+.back-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-top:hover { background: var(--naver-green); color: #000; }
+.heading-anchor { scroll-margin-top: var(--scroll-pad); }
+h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; color: var(--text); }
+h1 {
+  font-size: clamp(1.65rem, 4vw, 2.25rem); margin: clamp(44px, 7vw, 64px) 0 20px;
+  padding-bottom: 12px; border-bottom: 2px solid var(--naver-green);
+}
+h1:first-of-type { margin-top: 0; }
+h2 { font-size: clamp(1.35rem, 3.2vw, 1.65rem); margin: clamp(36px, 5vw, 48px) 0 16px; color: var(--naver-green); }
+h3 { font-size: clamp(1.12rem, 2.8vw, 1.28rem); margin: clamp(24px, 4vw, 32px) 0 12px; }
+h4 { font-size: 1.05rem; margin: 20px 0 8px; color: var(--text-muted); }
+p { margin: 0 0 1.1em; font-size: var(--font-base); }
+strong { color: #fff; font-weight: 700; }
+em { color: var(--text-muted); }
+code {
+  background: var(--bg-card); color: var(--naver-green); padding: 3px 8px; border-radius: 4px;
+  font-size: 0.9em; border: 1px solid var(--border);
+}
+pre {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px 20px; overflow-x: auto; font-size: 0.9rem; line-height: 1.6; margin: 20px 0 28px;
+}
+pre code { background: transparent; padding: 0; color: var(--text); border: none; }
+ul, ol { padding-left: 1.45em; margin: 0 0 1.1em; }
+li { margin: 0.4em 0; }
+a { color: var(--naver-green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote {
+  border-left: 4px solid var(--naver-green); padding: 16px 22px; margin: 24px 0 32px;
+  background: var(--bg-card); border-radius: 0 10px 10px 0; font-size: var(--font-lead); line-height: 1.75;
+}
+blockquote p:last-child { margin-bottom: 0; }
+hr { border: none; height: 1px; background: var(--border); margin: clamp(40px, 6vw, 56px) 0; }
+.table-wrap {
+  overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 20px 0 28px;
+  border-radius: 10px; border: 1px solid var(--border); background: var(--bg-card);
+}
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+thead { background: var(--bg-elev); }
+th, td {
+  padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--border);
+  vertical-align: top; line-height: 1.55;
+}
+th {
+  color: var(--naver-green); font-weight: 700; font-size: 0.8rem;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+tbody tr:hover { background: rgba(255,255,255,0.02); }
+footer {
+  max-width: 820px; margin: 0 auto; padding: 32px 24px 56px;
+  border-top: 1px solid var(--border); color: var(--text-dim);
+  font-size: 0.9rem; text-align: center; line-height: 1.7;
+}
+@media (max-width: 768px) {
+  :root { --font-base: 16px; --font-lead: 16.5px; --scroll-pad: 72px; }
+  th, td { padding: 11px 12px; font-size: 0.88rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .read-progress, .back-top, .toc-drawer, .toc-drawer-panel { transition: none; }
+}
 </style>
 </head>
 <body>
-<main>
-<h1>[WK3][02] 발표 슬라이드 스토리라인 — NOVA 74p</h1>
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
+<header class="top-bar">
+  <span class="brand">WK3_02 · [WK3][02] 스토리라인</span>
+  <div class="top-bar-actions">
+    <button type="button" class="btn-ghost btn-toc-toggle" id="tocToggle" aria-expanded="false">목차</button>
+  </div>
+</header>
+<header class="hero" role="banner">
+  <div class="badge">Week03 · Deck</div>
+  <h1>[WK3][02] 스토리라인</h1>
+  <h2>74p · 15분</h2>
+  <p class="sub"><code>docs/week03/[WK3][02]_deck_storyline.md</code></p>
+</header>
+<div class="doc-layout">
+  <aside class="toc-sidebar" aria-label="목차">
+    <nav class="toc-panel"><h2>목차</h2><ol class="toc-list">
+<ol>
+<li class="toc-l2"><a href="#sec-1" data-target="sec-1">0. 목차 ↔ 페이지 (PPT p04)</a></li>
+<li class="toc-l2"><a href="#sec-2" data-target="sec-2">1. 15분 타임테이블</a></li>
+<li class="toc-l2"><a href="#sec-3" data-target="sec-3">2. Domain Discovery (p05–12)</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-4" data-target="sec-4">p05 · Why now? Why Saudi?</a></li>
+<li class="toc-l3"><a href="#sec-5" data-target="sec-5">p07–08 · 물량·규모</a></li>
+<li class="toc-l3"><a href="#sec-6" data-target="sec-6">p09 · 동선</a></li>
+<li class="toc-l3"><a href="#sec-7" data-target="sec-7">p10–11 · D4 사례</a></li>
+<li class="toc-l3"><a href="#sec-8" data-target="sec-8">p12 · Bridge → Insight</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-9" data-target="sec-9">3. Target Insight (p13–23)</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-10" data-target="sec-10">p14 · Service Blueprint (전체)</a></li>
+<li class="toc-l3"><a href="#sec-11" data-target="sec-11">p15–18 · Pain by phase</a></li>
+<li class="toc-l3"><a href="#sec-12" data-target="sec-12">p19 · Pain 수렴</a></li>
+<li class="toc-l3"><a href="#sec-13" data-target="sec-13">p20–21 · 1·2순위 타겟 구간</a></li>
+<li class="toc-l3"><a href="#sec-14" data-target="sec-14">p22 · Insights 요약</a></li>
+<li class="toc-l3"><a href="#sec-15" data-target="sec-15">p23 · Nuri · Rookie · Works 개입</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-16" data-target="sec-16">4. Big Idea (p24–29)</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-17" data-target="sec-17">p26 · B2G — NAVER Operates Vital Access</a></li>
+<li class="toc-l3"><a href="#sec-18" data-target="sec-18">p27 · B2C — NAVER Opens Values for ALL</a></li>
+<li class="toc-l3"><a href="#sec-19" data-target="sec-19">p28–29 · 2축 구조도</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-20" data-target="sec-20">5. Advertise Plan (p30–57)</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-21" data-target="sec-21">B2G · Operates Vital Access (p31–42)</a></li>
+<li class="toc-l3"><a href="#sec-22" data-target="sec-22">B2C · Opens Values for ALL (p43–57)</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-23" data-target="sec-23">6. Expectations (p58–66)</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-24" data-target="sec-24">p59–62 · Future Expansions</a></li>
+<li class="toc-l3"><a href="#sec-25" data-target="sec-25">p63 · Advertising Impact (2차)</a></li>
+<li class="toc-l3"><a href="#sec-26" data-target="sec-26">p64 · Brand Transformation</a></li>
+<li class="toc-l3"><a href="#sec-27" data-target="sec-27">p65–66 · Close</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-28" data-target="sec-28">7. Q&amp;amp;A (p67–71)</a></li>
+<li class="toc-l2"><a href="#sec-29" data-target="sec-29">8. 발표자 노트 (변정훈)</a></li>
+<li class="toc-l2"><a href="#sec-30" data-target="sec-30">9. 제작 분담 (PPT 기준)</a></li>
+</ol>
+</ol></nav>
+  </aside>
+  <main class="doc-main" role="main" id="mainContent">
 <blockquote>
 <p><strong>최종 장표:</strong> <code>NOVA_1조_NAVER LABS.pdf</code> (74p) · <strong>형식:</strong> FROM LABS TO WORLD · 15분 + Q&amp;A<br />
 <strong>입력:</strong> <code>[WK3][01]</code> · <code>[WK3][03]</code> · <code>deliverables/my_copy.md</code></p>
 </blockquote>
 <hr />
-<h2>0. 목차 ↔ 페이지 (PPT p04)</h2>
-<table>
+<h2 id="sec-1" class="heading-anchor">0. 목차 ↔ 페이지 (PPT p04)</h2>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th style="text-align: center;">#</th>
@@ -90,10 +320,10 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>백업</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
-<h2>1. 15분 타임테이블</h2>
-<table>
+<h2 id="sec-2" class="heading-anchor">1. 15분 타임테이블</h2>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>구간</th>
@@ -152,44 +382,44 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>3문항</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
-<h2>2. Domain Discovery (p05–12)</h2>
-<h3>p05 · Why now? Why Saudi?</h3>
+<h2 id="sec-3" class="heading-anchor">2. Domain Discovery (p05–12)</h2>
+<h3 id="sec-4" class="heading-anchor">p05 · Why now? Why Saudi?</h3>
 <ul>
 <li>Simultaneous Global Mega Events — Expo·FIFA·Asian Games 동시</li>
 <li>Extreme Heat Logistics — 40℃+ · 정오 야외 제한</li>
 <li>Vision 2030 — 허브 목표 vs 무전·수기 운영</li>
 <li>Diyafa — 환대=국가 품격</li>
 </ul>
-<h3>p07–08 · 물량·규모</h3>
+<h3 id="sec-5" class="heading-anchor">p07–08 · 물량·규모</h3>
 <ul>
 <li><strong>600만㎡+</strong> Expo 2030 Riyadh</li>
 <li><strong>4+ Types</strong> · <strong>95,000+ Items</strong> — 인증·유니폼·프레스·VIP·폭염 대응</li>
 </ul>
-<h3>p09 · 동선</h3>
+<h3 id="sec-6" class="heading-anchor">p09 · 동선</h3>
 <ul>
 <li>Central Warehouse → UAC → VAO → MPC → VIP Lounge/Gate</li>
 <li><strong>Bridge:</strong> 문제는 <strong>만든 뒤 옮기고·넘기고·기록</strong>하는 구간</li>
 </ul>
-<h3>p10–11 · D4 사례</h3>
+<h3 id="sec-7" class="heading-anchor">p10–11 · D4 사례</h3>
 <ul>
 <li>England Training Kit Theft (2026 WC)</li>
 <li>Paris 2024 Golf Gear Delay — 국가 이미지 이슈</li>
 </ul>
-<h3>p12 · Bridge → Insight</h3>
+<h3 id="sec-8" class="heading-anchor">p12 · Bridge → Insight</h3>
 <ul>
 <li>「넓은 부지 × 분산 목적지 × 다양한 키트 — <strong>누가·언제·어떻게 기록?</strong>」</li>
 </ul>
 <hr />
-<h2>3. Target Insight (p13–23)</h2>
-<h3>p14 · Service Blueprint (전체)</h3>
+<h2 id="sec-9" class="heading-anchor">3. Target Insight (p13–23)</h2>
+<h3 id="sec-10" class="heading-anchor">p14 · Service Blueprint (전체)</h3>
 <ul>
 <li>A 준비기 · B 구성기 · C 현장 · D 사후 — <strong>8단계</strong></li>
 <li>5 이해관계자: 운영총괄 · VIP · 미디어 · 물류 · 보안</li>
 </ul>
-<h3>p15–18 · Pain by phase</h3>
-<table>
+<h3 id="sec-11" class="heading-anchor">p15–18 · Pain by phase</h3>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>단계</th>
@@ -214,22 +444,22 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td><strong>기록 산재·형식 불일치</strong></td>
 </tr>
 </tbody>
-</table>
-<h3>p19 · Pain 수렴</h3>
+</table></div>
+<h3 id="sec-12" class="heading-anchor">p19 · Pain 수렴</h3>
 <ul>
 <li>1~4단계 누적 → <strong>5~7 현장</strong>에서 정보 공백·반복 부담 <strong>표면화</strong> → 8단계 기록 통합 실패</li>
 </ul>
-<h3>p20–21 · 1·2순위 타겟 구간</h3>
+<h3 id="sec-13" class="heading-anchor">p20–21 · 1·2순위 타겟 구간</h3>
 <ul>
 <li><strong>C 현장 (5~7):</strong> Nuri 실외 · Rookie 실내 · ARC·Works 기록</li>
 <li><strong>D 사후 (8):</strong> 자동 기록으로 통합</li>
 </ul>
-<h3>p22 · Insights 요약</h3>
+<h3 id="sec-14" class="heading-anchor">p22 · Insights 요약</h3>
 <ul>
 <li><strong>정보 공백</strong> · <strong>반복 부담</strong> — 2 Pain</li>
 </ul>
-<h3>p23 · Nuri · Rookie · Works 개입</h3>
-<table>
+<h3 id="sec-15" class="heading-anchor">p23 · Nuri · Rookie · Works 개입</h3>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th></th>
@@ -252,28 +482,28 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>배차·인계·수령 한 화면</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
-<h2>4. Big Idea (p24–29)</h2>
-<h3>p26 · B2G — NAVER Operates Vital Access</h3>
+<h2 id="sec-16" class="heading-anchor">4. Big Idea (p24–29)</h2>
+<h3 id="sec-17" class="heading-anchor">p26 · B2G — NAVER Operates Vital Access</h3>
 <ul>
 <li>백스테이지 <strong>핵심 물류</strong>를 움직인다</li>
 <li>TARGET · GOAL · METHOD 3축</li>
 </ul>
-<h3>p27 · B2C — NAVER Opens Values for ALL</h3>
+<h3 id="sec-18" class="heading-anchor">p27 · B2C — NAVER Opens Values for ALL</h3>
 <ul>
 <li>모두에게 <strong>끊김 없는 경험</strong></li>
 <li>ELM <strong>주변 경로</strong> — Film·OOH·캐릭터</li>
 </ul>
-<h3>p28–29 · 2축 구조도</h3>
+<h3 id="sec-19" class="heading-anchor">p28–29 · 2축 구조도</h3>
 <ul>
 <li>B2G = Proof (Dashboard · One-Pager)</li>
 <li>B2C = Tease·Reveal (Film · KV · Event)</li>
 </ul>
 <hr />
-<h2>5. Advertise Plan (p30–57)</h2>
-<h3>B2G · Operates Vital Access (p31–42)</h3>
-<table>
+<h2 id="sec-20" class="heading-anchor">5. Advertise Plan (p30–57)</h2>
+<h3 id="sec-21" class="heading-anchor">B2G · Operates Vital Access (p31–42)</h3>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th style="text-align: center;">p</th>
@@ -308,9 +538,9 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>UAC→VAO→GOAL · Data-Linked Sorting · Multi-Point</td>
 </tr>
 </tbody>
-</table>
-<h3>B2C · Opens Values for ALL (p43–57)</h3>
-<table>
+</table></div>
+<h3 id="sec-22" class="heading-anchor">B2C · Opens Values for ALL (p43–57)</h3>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th style="text-align: center;">p</th>
@@ -360,18 +590,18 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>행사 후 콘텐츠 확장</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
-<h2>6. Expectations (p58–66)</h2>
-<h3>p59–62 · Future Expansions</h3>
+<h2 id="sec-23" class="heading-anchor">6. Expectations (p58–66)</h2>
+<h3 id="sec-24" class="heading-anchor">p59–62 · Future Expansions</h3>
 <ol>
 <li>Global Mega Events (Expo·FIFA·Asian Cup)</li>
 <li>Smart Community Logistics (NHC·ROSHN)</li>
 <li>Annual Mega Events (Riyadh Season·낙타축제)</li>
 <li>Last-Mile Experience (프라이버시 배송) <code>(가설)</code></li>
 </ol>
-<h3>p63 · Advertising Impact <code>(2차)</code></h3>
-<table>
+<h3 id="sec-25" class="heading-anchor">p63 · Advertising Impact <code>(2차)</code></h3>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>지표</th>
@@ -396,18 +626,18 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>Saudi Tourism Authority</td>
 </tr>
 </tbody>
-</table>
-<h3>p64 · Brand Transformation</h3>
+</table></div>
+<h3 id="sec-26" class="heading-anchor">p64 · Brand Transformation</h3>
 <ul>
 <li>Search Platform → <strong>Physical AI</strong> 인프라</li>
 </ul>
-<h3>p65–66 · Close</h3>
+<h3 id="sec-27" class="heading-anchor">p65–66 · Close</h3>
 <ul>
 <li><strong>Backstage Moves the World.</strong></li>
 </ul>
 <hr />
-<h2>7. Q&amp;A (p67–71)</h2>
-<table>
+<h2 id="sec-28" class="heading-anchor">7. Q&amp;A (p67–71)</h2>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th style="text-align: center;">p</th>
@@ -432,9 +662,9 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>Nuri+Rookie+ARC+Maps+Works <strong>번들</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
-<h2>8. 발표자 노트 (변정훈)</h2>
+<h2 id="sec-29" class="heading-anchor">8. 발표자 노트 (변정훈)</h2>
 <ol>
 <li><strong>0~3분:</strong> Domain만 — 로봇·NOVA 이름 <strong>아직 최소</strong></li>
 <li><strong>3~7분:</strong> Blueprint·Pain — <strong>Robot Last</strong> 증명</li>
@@ -444,8 +674,8 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <li><strong>Q&amp;A:</strong> p68–71 그대로</li>
 </ol>
 <hr />
-<h2>9. 제작 분담 (PPT 기준)</h2>
-<table>
+<h2 id="sec-30" class="heading-anchor">9. 제작 분담 (PPT 기준)</h2>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>담당</th>
@@ -478,9 +708,110 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>타임·리허설 · <code>[FINAL][01]</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <p><em>연계: <code>[WK3][03]</code> · <code>[WK3][04]</code> · <code>NOVA_1조_NAVER LABS.pdf</code></em></p>
-</main>
+  </main>
+</div>
+<div class="toc-drawer" id="tocDrawer" aria-hidden="true">
+  <div class="toc-drawer-backdrop" id="tocBackdrop"></div>
+  <div class="toc-drawer-panel">
+    <div class="toc-drawer-header"><h2>목차</h2><button type="button" class="btn-ghost" id="tocClose">닫기</button></div>
+    <nav class="toc-panel toc-panel--mobile"><ol class="toc-list">
+<ol>
+<li class="toc-l2"><a href="#sec-1" data-target="sec-1">0. 목차 ↔ 페이지 (PPT p04)</a></li>
+<li class="toc-l2"><a href="#sec-2" data-target="sec-2">1. 15분 타임테이블</a></li>
+<li class="toc-l2"><a href="#sec-3" data-target="sec-3">2. Domain Discovery (p05–12)</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-4" data-target="sec-4">p05 · Why now? Why Saudi?</a></li>
+<li class="toc-l3"><a href="#sec-5" data-target="sec-5">p07–08 · 물량·규모</a></li>
+<li class="toc-l3"><a href="#sec-6" data-target="sec-6">p09 · 동선</a></li>
+<li class="toc-l3"><a href="#sec-7" data-target="sec-7">p10–11 · D4 사례</a></li>
+<li class="toc-l3"><a href="#sec-8" data-target="sec-8">p12 · Bridge → Insight</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-9" data-target="sec-9">3. Target Insight (p13–23)</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-10" data-target="sec-10">p14 · Service Blueprint (전체)</a></li>
+<li class="toc-l3"><a href="#sec-11" data-target="sec-11">p15–18 · Pain by phase</a></li>
+<li class="toc-l3"><a href="#sec-12" data-target="sec-12">p19 · Pain 수렴</a></li>
+<li class="toc-l3"><a href="#sec-13" data-target="sec-13">p20–21 · 1·2순위 타겟 구간</a></li>
+<li class="toc-l3"><a href="#sec-14" data-target="sec-14">p22 · Insights 요약</a></li>
+<li class="toc-l3"><a href="#sec-15" data-target="sec-15">p23 · Nuri · Rookie · Works 개입</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-16" data-target="sec-16">4. Big Idea (p24–29)</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-17" data-target="sec-17">p26 · B2G — NAVER Operates Vital Access</a></li>
+<li class="toc-l3"><a href="#sec-18" data-target="sec-18">p27 · B2C — NAVER Opens Values for ALL</a></li>
+<li class="toc-l3"><a href="#sec-19" data-target="sec-19">p28–29 · 2축 구조도</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-20" data-target="sec-20">5. Advertise Plan (p30–57)</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-21" data-target="sec-21">B2G · Operates Vital Access (p31–42)</a></li>
+<li class="toc-l3"><a href="#sec-22" data-target="sec-22">B2C · Opens Values for ALL (p43–57)</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-23" data-target="sec-23">6. Expectations (p58–66)</a></li>
+<ol>
+<li class="toc-l3"><a href="#sec-24" data-target="sec-24">p59–62 · Future Expansions</a></li>
+<li class="toc-l3"><a href="#sec-25" data-target="sec-25">p63 · Advertising Impact (2차)</a></li>
+<li class="toc-l3"><a href="#sec-26" data-target="sec-26">p64 · Brand Transformation</a></li>
+<li class="toc-l3"><a href="#sec-27" data-target="sec-27">p65–66 · Close</a></li>
+</ol>
+<li class="toc-l2"><a href="#sec-28" data-target="sec-28">7. Q&amp;amp;A (p67–71)</a></li>
+<li class="toc-l2"><a href="#sec-29" data-target="sec-29">8. 발표자 노트 (변정훈)</a></li>
+<li class="toc-l2"><a href="#sec-30" data-target="sec-30">9. 제작 분담 (PPT 기준)</a></li>
+</ol>
+</ol></nav>
+  </div>
+</div>
+<button type="button" class="back-top" id="backTop" aria-label="맨 위로">↑</button>
+<footer role="contentinfo">
+  <strong>[06.08][변정훈] NAVER_Team 1_WK3_02 · 변정훈 · 2026-06-08</strong><br>
+  NAVER LABS FROM LABS TO WORLD · docs/week01 정본
+</footer>
+<script>
+(function () {
+  var progress = document.getElementById('readProgress');
+  var backTop = document.getElementById('backTop');
+  var drawer = document.getElementById('tocDrawer');
+  var toggle = document.getElementById('tocToggle');
+  var closeBtn = document.getElementById('tocClose');
+  var backdrop = document.getElementById('tocBackdrop');
+  var links = document.querySelectorAll('.toc-list a[data-target]');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    if (progress) progress.style.width = Math.min(100, Math.max(0, pct)) + '%';
+    if (backTop) backTop.classList.toggle('visible', h.scrollTop > 400);
+    var y = window.scrollY + 100;
+    var active = null;
+    links.forEach(function (a) {
+      var el = document.getElementById(a.getAttribute('data-target'));
+      if (el && el.offsetTop <= y) active = a;
+    });
+    links.forEach(function (a) { a.classList.toggle('active', a === active); });
+  }
+  function openDrawer() {
+    if (!drawer) return;
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    if (!drawer) return;
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  if (toggle) toggle.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (backdrop) backdrop.addEventListener('click', closeDrawer);
+  links.forEach(function (a) { a.addEventListener('click', function () { closeDrawer(); }); });
+  if (backTop) backTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 </body>
 </html>
