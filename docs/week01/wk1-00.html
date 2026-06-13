@@ -1,37 +1,231 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[WK1][00] 1주차 Discover</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="문서 안내 · 인덱스">
+<title>[05.29][변정훈] NAVER_Team 1_WK1_00</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-:root { color-scheme: light; }
-* { box-sizing: border-box; }
-body {
-  margin: 0; padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
-  line-height: 1.7; color: #1f2328; background: #f6f8fa;
+:root {
+  --naver-green: #03c75a;
+  --naver-green-soft: rgba(3, 199, 90, 0.14);
+  --bg: #000000;
+  --bg-elev: #0a0a0a;
+  --bg-card: #111315;
+  --border: #20232a;
+  --text: #ededed;
+  --text-muted: #8a8f98;
+  --text-dim: #6a6f78;
+  --hero-grad: radial-gradient(ellipse 80% 60% at top, rgba(3, 199, 90, 0.18) 0%, transparent 65%);
+  --toc-w: 280px;
+  --topbar-h: 52px;
+  --font-base: 17px;
+  --font-lead: 18px;
+  --scroll-pad: 88px;
 }
-main { max-width: 880px; margin: 0 auto; padding: 48px 28px 80px; background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,.06); }
-h1 { font-size: 1.7rem; border-bottom: 2px solid #03c75a; padding-bottom: .4em; margin-top: 0; }
-h2 { font-size: 1.3rem; margin-top: 2em; border-left: 4px solid #03c75a; padding-left: .5em; }
-h3 { font-size: 1.08rem; margin-top: 1.6em; color: #036b34; }
-blockquote { margin: 1em 0; padding: .8em 1.1em; background: #eef7f1; border-left: 4px solid #03c75a;
-  border-radius: 0 6px 6px 0; }
-table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: .93rem; }
-th, td { border: 1px solid #d0d7de; padding: 9px 13px; text-align: left; vertical-align: top; }
-th { background: #03c75a; color: #fff; font-weight: 600; }
-tr:nth-child(even) td { background: #f6f8fa; }
-code { background: #eaeef2; padding: .15em .4em; border-radius: 4px; font-size: .88em; }
-a { color: #036b34; }
-hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: var(--scroll-pad); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: var(--font-base);
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+.read-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--naver-green), #22e584);
+  z-index: 1000; transition: width 0.12s ease-out;
+}
+.top-bar {
+  position: sticky; top: 0; z-index: 900; height: var(--topbar-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+}
+.top-bar .brand {
+  font-size: 0.82rem; font-weight: 600; color: var(--naver-green);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 55vw;
+}
+.top-bar-actions { display: flex; gap: 8px; align-items: center; }
+.btn-ghost {
+  background: var(--bg-card); border: 1px solid var(--border); color: var(--text);
+  padding: 8px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; font-family: inherit;
+}
+.btn-ghost:hover { border-color: var(--naver-green); color: var(--naver-green); }
+.hero {
+  background: var(--hero-grad), var(--bg);
+  padding: clamp(48px, 10vw, 80px) 24px clamp(36px, 8vw, 56px);
+  border-bottom: 1px solid var(--border); text-align: center;
+}
+.hero .badge {
+  display: inline-block; padding: 6px 14px; background: var(--naver-green-soft);
+  color: var(--naver-green); border: 1px solid var(--naver-green);
+  border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 20px;
+}
+.hero h1 {
+  margin: 0 0 12px; font-size: clamp(1.85rem, 6vw, 3.2rem); font-weight: 800;
+  letter-spacing: -0.04em; line-height: 1.2;
+  background: linear-gradient(180deg, #fff 0%, #b8bcc4 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero h2 { margin: 0 0 20px; font-size: clamp(1.05rem, 3.5vw, 1.55rem); font-weight: 500; color: var(--naver-green); }
+.hero .sub { color: var(--text-muted); font-size: 1rem; margin: 0 auto; max-width: 640px; line-height: 1.65; }
+.doc-layout { display: grid; grid-template-columns: 1fr; max-width: 1280px; margin: 0 auto; gap: 0; }
+.doc-main {
+  min-width: 0; max-width: 820px; margin: 0 auto;
+  padding: clamp(28px, 5vw, 48px) clamp(20px, 4vw, 40px) clamp(80px, 12vw, 120px);
+}
+.toc-sidebar { display: none; }
+@media (min-width: 1100px) {
+  .doc-layout { grid-template-columns: var(--toc-w) 1fr; padding-left: 24px; }
+  .toc-sidebar {
+    display: block; position: sticky; top: calc(var(--topbar-h) + 16px); align-self: start;
+    max-height: calc(100vh - var(--topbar-h) - 32px); overflow-y: auto;
+    padding: 20px 16px 24px 0; scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+  .toc-sidebar::-webkit-scrollbar { width: 5px; }
+  .toc-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .doc-main { margin: 0; max-width: none; padding-left: 32px; }
+  .btn-toc-toggle { display: none !important; }
+}
+.toc-panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 16px; }
+.toc-panel h2 {
+  margin: 0 0 14px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--naver-green); border: none; padding: 0;
+}
+.toc-list, .toc-list ol { list-style: none; margin: 0; padding: 0; }
+.toc-list ol { margin-left: 0; padding-left: 12px; border-left: 1px solid #1a1d22; margin-top: 4px; }
+.toc-list li { margin: 2px 0; }
+.toc-list a {
+  display: block; padding: 6px 10px; border-radius: 6px; font-size: 0.88rem; line-height: 1.45;
+  color: var(--text-muted); text-decoration: none; transition: background 0.15s, color 0.15s;
+}
+.toc-list a:hover { background: var(--naver-green-soft); color: var(--text); }
+.toc-list a.active { background: var(--naver-green-soft); color: var(--naver-green); font-weight: 600; }
+.toc-l1 > a { font-size: 0.92rem; font-weight: 600; color: var(--text); }
+.toc-l2 > a { font-size: 0.86rem; }
+.toc-l3 > a { font-size: 0.82rem; padding-left: 14px; }
+.toc-drawer {
+  position: fixed; inset: 0; z-index: 1100; pointer-events: none; opacity: 0; transition: opacity 0.25s ease;
+}
+.toc-drawer.open { pointer-events: auto; opacity: 1; }
+.toc-drawer-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.65); }
+.toc-drawer-panel {
+  position: absolute; top: 0; right: 0; width: min(320px, 88vw); height: 100%;
+  background: var(--bg-elev); border-left: 1px solid var(--border);
+  padding: 20px 16px 32px; overflow-y: auto; transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toc-drawer.open .toc-drawer-panel { transform: translateX(0); }
+.toc-drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.toc-drawer-header h2 { margin: 0; font-size: 1rem; color: var(--naver-green); }
+.back-top {
+  position: fixed; right: 20px; bottom: 24px; z-index: 800; width: 48px; height: 48px;
+  border-radius: 50%; border: 1px solid var(--naver-green); background: rgba(0,0,0,0.85);
+  color: var(--naver-green); font-size: 1.25rem; cursor: pointer; opacity: 0; visibility: hidden;
+  transform: translateY(12px); transition: opacity 0.2s, transform 0.2s, visibility 0.2s; backdrop-filter: blur(8px);
+}
+.back-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-top:hover { background: var(--naver-green); color: #000; }
+.heading-anchor { scroll-margin-top: var(--scroll-pad); }
+h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; color: var(--text); }
+h1 {
+  font-size: clamp(1.65rem, 4vw, 2.25rem); margin: clamp(44px, 7vw, 64px) 0 20px;
+  padding-bottom: 12px; border-bottom: 2px solid var(--naver-green);
+}
+h1:first-of-type { margin-top: 0; }
+h2 { font-size: clamp(1.35rem, 3.2vw, 1.65rem); margin: clamp(36px, 5vw, 48px) 0 16px; color: var(--naver-green); }
+h3 { font-size: clamp(1.12rem, 2.8vw, 1.28rem); margin: clamp(24px, 4vw, 32px) 0 12px; }
+h4 { font-size: 1.05rem; margin: 20px 0 8px; color: var(--text-muted); }
+p { margin: 0 0 1.1em; font-size: var(--font-base); }
+strong { color: #fff; font-weight: 700; }
+em { color: var(--text-muted); }
+code {
+  background: var(--bg-card); color: var(--naver-green); padding: 3px 8px; border-radius: 4px;
+  font-size: 0.9em; border: 1px solid var(--border);
+}
+pre {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px 20px; overflow-x: auto; font-size: 0.9rem; line-height: 1.6; margin: 20px 0 28px;
+}
+pre code { background: transparent; padding: 0; color: var(--text); border: none; }
+ul, ol { padding-left: 1.45em; margin: 0 0 1.1em; }
+li { margin: 0.4em 0; }
+a { color: var(--naver-green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote {
+  border-left: 4px solid var(--naver-green); padding: 16px 22px; margin: 24px 0 32px;
+  background: var(--bg-card); border-radius: 0 10px 10px 0; font-size: var(--font-lead); line-height: 1.75;
+}
+blockquote p:last-child { margin-bottom: 0; }
+hr { border: none; height: 1px; background: var(--border); margin: clamp(40px, 6vw, 56px) 0; }
+.table-wrap {
+  overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 20px 0 28px;
+  border-radius: 10px; border: 1px solid var(--border); background: var(--bg-card);
+}
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+thead { background: var(--bg-elev); }
+th, td {
+  padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--border);
+  vertical-align: top; line-height: 1.55;
+}
+th {
+  color: var(--naver-green); font-weight: 700; font-size: 0.8rem;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+tbody tr:hover { background: rgba(255,255,255,0.02); }
+footer {
+  max-width: 820px; margin: 0 auto; padding: 32px 24px 56px;
+  border-top: 1px solid var(--border); color: var(--text-dim);
+  font-size: 0.9rem; text-align: center; line-height: 1.7;
+}
+@media (max-width: 768px) {
+  :root { --font-base: 16px; --font-lead: 16.5px; --scroll-pad: 72px; }
+  th, td { padding: 11px 12px; font-size: 0.88rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .read-progress, .back-top, .toc-drawer, .toc-drawer-panel { transition: none; }
+}
 </style>
 </head>
 <body>
-<main>
-<h1>[WK1][00] 1주차 Discover — 문서 안내</h1>
-<table>
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
+<header class="top-bar">
+  <span class="brand">WK1_00 · [WK1][00] 1주차 Discover</span>
+  <div class="top-bar-actions">
+    <button type="button" class="btn-ghost btn-toc-toggle" id="tocToggle" aria-expanded="false">목차</button>
+  </div>
+</header>
+<header class="hero" role="banner">
+  <div class="badge">Week01 · Index</div>
+  <h1>[WK1][00] 1주차 Discover</h1>
+  <h2>문서 안내 · 인덱스</h2>
+  <p class="sub">docs/week01 정본 맵 · 읽기 순서 · 등급 체계 안내<br><code>docs/week01/[WK1][00]_README.md</code></p>
+</header>
+<div class="doc-layout">
+  <aside class="toc-sidebar" aria-label="목차">
+    <nav class="toc-panel"><h2>목차</h2><ol class="toc-list">
+<ol>
+<li class="toc-l2"><a href="#sec-1" data-target="sec-1">1. 문서 목록</a></li>
+<li class="toc-l2"><a href="#sec-2" data-target="sec-2">2. 권장 읽기 순서</a></li>
+<li class="toc-l2"><a href="#sec-3" data-target="sec-3">3. 범위 안내</a></li>
+<li class="toc-l2"><a href="#sec-4" data-target="sec-4">4. 2주차 연결</a></li>
+</ol>
+</ol></nav>
+  </aside>
+  <main class="doc-main" role="main" id="mainContent">
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>항목</th>
@@ -48,9 +242,9 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td><code>[WK1][01]</code> ~ <code>[WK1][05]</code> 초안 완료</td>
 </tr>
 </tbody>
-</table>
-<h2>1. 문서 목록</h2>
-<table>
+</table></div>
+<h2 id="sec-1" class="heading-anchor">1. 문서 목록</h2>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>코드</th>
@@ -111,12 +305,12 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <td>변정훈</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <blockquote>
 <p><strong>팀원 원본 아카이브:</strong> <code>deliverables/05-29/team_research/</code> — 한정현 일·사 트렌드 심화·루키×SA 브리프 등 (<strong>정본 보조</strong>)</p>
 <p><strong>B2B 스마트병원 연습</strong> (<code>[WK1][06]</code> 코드)은 <code>docs/week01/</code> 정본이 아님 — <code>deliverables/05-26/[05.26][변정훈] B2B마케팅전략_마크다운.md</code></p>
 </blockquote>
-<h2>2. 권장 읽기 순서</h2>
+<h2 id="sec-2" class="heading-anchor">2. 권장 읽기 순서</h2>
 <p>리서치 흐름: <strong>인프라·제품 → 트렌드 맥락 → 시장·도메인 → 통합</strong></p>
 <ol>
 <li><code>[WK1][05]</code> — 전체 요약</li>
@@ -127,22 +321,85 @@ hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
 <li><code>[WK1][04B]</code> — 1차 타겟 맵 (B2B·B2G·B2C)</li>
 <li><code>[WK1][04A]</code> — 심층 부록 (필요 시)</li>
 </ol>
-<h2>3. 범위 안내</h2>
+<h2 id="sec-3" class="heading-anchor">3. 범위 안내</h2>
 <ul>
 <li>상품·시장·도메인은 <strong>후보 비교 단계</strong>이며, 최종 1안은 2주차 <code>[WK2]</code>에서 확정한다.</li>
 <li>3국(한국·일본·사우디)을 <strong>동일 깊이</strong>로 다룬다.</li>
 <li>문서 간 참조 <strong>「1.3절」</strong> = 해당 파일의 <strong>1.3번 대목</strong>(예: <code>[WK1][04]</code> 1.3절 = 도메인 등급표).</li>
 <li><code>[WK1][04]</code> <strong>등급:</strong> 1.2절 — [우선]=합계≥80 <strong>且</strong> 실행·1차≥3 · [재검토]=합계≥75 <strong>且</strong> 게이트 미충족(예: <strong>K9 86점</strong>).</li>
 </ul>
-<h2>4. 2주차 연결</h2>
+<h2 id="sec-4" class="heading-anchor">4. 2주차 연결</h2>
 <ul>
 <li>선행 산출: <code>[WK1][05]</code> (5/30 점검회)</li>
-<li><strong>2주차 1안 (확정 · 6/2):</strong> <code>docs/week02/[WK2][00]_README.md</code> — <strong>Nuri–Rookie Event Chain</strong> (사우디 국가행사 백오피스 · 누리→루키)</li>
-<li><strong>전환:</strong> 초기 후보 <strong>목장→가공 콜드체인</strong>은 리서치 후 <strong>현실성·당위성</strong> 부족으로 메인에서 탈락 — VIP 냉장·Sawani는 <strong>S1-sub</strong> (<code>[WK2][00]</code> §1.4 · <code>[WK1][05]</code> §5)</li>
-<li>다음: <code>[WK2][01]</code>~<code>[06]</code> Event Chain 기준 Develop</li>
+<li>다음: <code>docs/week02/[WK2][00]_README.md</code></li>
 </ul>
 <hr />
 <p><em>작성: 2026-05-29</em></p>
-</main>
+  </main>
+</div>
+<div class="toc-drawer" id="tocDrawer" aria-hidden="true">
+  <div class="toc-drawer-backdrop" id="tocBackdrop"></div>
+  <div class="toc-drawer-panel">
+    <div class="toc-drawer-header"><h2>목차</h2><button type="button" class="btn-ghost" id="tocClose">닫기</button></div>
+    <nav class="toc-panel toc-panel--mobile"><ol class="toc-list">
+<ol>
+<li class="toc-l2"><a href="#sec-1" data-target="sec-1">1. 문서 목록</a></li>
+<li class="toc-l2"><a href="#sec-2" data-target="sec-2">2. 권장 읽기 순서</a></li>
+<li class="toc-l2"><a href="#sec-3" data-target="sec-3">3. 범위 안내</a></li>
+<li class="toc-l2"><a href="#sec-4" data-target="sec-4">4. 2주차 연결</a></li>
+</ol>
+</ol></nav>
+  </div>
+</div>
+<button type="button" class="back-top" id="backTop" aria-label="맨 위로">↑</button>
+<footer role="contentinfo">
+  <strong>[05.29][변정훈] NAVER_Team 1_WK1_00 · 변정훈 · 2026-05-29</strong><br>
+  NAVER LABS FROM LABS TO WORLD · docs/week01 정본
+</footer>
+<script>
+(function () {
+  var progress = document.getElementById('readProgress');
+  var backTop = document.getElementById('backTop');
+  var drawer = document.getElementById('tocDrawer');
+  var toggle = document.getElementById('tocToggle');
+  var closeBtn = document.getElementById('tocClose');
+  var backdrop = document.getElementById('tocBackdrop');
+  var links = document.querySelectorAll('.toc-list a[data-target]');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    if (progress) progress.style.width = Math.min(100, Math.max(0, pct)) + '%';
+    if (backTop) backTop.classList.toggle('visible', h.scrollTop > 400);
+    var y = window.scrollY + 100;
+    var active = null;
+    links.forEach(function (a) {
+      var el = document.getElementById(a.getAttribute('data-target'));
+      if (el && el.offsetTop <= y) active = a;
+    });
+    links.forEach(function (a) { a.classList.toggle('active', a === active); });
+  }
+  function openDrawer() {
+    if (!drawer) return;
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    if (!drawer) return;
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  if (toggle) toggle.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (backdrop) backdrop.addEventListener('click', closeDrawer);
+  links.forEach(function (a) { a.addEventListener('click', function () { closeDrawer(); }); });
+  if (backTop) backTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 </body>
 </html>
