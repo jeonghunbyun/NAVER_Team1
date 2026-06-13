@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[WK3][00] 3주차 지시</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
+  line-height: 1.7; color: #1f2328; background: #f6f8fa;
+}
+main { max-width: 880px; margin: 0 auto; padding: 48px 28px 80px; background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+h1 { font-size: 1.7rem; border-bottom: 2px solid #03c75a; padding-bottom: .4em; margin-top: 0; }
+h2 { font-size: 1.3rem; margin-top: 2em; border-left: 4px solid #03c75a; padding-left: .5em; }
+h3 { font-size: 1.08rem; margin-top: 1.6em; color: #036b34; }
+blockquote { margin: 1em 0; padding: .8em 1.1em; background: #eef7f1; border-left: 4px solid #03c75a;
+  border-radius: 0 6px 6px 0; }
+table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: .93rem; }
+th, td { border: 1px solid #d0d7de; padding: 9px 13px; text-align: left; vertical-align: top; }
+th { background: #03c75a; color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: #f6f8fa; }
+code { background: #eaeef2; padding: .15em .4em; border-radius: 4px; font-size: .88em; }
+a { color: #036b34; }
+hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>[WK3][00] 3주차 작업 지시 — Execution · Deck · Prototype</h1>
+<blockquote>
+<p><strong>상태:</strong> 3주차 정본 · <strong>기간:</strong> 6/7~~6/13 · <strong>발표:</strong> 6/15~~18 · 15분<br />
+<strong>1안:</strong> <strong>NOVA</strong> (사우디 국가행사 백오피스 키트 물류) · <strong>최종 장표:</strong> <code>NOVA_1조_NAVER LABS.pdf</code> (74p)<br />
+<strong>근거:</strong> <code>[WK2][00]</code>~<code>[06]</code>· my-agency<code>deliverables/my_ae_brief.md</code>·<code>my_copy.md</code>·<code>my_review.md</code>(61/70 통과)   <strong>원칙:</strong><code>event-chain-core.mdc</code> · Robot Last는 WK2에서 완료 — <strong>3주차는 「보여주기」</strong></p>
+</blockquote>
+<hr />
+<h2>0. 3주차 한 줄</h2>
+<blockquote>
+<p>WK2에서 <strong>증명한 것</strong>을, 3주차에는 <strong>Decider가 「도입해볼까?」를 떠올리게</strong> PPT·시안·필름으로 만든다.</p>
+</blockquote>
+<hr />
+<h2>1. 팀 목표 · 완료 기준</h2>
+<blockquote>
+<p>본편 = <strong>PPT 74p</strong> (<code>NOVA_1조_NAVER LABS.pdf</code>). 15분 발표는 <strong>목차 7섹션</strong> 기준.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>목표</th>
+<th>완료(Done) 기준</th>
+<th>마감</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>발표자료 (PPT)</strong></td>
+<td><strong>74p 완성본</strong> · <code>[WK3][02]</code> 타임·리허설 1회</td>
+<td>6/13 금</td>
+</tr>
+<tr>
+<td><strong>시안 웹 (prototype)</strong></td>
+<td>Film·Dashboard·KV 중 1개 · <code>DEMO·CONCEPT</code></td>
+<td>6/13 금</td>
+</tr>
+<tr>
+<td><strong><code>[FINAL][01]</code></strong></td>
+<td>NOVA·Operates/Opens·슬로건·20어절 — 4항목 확정</td>
+<td>6/12</td>
+</tr>
+<tr>
+<td><strong>리허설 1회</strong></td>
+<td>15분 · 7섹션 완주 · Q&amp;A p67–71 (3문항)</td>
+<td>6/13</td>
+</tr>
+</tbody>
+</table>
+<p><strong>6/7 방향 확정 이후:</strong> 새 도메인·조합 조사 <strong>중단</strong>. execution만.</p>
+<hr />
+<h2>2. WK3 문서 역할</h2>
+<table>
+<thead>
+<tr>
+<th>문서</th>
+<th>역할</th>
+<th>작성 원칙</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>**[WK3][00]</code>** (본 문서)</td>
+<td>3주차 지시·분담·일정</td>
+<td>PM Gate</td>
+</tr>
+<tr>
+<td><code>**[WK3][01]**</code></td>
+<td><strong>NOVA 컨셉 정리본</strong> — PPT 74p 정본</td>
+<td>완성 PPT · <code>[WK2]</code> 압축</td>
+</tr>
+<tr>
+<td><code>**[WK3][02]**</code></td>
+<td>74p 스토리라인·15분 타임</td>
+<td><code>NOVA_1조_NAVER LABS.pdf</code></td>
+</tr>
+<tr>
+<td><code>**[WK3][03]</code>**</td>
+<td>발표 전략 · B2G·대중 · ELM·Trying</td>
+<td>§5 B2G · §6 대중 · §7 통합</td>
+</tr>
+<tr>
+<td><code>**[WK3][04]**</code></td>
+<td>prototype·deck 비주얼 브리프</td>
+<td>designprompts · N2 톤</td>
+</tr>
+<tr>
+<td><code>**[WK3][05]**</code></td>
+<td><strong>최세정 교수님 면담용</strong> 1차 진행 보고</td>
+<td>PM · 질문 10선</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. 발표 5단계 → WK3 산출물 연결</h2>
+<table>
+<thead>
+<tr>
+<th>공식 단계</th>
+<th>PPT p</th>
+<th>WK3 산출</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. 도메인·타깃</td>
+<td>05–12</td>
+<td>물량·동선·D4 · Bridge</td>
+</tr>
+<tr>
+<td>2. 인사이트</td>
+<td>13–23</td>
+<td>8단계 BP · Pain 2종 · Nuri/Rookie/Works</td>
+</tr>
+<tr>
+<td>3. 빅 아이디어</td>
+<td>24–29</td>
+<td><strong>Operates Vital Access</strong> · <strong>Opens Values for ALL</strong></td>
+</tr>
+<tr>
+<td>4. 실행안</td>
+<td>30–57</td>
+<td>B2G Dashboard·One-Pass · B2C Film·OOH·IP</td>
+</tr>
+<tr>
+<td>5. 기대효과</td>
+<td>58–66</td>
+<td>Future Expansions · Impact <code>(2차)</code> · 슬로건</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4. 팀 역할 · 분담</h2>
+<blockquote>
+<p>산출 = <strong>만들 파일 + 슬라이드 번호 + "끝났다" 기준(개수·형식)</strong>. 슬라이드 상세는 <code>[WK3][02]</code>, 비주얼은 <code>[WK3][04]</code>.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>담당</th>
+<th>할 일</th>
+<th>PPT·산출</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>변정훈</strong></td>
+<td>PPT 스토리·리허설 · <code>[FINAL][01]</code></td>
+<td>74p · Q&amp;A p67–71</td>
+</tr>
+<tr>
+<td><strong>임규은</strong></td>
+<td>Dashboard·One-Pass 레이아웃 · prototype</td>
+<td>p31–42</td>
+</tr>
+<tr>
+<td><strong>오성민</strong></td>
+<td>물량·D4 · Impact 숫자</td>
+<td>p07–12 · p63</td>
+</tr>
+<tr>
+<td><strong>문유빈</strong></td>
+<td>KV · Film · B2C · BP 썸네일</td>
+<td>p14–18 · p43–57</td>
+</tr>
+<tr>
+<td><strong>한정현</strong></td>
+<td>Q&amp;A·출처</td>
+<td>p67–71 · D1–D8</td>
+</tr>
+<tr>
+<td><strong>류준하</strong></td>
+<td>Hook · Operates/Opens · Close</td>
+<td>p05 · p26–27 · p65</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>5. 일정</h2>
+<table>
+<thead>
+<tr>
+<th>날짜</th>
+<th>목표</th>
+<th>Gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>6/7 (토)</strong></td>
+<td>WK3 문서·my-agency 동기화 · 컨셉 정리본·스토리라인 확정</td>
+<td><code>[WK3][01]</code>·<code>[WK3][02]</code> v1</td>
+</tr>
+<tr>
+<td><strong>6/8–6/9</strong></td>
+<td>PPT 와이어 50% · prototype 구조</td>
+<td>화요 체크인</td>
+</tr>
+<tr>
+<td><strong>6/10–6/11</strong></td>
+<td>Key Visual · Demo Dashboard 목업</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>6/12 (목)</strong></td>
+<td><code>[FINAL][01]</code> 확정 · 카피凍結</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>6/13 (금)</strong></td>
+<td>PPT 70% · prototype v1 · <strong>리허설 1</strong></td>
+<td>금요 점검회</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. 금지 · Human-Stay 체크</h2>
+<ul>
+<li>VIP 응대 로봇 · 관람객 음식 배달 · 무인 행사 · 스태프 대체 표현 <strong>금지</strong></li>
+<li>Expo·FIFA <strong>공식 파트너</strong>처럼 보이는 co-brand — 「컨셉 목업」만</li>
+<li>숫자 없는 효과 — <code>**(가설)</code>** 라벨 필수</li>
+<li><strong>로봇·NOVA 이름</strong> — Domain(p05–12) · Pain(p13–22) <strong>이후</strong> p23부터</li>
+</ul>
+<hr />
+<h2>7. my-agency 연동</h2>
+<table>
+<thead>
+<tr>
+<th>파일</th>
+<th>용도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deliverables/my_ae_brief.md</code></td>
+<td>AE 전략·타깃·메시지 아키텍처</td>
+</tr>
+<tr>
+<td><code>deliverables/my_copy.md</code></td>
+<td>슬로건·헤드라인·VO·Q&amp;A 카피</td>
+</tr>
+<tr>
+<td><code>deliverables/my_review.md</code></td>
+<td>61/70 통과 · 1순위 보완 4건</td>
+</tr>
+</tbody>
+</table>
+<p>→ <code>[WK2][06]</code>에 반영된 것과 동일 축. <strong>3주차는 copy를 PPT·prototype에 옮기는 단계.</strong></p>
+<hr />
+<h2>8. 다음 주 (4주차) 예고</h2>
+<ul>
+<li>PPT 100% · 리허설 2회 · 15분 발표 · Q&amp;A 최종</li>
+</ul>
+<hr />
+<p><em>연계: <code>[WK2][06]</code> · <code>[FINAL][01]</code> · <code>deliverables/my_*.md</code> · <code>docs/week03/[WK3][01]</code> 컨셉 · <code>[WK3][02]</code> 스토리라인</em></p>
+</main>
+</body>
+</html>
