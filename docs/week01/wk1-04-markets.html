@@ -1,0 +1,2800 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[WK1][04] 시장·도메인</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
+  line-height: 1.7; color: #1f2328; background: #f6f8fa;
+}
+main { max-width: 880px; margin: 0 auto; padding: 48px 28px 80px; background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+h1 { font-size: 1.7rem; border-bottom: 2px solid #03c75a; padding-bottom: .4em; margin-top: 0; }
+h2 { font-size: 1.3rem; margin-top: 2em; border-left: 4px solid #03c75a; padding-left: .5em; }
+h3 { font-size: 1.08rem; margin-top: 1.6em; color: #036b34; }
+blockquote { margin: 1em 0; padding: .8em 1.1em; background: #eef7f1; border-left: 4px solid #03c75a;
+  border-radius: 0 6px 6px 0; }
+table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: .93rem; }
+th, td { border: 1px solid #d0d7de; padding: 9px 13px; text-align: left; vertical-align: top; }
+th { background: #03c75a; color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: #f6f8fa; }
+code { background: #eaeef2; padding: .15em .4em; border-radius: 4px; font-size: .88em; }
+a { color: #036b34; }
+hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>[WK1][04] 글로벌 타겟 시장 분석 — 한국 · 일본 · 사우디</h1>
+<p align="center"><strong style="font-size: 0.85em; letter-spacing: 0.06em;">핵심 인사이트</strong></p>
+
+<p align="center"><strong style="font-size: 1.22em; line-height: 1.75;">한국은 KIRIA·국토부 실증과 1784 실내 레퍼런스로 RPC·수장고·철도 백오피스가 [우선]이고, 일본은 인력난·합의 문화 속에서 장례식장·DT 신도시가 앞서며, 사우디는 폭염·국가 행사 마감이 **Event Chain(백오피스 키트·Physical AI)**·Expo·프라이버시 도메인을 만든다. **2주차 1안:** `docs/week02/[WK2][00]` Nuri–Rookie Event Chain. 호텔·병원·일반 배달 등 범용 클리셰는 G1으로 빼고, 나머지는 [우선]·[재검토]·[보류]로 비교한다.</strong></p>
+
+<blockquote>
+<p><strong>담당:</strong> 오성민, 변정훈, 임규은, 문유빈 · <strong>검증:</strong> 변정훈 · <strong>마감:</strong> 5/29 · <strong>트랙:</strong> C<br />
+<strong>상태:</strong> 심층 조사 (후보·비교만 · <strong>시장·1안 확정 ❌</strong>)<br />
+<strong>조사일:</strong> 2026-05-29<br />
+<strong>문서 성격:</strong> <strong>시장·도메인·타겟</strong> — 선행: <code>[WK1][01]</code> <code>[WK1][02]</code> <code>[WK1][03]</code></p>
+</blockquote>
+<hr />
+<h2>0. 조사 범위 · 방법</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>목적</strong></td>
+<td>한국·일본·사우디 3개 시장 맥락과 로봇 도입 <strong>후보 도메인·타겟</strong> 정리 → 캠페인 근거</td>
+</tr>
+<tr>
+<td><strong>분석 축</strong></td>
+<td>① G1–G8 ② 국가별 도메인·타겟 ③ <strong>1.3절 도메인 등급</strong> ④ 도메인↔타겟 ⑤ G1 제외(6절) ⑥ 3국 비교</td>
+</tr>
+<tr>
+<td><strong>출처</strong></td>
+<td>2차 데스크 리서치 · <code>[WK1][04A]</code> · <code>[WK1][04B]</code> · <code>[WK1][03]</code> 9절 · <strong>팀 위키</strong></td>
+</tr>
+<tr>
+<td><strong>제외</strong></td>
+<td>인프라(→<code>[WK1][01]</code>) · 제품 스펙(→<code>[WK1][02]</code>) · <strong>TAM·SAM·SOM 정량표</strong>(→9절 · <code>data/market/</code>) · <strong>G1 클리셰</strong>(→6절) · <strong>최종 1안 확정</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>문서</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[WK1][01]</code></td>
+<td>브랜드·플랫폼·LABS <strong>인프라</strong></td>
+</tr>
+<tr>
+<td><code>[WK1][02]</code></td>
+<td>Nuri × Rookie <strong>제품</strong> 비교</td>
+</tr>
+<tr>
+<td><code>[WK1][03]</code></td>
+<td>Physical AI·로보틱스 <strong>트렌드</strong> (9절 국가별)</td>
+</tr>
+<tr>
+<td><strong><code>[WK1][04]</code> (본 문서)</strong></td>
+<td>3국 <strong>시장·도메인·타겟</strong> 후보·비교</td>
+</tr>
+<tr>
+<td><strong><code>[WK1][04A]</code></strong></td>
+<td>도메인 <strong>심층 부록</strong></td>
+</tr>
+<tr>
+<td><strong><code>[WK1][04B]</code></strong></td>
+<td>3국 <strong>B2B·B2G·B2C 타겟</strong> 맵</td>
+</tr>
+<tr>
+<td><code>[WK1][05]</code></td>
+<td>주차 <strong>통합 요약</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>클리셰 회피:</strong> 호텔·병원·오피스·라스트마일·공항·식당 등 <strong>범용 서비스 로봇</strong>은 단독 도메인으로 쓰지 않는다 (<code>no-generic-service-robot-ideas</code>).</p>
+</blockquote>
+<h3>0.1 3국 도메인 등급 요약</h3>
+<table>
+<thead>
+<tr>
+<th>시장</th>
+<th>[우선]</th>
+<th>[재검토]</th>
+<th>[보류]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🇰🇷 한국</td>
+<td>K2 RPC · K4 아카이브 · K5 지하철</td>
+<td>K9 K-Tour</td>
+<td>K1 전시 · K8 경매 · K3 ODM</td>
+</tr>
+<tr>
+<td>🇯🇵 일본</td>
+<td>J8 장례 · J4 DT+로봇</td>
+<td>J7 방재</td>
+<td>J5 Fab · J1 철도 · J3 창고</td>
+</tr>
+<tr>
+<td>🇸🇦 사우디</td>
+<td><strong>S1 Event Chain</strong> · S2 Expo(흡수) · S8 프라이버시 · S3 낙타 축제 · S1-sub VIP냉장</td>
+<td>—</td>
+<td>S7 유적 · S4 커피 · S6 매 · S5 대추</td>
+</tr>
+</tbody>
+</table>
+<p>상세: <strong>1.3절</strong> · <code>[WK1][04A]</code> · <code>[WK1][04B]</code> 0.2절 · <code>[WK1][05]</code></p>
+<hr />
+<h2>1. 공통 선정 기준</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">번호</th>
+<th>기준</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">G1</td>
+<td>클리셰 회피</td>
+<td>호텔·병원·오피스·라스트마일·공항·식당을 <strong>그대로 1안</strong>으로 쓰지 않음 → <strong>판정·목록: 6절</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">G2</td>
+<td>로봇 필요성</td>
+<td>조명·카트·전동차·앱만으로 대체 가능하면 제외</td>
+</tr>
+<tr>
+<td style="text-align: center;">G3</td>
+<td>명확한 타깃</td>
+<td><strong>누가 계약·예산을 결정하는지</strong> 한 문장으로 특정</td>
+</tr>
+<tr>
+<td style="text-align: center;">G4</td>
+<td>이용 빈도</td>
+<td>주 3회 이상, 또는 연 4회 이상 훈련·순환</td>
+</tr>
+<tr>
+<td style="text-align: center;">G5</td>
+<td>ROI·RaaS</td>
+<td>인력시간·건당 이동 비용을 산출할 수 있어야 함</td>
+</tr>
+<tr>
+<td style="text-align: center;">G6</td>
+<td>NAVER 가치</td>
+<td>1784·ARC·Maps·디지털 트윈·SusHi·NHC 등 현지 SI가 대체 불가</td>
+</tr>
+<tr>
+<td style="text-align: center;">G7</td>
+<td>제품 단일</td>
+<td>도메인마다 Rookie 또는 Nuri <strong>하나</strong>만 지정</td>
+</tr>
+<tr>
+<td style="text-align: center;">G8</td>
+<td>지속·리스크</td>
+<td>3년 이상 예산·계약, 종교·민원 리스크 관리 가능</td>
+</tr>
+</tbody>
+</table>
+<h3>1.1 G1과 본문의 관계</h3>
+<p>G1(클리셰 회피)에 걸린 항목은 6절 제외 목록. <strong>도메인 등급</strong>은 G1과 별도 — 1.3절.</p>
+<h3>1.2 도메인 등급 (3국 공통)</h3>
+<blockquote>
+<p><strong>점수만으로 등급이 정해지지 않는다.</strong> 100점 <strong>합계</strong>와 5축 <strong>실행·1차 데이터</strong>, 그리고 <strong>게이트(1차·정치·B2C·협회)</strong> 를 함께 본다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>등급</th>
+<th>판정 조건 (모두 읽기)</th>
+<th>대표 예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[우선]</strong></td>
+<td>① 합계(100점) <strong>≥80</strong> <strong>且</strong> ② <strong>실행·1차 블로커 없음</strong> — 5축 <strong>「실행·1차 데이터」≥3</strong> (또는 <code>data/survey/</code> 인용 확보) <strong>且</strong> ③ Decider·NAVER 번들이 한 문장으로 설명됨</td>
+<td>농협·RPC 첫 구간 · 국가기록·문화재 창고 · 지하철·철도 FM · 장례 백오피스 · <strong>Event Chain</strong></td>
+</tr>
+<tr>
+<td><strong>[재검토]</strong></td>
+<td>① 합계 <strong>≥75</strong> <strong>且</strong> ② 아래 <strong>게이트 미충족</strong> 중 <strong>하나 이상</strong> — <strong>1차 데이터 부족</strong>(5축 실행·1차 ≤2) · <strong>B2G·정치·협회</strong> 리스크 · <strong>B2C·관광 노출</strong>로 클리셰 오해 · <strong>발표·deck</strong> 약함</td>
+<td>K-Tour 동행 · 방재 비축 순환</td>
+</tr>
+<tr>
+<td><strong>[보류]</strong></td>
+<td>[우선]·[재검토]에 해당하지 않음 — 합계 <strong>60–74</strong>, 또는 <strong>SAM·가동률·발표 임팩트</strong> 약함, 또는 차별·1차 모두 부족</td>
+<td>전시·컨벤션 설치 · 경매 프리뷰 · Fab 클린룸 외곽</td>
+</tr>
+<tr>
+<td><strong>G1 제외</strong></td>
+<td>클리셰 6종(호텔·병원·오피스·라스트마일·공항·식당) <strong>그대로</strong></td>
+<td>복지관·도서관 배송 · 오피스 FM 단독 등</td>
+</tr>
+</tbody>
+</table>
+<h4>1.2.0 등급 판정 순서 (헷갈릴 때)</h4>
+<pre><code>1) G1 클리셰 해당? → 예: G1 제외
+2) 합계 ≥80 이고, 실행·1차 ≥3, 게이트 이슈 없음? → 예: [우선]
+3) 합계 ≥75 이고, 1차·정치·B2C·협회·deck 게이트 미충족? → 예: [재검토]  ← K9(86)·J7(76)
+4) 그 외 비교 가치 있음 → [보류]
+</code></pre>
+<p><strong>K9가 86점인데 [재검토]인 이유:</strong> 합계는 [우선] 구간이지만 <strong>실행·1차=2</strong>(인터뷰·PoC 없음)이고, <strong>관광·B2C·가이드협회</strong> 게이트가 남아 있어 <strong>6.4절 조건부</strong>로 둔다. (NAVER 5축·캠페인 점수만으로 [우선]에 올리지 않음.)</p>
+<p><strong>J7이 76점인데 [재검토]인 이유:</strong> 합계 ≥75이나 <strong>방재과 1차·deck 스토리</strong> 게이트 미충족 — K9와 같은 <strong>[재검토] 유형</strong>.</p>
+<h3>1.2.1 점수 체계 — 100점 비교표와 5축 평가</h3>
+<p>본 문서는 <strong>두 가지 점수</strong>를 함께 쓴다. 헷갈리지 않도록 구분한다.</p>
+<p><strong>① 합계(100점)</strong> — 국가별 <strong>2.5·3.5·4.5절</strong> 비교표·발표 순위용</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th style="text-align: center;">배점</th>
+<th>무엇을 보는가</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>참신성</td>
+<td style="text-align: center;">30</td>
+<td>클리셰 회피·도메인 재정의 (<code>no-generic-service-robot-ideas</code>)</td>
+</tr>
+<tr>
+<td>캠페인·NAVER 스토리</td>
+<td style="text-align: center;">25</td>
+<td>1784·Maps·ARC·DT 등 브랜드 내러티브</td>
+</tr>
+<tr>
+<td>시장·SAM</td>
+<td style="text-align: center;">20</td>
+<td>규모·성장·Decider 접근성</td>
+</tr>
+<tr>
+<td>기술·제품 적합</td>
+<td style="text-align: center;">15</td>
+<td>Rookie/Nuri·인프라 게이트</td>
+</tr>
+<tr>
+<td>발표·deck</td>
+<td style="text-align: center;">10</td>
+<td>15분 발표 임팩트·시각화</td>
+</tr>
+</tbody>
+</table>
+<p><strong>② 5축 평가 (각 1–5점)</strong> — <strong>1.3절</strong> 등급표·트렌드 적합 <strong>빠른 비교</strong>용 (<code>naver-evaluation</code> 축과 정렬)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th>평가 축</th>
+<th>평가 질문</th>
+<th style="text-align: center;">1점</th>
+<th style="text-align: center;">3점</th>
+<th style="text-align: center;">5점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td><strong>독창성</strong></td>
+<td>「서비스 로봇 활용」 구글 1페이지형을 <strong>넘어섰는가</strong>?</td>
+<td style="text-align: center;">클리셰 그대로</td>
+<td style="text-align: center;">역할·동선 <strong>한 단계 구체화</strong></td>
+<td style="text-align: center;">업계·국내에서 <strong>재정의</strong> 수준</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td><strong>NAVER 가치</strong></td>
+<td>현지 SI 없이 <strong>NAVER만</strong> 줄 수 있는가?</td>
+<td style="text-align: center;">대체 가능</td>
+<td style="text-align: center;">Maps·ARC 등 <strong>일부</strong> 번들</td>
+<td style="text-align: center;">1784·지도·페이·DT <strong>풀스택</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td><strong>인프라 적합</strong></td>
+<td>RoboPort·보도 인증·DT 등 <strong>게이트</strong>와 맞는가?</td>
+<td style="text-align: center;">인프라 없음</td>
+<td style="text-align: center;">부분 연동·파일럿 가능</td>
+<td style="text-align: center;">실증·인증 <strong>충족 중</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td><strong>CX·지속가능성</strong></td>
+<td>3년+ 가동·민원·종교·안전 리스크를 <strong>관리</strong>할 수 있는가?</td>
+<td style="text-align: center;">리스크 과다·민원 높음</td>
+<td style="text-align: center;">조건부·니치</td>
+<td style="text-align: center;">가동률·ESG·안전 <strong>스토리 명확</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td><strong>실행·1차 데이터</strong></td>
+<td>Decider 인용·파일럿·PoC <strong>증거</strong>가 있는가?</td>
+<td style="text-align: center;">가설·2차만</td>
+<td style="text-align: center;">시뮬·위키 초안</td>
+<td style="text-align: center;"><code>data/survey/</code> <strong>인용 3건+</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>읽는 법:</strong> 1.3절 표에서 <strong>합계</strong> = 100점(참신·캠페인·시장·기술·발표). <strong>독창성~실행·1차 데이터</strong> = 5축(1–5).<br />
+<strong>등급</strong>은 <strong>1.2절·1.2.0절</strong> 순서대로 — <strong>합계만으로 [우선]이 되지 않는다</strong> (예: K9 합계 86 → [재검토]).</p>
+</blockquote>
+<h3>1.3 3국 도메인 등급표</h3>
+<blockquote>
+<p><strong>등급 열</strong> = 1.2절 판정. <strong>합계</strong>가 높아도 게이트 미충족이면 [재검토] — <strong>K9(86)</strong> 참고.</p>
+</blockquote>
+<h4>🇰🇷 한국</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ID</th>
+<th>도메인</th>
+<th style="text-align: center;">등급</th>
+<th style="text-align: center;">합계(100점)</th>
+<th style="text-align: center;">독창성</th>
+<th style="text-align: center;">NAVER 가치</th>
+<th style="text-align: center;">인프라 적합</th>
+<th style="text-align: center;">CX·지속가능성</th>
+<th style="text-align: center;">실행·1차 데이터</th>
+<th>핵심 판정</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">K2</td>
+<td>농협·RPC 첫 구간</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td style="text-align: center;">89</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td>KIRIA 게이트·누리 적합 · 1차 RPC Decider 필요</td>
+</tr>
+<tr>
+<td style="text-align: center;">K9</td>
+<td>K-Tour 동행</td>
+<td style="text-align: center;"><strong>재검토</strong></td>
+<td style="text-align: center;">86</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td><strong>합계 86이나 실행·1차=2·관광 게이트</strong> → 1.2.0절·6.4절</td>
+</tr>
+<tr>
+<td style="text-align: center;">K4</td>
+<td>아카이브·문화재</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td style="text-align: center;">82</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td>독창성 최고 · SAM 작음</td>
+</tr>
+<tr>
+<td style="text-align: center;">K5</td>
+<td>지하철·철도 FM</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td style="text-align: center;">81</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td>1784 동일 스택 · B2G 입찰 지연</td>
+</tr>
+<tr>
+<td style="text-align: center;">K1</td>
+<td>전시·컨벤션 설치</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">78</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td>옴니모달 강점 · 시즌성·가동률</td>
+</tr>
+<tr>
+<td style="text-align: center;">K8</td>
+<td>경매 프리뷰장</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">75</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td>백오피스·G1 통과 · SAM 극소</td>
+</tr>
+<tr>
+<td style="text-align: center;">K3</td>
+<td>K-뷰티 ODM 샘플</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">66</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td>실내 Rookie 적합 · 브랜드·시장 약함</td>
+</tr>
+<tr>
+<td style="text-align: center;">K6·K7</td>
+<td>복지관·도서관</td>
+<td style="text-align: center;">G1</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td>6.2절</td>
+</tr>
+</tbody>
+</table>
+<h4>🇯🇵 일본</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ID</th>
+<th>도메인</th>
+<th style="text-align: center;">등급</th>
+<th style="text-align: center;">합계(100점)</th>
+<th style="text-align: center;">독창성</th>
+<th style="text-align: center;">NAVER 가치</th>
+<th style="text-align: center;">인프라 적합</th>
+<th style="text-align: center;">CX·지속가능성</th>
+<th style="text-align: center;">실행·1차 데이터</th>
+<th>핵심 판정</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">J8</td>
+<td>장례식장</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td style="text-align: center;">91</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td>일본 최고점 · 정서·광고 규제</td>
+</tr>
+<tr>
+<td style="text-align: center;">J4</td>
+<td>DT+로봇</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td style="text-align: center;">84</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td>PLATEAU·SusHi · 합의 6–12개월</td>
+</tr>
+<tr>
+<td style="text-align: center;">J7</td>
+<td>방재 비축</td>
+<td style="text-align: center;"><strong>재검토</strong></td>
+<td style="text-align: center;">76</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td><strong>합계≥75·deck·방재과 1차 게이트</strong> → 1.2.0절·6.4절</td>
+</tr>
+<tr>
+<td style="text-align: center;">J5</td>
+<td>Fab 클린룸 외곽</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">71</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td>Physical AI 맞음 · deck 약·사이클</td>
+</tr>
+<tr>
+<td style="text-align: center;">J1</td>
+<td>역·지하상가 야간</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td>K5·JR과 중복 · 차별 약함</td>
+</tr>
+<tr>
+<td style="text-align: center;">J3</td>
+<td>창고 야간 토트</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">63</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td>METI 물류 일반론 인접</td>
+</tr>
+<tr>
+<td style="text-align: center;">J2·J6·J9·J10</td>
+<td>오피스·돌봄·CVS·실버</td>
+<td style="text-align: center;">G1</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td>6.2절</td>
+</tr>
+</tbody>
+</table>
+<h4>🇸🇦 사우디</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ID</th>
+<th>도메인</th>
+<th style="text-align: center;">등급</th>
+<th style="text-align: center;">합계(100점)</th>
+<th style="text-align: center;">독창성</th>
+<th style="text-align: center;">NAVER 가치</th>
+<th style="text-align: center;">인프라 적합</th>
+<th style="text-align: center;">CX·지속가능성</th>
+<th style="text-align: center;">실행·1차 데이터</th>
+<th>핵심 판정</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">S1</td>
+<td><strong>Event Chain</strong> — 국가행사 백오피스 키트</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td style="text-align: center;"><strong>91</strong></td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;">4</td>
+<td>백오피스·플랫폼 · <strong>2주차 1안</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">S2</td>
+<td>Expo·월드컵 키트 (S1 확장)</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td style="text-align: center;">87</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td>S1에 흡수 · 국가 마감</td>
+</tr>
+<tr>
+<td style="text-align: center;">S8</td>
+<td>우드·프라이버시</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td style="text-align: center;">82</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td>OTE 최고 · 니치·DT 선행</td>
+</tr>
+<tr>
+<td style="text-align: center;">S3</td>
+<td>낙타 축제 키트</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td style="text-align: center;">80</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td>헤리티지 · 시즌 편중(경계)</td>
+</tr>
+<tr>
+<td style="text-align: center;">S7</td>
+<td>유적 복원 시료</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">70</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td>RCU 백오피스 · 규모 제한</td>
+</tr>
+<tr>
+<td style="text-align: center;">S4</td>
+<td>칼왈라니 커피 시료</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">71</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td>유네스코 니치</td>
+</tr>
+<tr>
+<td style="text-align: center;">S6</td>
+<td>매 조련·응급</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">69</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td>문화 독특 · 시즌·규모</td>
+</tr>
+<tr>
+<td style="text-align: center;">S5</td>
+<td>대추야시장 검체</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td>S1·S3 대비 약함</td>
+</tr>
+<tr>
+<td style="text-align: center;">noon·KSIA·아람코·ROSHN</td>
+<td>퀵커머스·공항·오피스</td>
+<td style="text-align: center;">G1</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td>6.2절</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. 한국</h2>
+<h3>2.1 시장 맥락</h3>
+<table>
+<thead>
+<tr>
+<th>차원</th>
+<th>내용</th>
+<th>시사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>정책</td>
+<td>K-문샷·KIRIA 실증·국토부 실외 규제</td>
+<td>누리 보도 인증이 실외 도입 관문</td>
+</tr>
+<tr>
+<td>민간</td>
+<td>1784·루키 vs 양재 DAL-e</td>
+<td>로봇 친화 빌딩 실증 경쟁</td>
+</tr>
+<tr>
+<td>소비</td>
+<td>배달 앱 친화, Neubie·Pudu 등 선점</td>
+<td>B2B·공공·백스테이지 중심</td>
+</tr>
+<tr>
+<td>NAVER</td>
+<td>Maps·Works·NCP·Omniverse MOU</td>
+<td>실내+실외 번들 설득</td>
+</tr>
+</tbody>
+</table>
+<h3>2.2 1차 타겟 맵 (B2B · B2G · B2C)</h3>
+<blockquote>
+<p><strong>계약 주체</strong> 기준 1차 타겟. 상세·페르소나·Pain은 <a href="./[WK1][04B]_markets_gtm_targets.md"><code>[WK1][04B]</code></a> 참고. B2C는 <strong>수용성 검증</strong> 축이며 단독 1안 아님.<br />
+<strong>제품:</strong> <strong>루키</strong>(실내) · <strong>누리</strong>(실외) · <strong>루키+누리</strong>(옴니모달). <strong>연결 도메인:</strong> 코드+풀네임 — 상세는 2.3절.<br />
+<strong>접촉 순위:</strong> 1순위=당장 MOU·인터뷰 · 2순위=확장 채널 · 3순위=조건부·게이트 후 — <a href="./[WK1][04B]_markets_gtm_targets.md"><code>[WK1][04B]</code> 0.3절</a> (도메인 등급 [우선]과 <strong>다름</strong>).</p>
+</blockquote>
+<h4>B2B 1차 타겟</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">접촉 순위</th>
+<th>기업·기관</th>
+<th>사업 영역</th>
+<th style="text-align: left;">제품</th>
+<th style="text-align: center;">적합</th>
+<th>왜 지금인가</th>
+<th>연결 도메인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>COEX·KINTEX·BEXCO</strong></td>
+<td>MICE·전시장 FM</td>
+<td style="text-align: left;">루키+누리</td>
+<td style="text-align: center;">5</td>
+<td>개막 전 야간 설치·하역→홀 옴니모달</td>
+<td>K1 전시·컨벤션 설치 물류</td>
+</tr>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>aT·농협유통(RPC)</strong></td>
+<td>농산물 산지 물류</td>
+<td style="text-align: left;">누리</td>
+<td style="text-align: center;">5</td>
+<td>RPC 100곳+ · 새벽 첫 구간 병목</td>
+<td>K2 농협·RPC 산지→경매장 신선식품</td>
+</tr>
+<tr>
+<td style="text-align: center;">2순위</td>
+<td><strong>K-뷰티 ODM (콜마·코오롱 등)</strong></td>
+<td>샘플·인수인계</td>
+<td style="text-align: left;">루키</td>
+<td style="text-align: center;">4</td>
+<td>수출 샘플 추적·공장↔쇼룸</td>
+<td>K3 K-뷰티 ODM 샘플·인수인계</td>
+</tr>
+<tr>
+<td style="text-align: center;">2순위</td>
+<td><strong>서울옥션·K-Auction</strong></td>
+<td>경매 프리뷰장</td>
+<td style="text-align: left;">루키</td>
+<td style="text-align: center;">4</td>
+<td>봉인 로트·설치 자재 운반</td>
+<td>K8 경매 프리뷰장 운영 물류</td>
+</tr>
+</tbody>
+</table>
+<h4>B2G 1차 타겟</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">접촉 순위</th>
+<th>기관</th>
+<th>사업 영역</th>
+<th style="text-align: left;">제품</th>
+<th style="text-align: center;">적합</th>
+<th>왜 지금인가</th>
+<th>연결 도메인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>KIRIA·국토교통부</strong></td>
+<td>실외 로봇 실증·인증</td>
+<td style="text-align: left;">누리</td>
+<td style="text-align: center;">5</td>
+<td>2026 실증 ~127억 · 보도 인증 관문</td>
+<td>K2 농협·RPC 산지→경매장 신선식품</td>
+</tr>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>국립기록원·문화재청</strong></td>
+<td>수장고·보존</td>
+<td style="text-align: left;">루키</td>
+<td style="text-align: center;">5</td>
+<td>공공 독창 레퍼런스 · 백오피스만</td>
+<td>K4 국가기록·문화재 보존 창고</td>
+</tr>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>코레일·서울교통공사</strong></td>
+<td>철도·지하철 FM</td>
+<td style="text-align: left;">루키</td>
+<td style="text-align: center;">5</td>
+<td>역사·차량기지 야간 · 1784 스택</td>
+<td>K5 지하철·철도 시설 백오피스</td>
+</tr>
+<tr>
+<td style="text-align: center;">2순위</td>
+<td><strong>농협중앙회·지자체</strong></td>
+<td>RPC·농정</td>
+<td style="text-align: left;">누리</td>
+<td style="text-align: center;">4</td>
+<td>산지 첫 구간·농가 소득 KPI</td>
+<td>K2 농협·RPC 산지→경매장 신선식품</td>
+</tr>
+<tr>
+<td style="text-align: center;">3순위</td>
+<td><strong>문체부·한국관광공사·서울시·종로구</strong></td>
+<td>K-관광 2027·인바운드</td>
+<td style="text-align: left;">누리</td>
+<td style="text-align: center;">4</td>
+<td>외국인 1,750만→3,000만 · <strong>B2G KPI</strong> 직결</td>
+<td>K9 K-Tour 동행 (짐·통역·동선·결제)</td>
+</tr>
+<tr>
+<td style="text-align: center;">3순위</td>
+<td><strong>(사)관광통역안내사협회</strong></td>
+<td>가이드 생태계</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">2</td>
+<td><strong>Influencer·게이트키퍼</strong> (Decider 아님)</td>
+<td>K9 K-Tour 동행 (짐·통역·동선·결제)</td>
+</tr>
+</tbody>
+</table>
+<h4>B2C 1차 타겟 (간접 · 검증 전)</h4>
+<table>
+<thead>
+<tr>
+<th>페르소나</th>
+<th>불편</th>
+<th>제품</th>
+<th>연결 도메인</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>전시 참가사 스태프</td>
+<td>개막 전 야간 피로</td>
+<td>루키+누리</td>
+<td>K1 전시·컨벤션 설치 물류</td>
+<td>결정권자 = 전시장 FM</td>
+</tr>
+<tr>
+<td>인바운드 외국인 관광객</td>
+<td>짐·언어·동선 파편화</td>
+<td>누리</td>
+<td>K9 K-Tour 동행 (짐·통역·동선·결제)</td>
+<td>계약 = B2G·면세·호텔 · <strong>시뮬레이션만</strong> (<code>data/survey/</code>)</td>
+</tr>
+<tr>
+<td>일반 배달 이용자</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td><strong>G1 제외</strong> (배민·뉴빌리티 선점)</td>
+</tr>
+</tbody>
+</table>
+<h3>2.3 도메인 후보</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ID</th>
+<th>도메인</th>
+<th style="text-align: center;">제품</th>
+<th style="text-align: center;">등급</th>
+<th>왜 이 도메인인가</th>
+<th>연결 타겟</th>
+<th>결정 권자</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">K2</td>
+<td>농협·RPC 산지→경매장 신선식품 운송</td>
+<td style="text-align: center;">누리</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td>새벽 경매 전 <strong>첫 구간</strong> 병목 — B2C 배달 아님</td>
+<td>B2G: KIRIA·농협 / B2B: aT</td>
+<td>농협·RPC·지자체</td>
+</tr>
+<tr>
+<td style="text-align: center;">K4</td>
+<td>국가기록·문화재 보존 창고 물류</td>
+<td style="text-align: center;">루키</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td>온습도 구역 <strong>백오피스</strong> 반복 이동 — 유물 직접 운반 아님</td>
+<td>B2G: 기록원·문화재청</td>
+<td>국립기록원·문화재청</td>
+</tr>
+<tr>
+<td style="text-align: center;">K5</td>
+<td>지하철·철도 시설 백오피스 물류</td>
+<td style="text-align: center;">루키</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td>역사·차량기지 <strong>야간</strong> 부품·서류 — 승객 안내 아님</td>
+<td>B2G: 코레일·교통공사</td>
+<td>코레일·서울교통공사</td>
+</tr>
+<tr>
+<td style="text-align: center;">K9</td>
+<td>K-Tour 동행 (짐·통역·동선·결제)</td>
+<td style="text-align: center;">누리</td>
+<td style="text-align: center;"><strong>재검토</strong></td>
+<td>B2G K-관광 KPI + Maps·파파고·페이 — 해설 X</td>
+<td>B2G: 문체부·한관공·종로구</td>
+<td>문체부·한관공·서울시</td>
+</tr>
+<tr>
+<td style="text-align: center;">K1</td>
+<td>전시·컨벤션 설치 물류 (부스↔하역장)</td>
+<td style="text-align: center;">루키+누리</td>
+<td style="text-align: center;">보류</td>
+<td>개막 전 야간 부스 자재 반복 운반 · 옴니모달</td>
+<td>B2B: COEX·KINTEX</td>
+<td>전시장 시설·전시 대행사</td>
+</tr>
+<tr>
+<td style="text-align: center;">K8</td>
+<td>경매 프리뷰장 운영 물류</td>
+<td style="text-align: center;">루키</td>
+<td style="text-align: center;">보류</td>
+<td>봉인 로트·설치 자재만 — 작품 직접 X</td>
+<td>B2B: 서울옥션</td>
+<td>경매장 시설·운영</td>
+</tr>
+<tr>
+<td style="text-align: center;">K3</td>
+<td>K-뷰티 ODM 샘플·인수인계</td>
+<td style="text-align: center;">루키</td>
+<td style="text-align: center;">보류</td>
+<td>수출 샘플 추적·공장↔쇼룸</td>
+<td>B2B: ODM</td>
+<td>화장품 ODM·몰 운영</td>
+</tr>
+</tbody>
+</table>
+<h3>2.4 위키·연습 정본 (K9)</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th style="text-align: center;">제품</th>
+<th>위키</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K9 K-Tour 동행</td>
+<td style="text-align: center;">누리</td>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5312199001">변정훈 실외로봇×한국</a></td>
+<td><strong>6.4절 조건부</strong> · 1차 인터뷰 전</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>상세 전략·페르소나·경쟁표: <code>deliverables/05-28/[05.28][변정훈] 실외로봇 X 한국/</code> · 인터뷰 가이드 <code>data/survey/interview_guide_ktour_3personas.md</code></p>
+</blockquote>
+<h3>2.5 도메인 비교 (한국 · 전체)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ID</th>
+<th>도메인</th>
+<th style="text-align: center;">등급</th>
+<th style="text-align: center;">참신</th>
+<th style="text-align: center;">캠페인</th>
+<th style="text-align: center;">시장</th>
+<th style="text-align: center;">기술</th>
+<th style="text-align: center;">발표</th>
+<th style="text-align: center;">합계</th>
+<th>강점</th>
+<th>약점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">K2</td>
+<td>농협·RPC</td>
+<td style="text-align: center;">우선</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">89</td>
+<td>실외 첫 구간·누리</td>
+<td>국토부·4사 경쟁</td>
+</tr>
+<tr>
+<td style="text-align: center;">K9</td>
+<td>K-Tour</td>
+<td style="text-align: center;">재검토</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">86</td>
+<td>NAVER 5축·브랜드</td>
+<td>협회·1차 없음</td>
+</tr>
+<tr>
+<td style="text-align: center;">K4</td>
+<td>아카이브</td>
+<td style="text-align: center;">우선</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">82</td>
+<td>독창·공공 레퍼런스</td>
+<td>SAM 작음</td>
+</tr>
+<tr>
+<td style="text-align: center;">K5</td>
+<td>지하철</td>
+<td style="text-align: center;">우선</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">81</td>
+<td>1784 스택</td>
+<td>B2G 입찰 지연</td>
+</tr>
+<tr>
+<td style="text-align: center;">K1</td>
+<td>전시</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">78</td>
+<td>옴니모달</td>
+<td>시즌성</td>
+</tr>
+<tr>
+<td style="text-align: center;">K8</td>
+<td>경매</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">75</td>
+<td>백오피스·G1 통과</td>
+<td>SAM 극소</td>
+</tr>
+<tr>
+<td style="text-align: center;">K3</td>
+<td>K-뷰티 ODM</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">66</td>
+<td>실내 R</td>
+<td>브랜드·시장 약함</td>
+</tr>
+</tbody>
+</table>
+<p><strong>등급별 핵심</strong> — 상세 <code>[WK1][04A]</code> 부록 A~D · M(K9) · N(보류)</p>
+<table>
+<thead>
+<tr>
+<th>등급</th>
+<th>도메인</th>
+<th>한 줄</th>
+<th>리스크</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>우선</td>
+<td>K2·K4·K5</td>
+<td>산지·수장고·철도 <strong>백오피스</strong></td>
+<td>인증·입찰·SAM</td>
+</tr>
+<tr>
+<td>재검토</td>
+<td>K9</td>
+<td>B2G K-관광 + NAVER 풀스택</td>
+<td>협회·1차·인파</td>
+</tr>
+<tr>
+<td>보류</td>
+<td>K1·K8·K3</td>
+<td>전시 옴니·경매·ODM</td>
+<td>시즌·니치·브랜드</td>
+</tr>
+</tbody>
+</table>
+<h3>2.6 제품 적합</h3>
+<table>
+<thead>
+<tr>
+<th>제품</th>
+<th>적합 장면</th>
+<th>한계</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rookie (루키)</td>
+<td>1784·RoboPort·Works·실내 시설 관리</td>
+<td>로봇 동선이 없는 기존 건물은 체험 품질 저하</td>
+</tr>
+<tr>
+<td>Nuri (누리)</td>
+<td>KIRIA 보도·단지·농산물 RPC</td>
+<td>실외 인증 4사 공유 — Maps+ARC 번들로 차별 필요</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. 일본</h2>
+<h3>3.1 시장 맥락</h3>
+<table>
+<thead>
+<tr>
+<th>차원</th>
+<th>내용</th>
+<th>시사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>사회</td>
+<td>초고령·인력난</td>
+<td>반복·야간·중량 이동</td>
+</tr>
+<tr>
+<td>문화</td>
+<td>규율·사전 합의</td>
+<td>관제·고정 동선·6–12개월 시범</td>
+</tr>
+<tr>
+<td>정책</td>
+<td>통합혁신 2025·METI·SusHi 2026</td>
+<td>B2C 배달과 분리</td>
+</tr>
+<tr>
+<td>NAVER</td>
+<td>SusHi·NTT·PLATEAU·ARC JPN-4</td>
+<td>LINE·Works 단독 확장 불가 (<code>[WK1][01]</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3>3.2 1차 타겟 맵 (B2B · B2G · B2C)</h3>
+<blockquote>
+<p>상세·결재 경로는 <a href="./[WK1][04B]_markets_gtm_targets.md"><code>[WK1][04B]</code></a> 2절. J9·J10·J2·J6 등 G1 제외는 <strong>6절</strong>.<br />
+<strong>접촉 순위:</strong> 1·2·3순위 — <a href="./[WK1][04B]_markets_gtm_targets.md"><code>[WK1][04B]</code> 0.3절</a>.</p>
+</blockquote>
+<h4>B2B 1차 타겟</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">접촉 순위</th>
+<th>기업·기관</th>
+<th>사업 영역</th>
+<th style="text-align: left;">제품</th>
+<th style="text-align: center;">적합</th>
+<th>왜 지금인가</th>
+<th>연결 도메인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>장례 체인 (보전사·메이플 등)</strong></td>
+<td>장례식장 운영</td>
+<td style="text-align: left;">루키</td>
+<td style="text-align: center;">5</td>
+<td>시장 약 1.86조 엔 · 구인난 7.59배</td>
+<td>J8 장례식장 안내·백오피스</td>
+</tr>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>미쓰이·미쓰비시 지역 개발사</strong></td>
+<td>신도시·디지털 트윈</td>
+<td style="text-align: left;">루키</td>
+<td style="text-align: center;">5</td>
+<td>DT 35%·로봇 친화 빌딩 표준</td>
+<td>J4 디지털 트윈 신도시+로봇</td>
+</tr>
+<tr>
+<td style="text-align: center;">2순위</td>
+<td><strong>Fab EHS (TSMC 구마모토 등)</strong></td>
+<td>클린룸 외곽</td>
+<td style="text-align: left;">루키</td>
+<td style="text-align: center;">4</td>
+<td>클린룸 내부 vs 외곽 인력</td>
+<td>J5 Fab 클린룸 외곽 물류</td>
+</tr>
+<tr>
+<td style="text-align: center;">2순위</td>
+<td><strong>3PL·이커머스 (야마토·사가와 연계)</strong></td>
+<td>창고 야간 토트</td>
+<td style="text-align: left;">루키</td>
+<td style="text-align: center;">4</td>
+<td>METI 물류·2024 인력 이슈</td>
+<td>J3 창고 야간 토트 운반</td>
+</tr>
+</tbody>
+</table>
+<h4>B2G 1차 타겟</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">접촉 순위</th>
+<th>기관</th>
+<th>사업 영역</th>
+<th style="text-align: left;">제품</th>
+<th style="text-align: center;">적합</th>
+<th>왜 지금인가</th>
+<th>연결 도메인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>NTT 동일본·지자체</strong></td>
+<td>디지털 트윈·PLATEAU</td>
+<td style="text-align: left;">루키</td>
+<td style="text-align: center;">5</td>
+<td>SusHi 2026 · 공공건물 스마트화</td>
+<td>J4 디지털 트윈 신도시+로봇</td>
+</tr>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>지자체 방재과</strong></td>
+<td>비축·재난</td>
+<td style="text-align: left;">루키</td>
+<td style="text-align: center;">4</td>
+<td>분기·월 순환 · 재난 대응 모드</td>
+<td>J7 방재 비축품 순환</td>
+</tr>
+<tr>
+<td style="text-align: center;">2순위</td>
+<td><strong>경제산업성·중속 로봇 WG</strong></td>
+<td>실증·규제</td>
+<td style="text-align: left;">누리</td>
+<td style="text-align: center;">4</td>
+<td>R&amp;D 예산 · 보도 시속 6km/h 이하</td>
+<td>(실외 후보)</td>
+</tr>
+<tr>
+<td style="text-align: center;">3순위</td>
+<td><strong>JR·역사 시설 FM</strong></td>
+<td>철도 백오피스</td>
+<td style="text-align: left;">루키</td>
+<td style="text-align: center;">3</td>
+<td>야간·저소음 구간</td>
+<td>J1 역·지하상가 야간 보충 물류</td>
+</tr>
+</tbody>
+</table>
+<h4>B2C 1차 타겟 (간접 · 검증 전)</h4>
+<table>
+<thead>
+<tr>
+<th>페르소나</th>
+<th>불편</th>
+<th>제품</th>
+<th>연결 도메인</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>유족·조문객</td>
+<td>안내 기억 못함·정서</td>
+<td>루키</td>
+<td>J8 장례식장 안내·백오피스</td>
+<td><strong>옵트인</strong> · 거부 38.4%</td>
+</tr>
+</tbody>
+</table>
+<h3>3.3 도메인 후보</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ID</th>
+<th>도메인</th>
+<th style="text-align: center;">제품</th>
+<th style="text-align: center;">등급</th>
+<th>일본에서 맞는 이유</th>
+<th>연결 타겟</th>
+<th>결정 권자</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">J8</td>
+<td>장례식장 안내·백오피스 운반</td>
+<td style="text-align: center;">루키</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td>1.86조 엔 · 유족 앞 안내 vs 뒤 물류 분리</td>
+<td>B2B: 장례 체인</td>
+<td>장례 체인 본사</td>
+</tr>
+<tr>
+<td style="text-align: center;">J4</td>
+<td>디지털 트윈 신도시 + 로봇 레이어</td>
+<td style="text-align: center;">루키</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td>PLATEAU 실측 <strong>가동률</strong> 증명</td>
+<td>B2B: 개발사 / B2G: NTT·지자체</td>
+<td>지자체·NTT</td>
+</tr>
+<tr>
+<td style="text-align: center;">J7</td>
+<td>방재 비축품 순환 (분기+월)</td>
+<td style="text-align: center;">루키</td>
+<td style="text-align: center;"><strong>재검토</strong></td>
+<td>지진 비축·순환 — 가동률 예측 용이</td>
+<td>B2G: 방재과</td>
+<td>지자체 방재과</td>
+</tr>
+<tr>
+<td style="text-align: center;">J5</td>
+<td>반도체 Fab 클린룸 <strong>외곽</strong> 물류</td>
+<td style="text-align: center;">루키</td>
+<td style="text-align: center;">보류</td>
+<td>클린룸 내부 vs 외곽 인력</td>
+<td>B2B: Fab EHS</td>
+<td>Fab 안전·환경</td>
+</tr>
+<tr>
+<td style="text-align: center;">J1</td>
+<td>역·지하상가 야간 보충 물류</td>
+<td style="text-align: center;">루키</td>
+<td style="text-align: center;">보류</td>
+<td>철도 야간·저소음 구간</td>
+<td>B2G: JR·역빌딩</td>
+<td>역 빌딩·JR 시설</td>
+</tr>
+<tr>
+<td style="text-align: center;">J3</td>
+<td>프랜차이즈·창고 야간 토트 운반</td>
+<td style="text-align: center;">루키</td>
+<td style="text-align: center;">보류</td>
+<td>METI 물류 정책·야간 반복</td>
+<td>B2B: 3PL</td>
+<td>물류 대행·이커머스</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>J8: 「위로는 사람이, 안내는 루키가」— 옵트인·광고 규제 주의. 상세 <a href="./[WK1][04A]_markets_domain_appendices.md#부록-e--j8-장례식장-안내백오피스-운반">부록 E</a>.</p>
+</blockquote>
+<h3>3.4 위키 연계 (G1 제외 · 연습만)</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>위키</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>J9 편의점·드럭스 야간 배송</td>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5292875639">오성민 CVS 야간</a></td>
+</tr>
+<tr>
+<td>J10 스마트 실버타운</td>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5305060557">류준하 실버타운</a></td>
+</tr>
+</tbody>
+</table>
+<p>제외 사유·재도입 조건: <strong>6절</strong></p>
+<h3>3.5 도메인 비교 (일본 · 전체)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ID</th>
+<th>도메인</th>
+<th style="text-align: center;">등급</th>
+<th style="text-align: center;">참신</th>
+<th style="text-align: center;">캠페인</th>
+<th style="text-align: center;">시장</th>
+<th style="text-align: center;">기술</th>
+<th style="text-align: center;">발표</th>
+<th style="text-align: center;">합계</th>
+<th>강점</th>
+<th>약점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">J8</td>
+<td>장례식장</td>
+<td style="text-align: center;">우선</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">91</td>
+<td>신선·Why Japan</td>
+<td>정서·광고 규제</td>
+</tr>
+<tr>
+<td style="text-align: center;">J4</td>
+<td>DT+로봇</td>
+<td style="text-align: center;">우선</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">84</td>
+<td>SusHi·PLATEAU</td>
+<td>합의·예산 지연</td>
+</tr>
+<tr>
+<td style="text-align: center;">J7</td>
+<td>방재</td>
+<td style="text-align: center;">재검토</td>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">76</td>
+<td>가동률·B2G</td>
+<td>발표 임팩트 약</td>
+</tr>
+<tr>
+<td style="text-align: center;">J5</td>
+<td>Fab 외곽</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">71</td>
+<td>Physical AI</td>
+<td>deck 약·사이클</td>
+</tr>
+<tr>
+<td style="text-align: center;">J1</td>
+<td>철도 야간</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">65</td>
+<td>K5 유사</td>
+<td>차별 약함</td>
+</tr>
+<tr>
+<td style="text-align: center;">J3</td>
+<td>창고 토트</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">63</td>
+<td>METI 맥락</td>
+<td>물류 일반론 인접</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>등급</th>
+<th>도메인</th>
+<th>한 줄</th>
+<th>리스크</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>우선</td>
+<td>J8·J4</td>
+<td>장례 역할 분리 · DT 가동률</td>
+<td>정서·합의 기간</td>
+</tr>
+<tr>
+<td>재검토</td>
+<td>J7</td>
+<td>방재 순환·재난 모드</td>
+<td>공공 예산·deck</td>
+</tr>
+<tr>
+<td>보류</td>
+<td>J5·J1·J3</td>
+<td>Fab 외곽 · 철도 · 창고</td>
+<td>발표·차별·일반론</td>
+</tr>
+</tbody>
+</table>
+<h3>3.6 제품 적합</h3>
+<ul>
+<li><strong>우선</strong> 도메인(J8·J4)은 <strong>Rookie</strong>(실내·관제) 중심. <strong>재검토·보류</strong>(J7·J5·J1·J3)는 비교·백업.</li>
+<li>Nuri는 실외 후보만 별도 비교 (<code>[WK1][05]</code>).</li>
+</ul>
+<hr />
+<h2>4. 사우디아라비아</h2>
+<h3>4.1 시장 맥락</h3>
+<table>
+<thead>
+<tr>
+<th>차원</th>
+<th>내용</th>
+<th>시사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>거시</td>
+<td>Vision 2030·PIF</td>
+<td>대형 부지 마지막 500m</td>
+</tr>
+<tr>
+<td>기후</td>
+<td>45°C·열사병 지수·정오 야외 작업 제한</td>
+<td>누리 ESG·노동 보호 스토리</td>
+</tr>
+<tr>
+<td>문화</td>
+<td>환대(Diyafa)·프라이버시</td>
+<td>실외 누리→실내 루키 연결</td>
+</tr>
+<tr>
+<td>디지털</td>
+<td>Absher·Nusuk·Sakani</td>
+<td>앱은 됐는데 물리 마지막 미터 병목</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>팀원 보조 (정본 미흡수):</strong> 한정현 <code>[05.29][한정현] 루키×사우디_성별분리허브_브리프.md</code> — Absher 이후 <strong>봉인·2차 승인</strong> 구간 (2주차 후보 · <code>deliverables/05-29/team_research/</code>)<br />
+| NAVER | 5대 도시 디지털 트윈·NHC JV·New Murabba | DT 완성 후 로봇 레이어 |</p>
+</blockquote>
+<h3>4.2 1차 타겟 맵 (B2B · B2G)</h3>
+<blockquote>
+<p><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5295361990">사우디 GTM</a> 기반. noon·KSIA·아람코 등 G1 제외는 <strong>6절</strong>. B2C·페르소나는 <a href="./[WK1][04B]_markets_gtm_targets.md"><code>[WK1][04B]</code></a> 3절.<br />
+<strong>제품:</strong> <strong>루키</strong>(실내) · <strong>누리</strong>(실외) · <strong>누리→루키</strong> / <strong>누리↔루키</strong> = 실외→실내·양방향 핸드오프. <strong>접촉 순위:</strong> <a href="./[WK1][04B]_markets_gtm_targets.md"><code>[WK1][04B]</code> 0.3절</a>.</p>
+</blockquote>
+<h4>B2B 1차 타겟</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">접촉 순위</th>
+<th>기업·기관</th>
+<th>사업 영역</th>
+<th style="text-align: left;">제품</th>
+<th style="text-align: center;">적합</th>
+<th>왜 지금인가</th>
+<th>연결 도메인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>Expo PMO·GEA</strong></td>
+<td>국가행사 백오피스</td>
+<td style="text-align: left;">누리→루키</td>
+<td style="text-align: center;">5</td>
+<td>Event Chain · Works·ARC</td>
+<td><strong>S1 Event Chain</strong> · S2 Expo</td>
+</tr>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>Sawani</strong></td>
+<td>VIP 냉장·브랜드</td>
+<td style="text-align: left;">누리→루키</td>
+<td style="text-align: center;">5</td>
+<td>S1-sub 냉장 토트</td>
+<td>VIP 냉장 · S3 낙타축제</td>
+</tr>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>NEOM / Oxagon</strong></td>
+<td>항만·산업 단지</td>
+<td style="text-align: left;">누리 주, 루키 보조</td>
+<td style="text-align: center;">5</td>
+<td>단지 내 백오피스 · 옴니모달·ARC</td>
+<td>S2 Expo 2030·월드컵 VIP 키트 배송</td>
+</tr>
+<tr>
+<td style="text-align: center;">2순위</td>
+<td><strong>solutions by stc</strong></td>
+<td>스마트시티 통합</td>
+<td style="text-align: left;">루키+플랫폼</td>
+<td style="text-align: center;">4</td>
+<td>디지털 트윈·통합관제 RaaS</td>
+<td>S8 우드 향수 공방→마즐리스 배달</td>
+</tr>
+<tr>
+<td style="text-align: center;">2순위</td>
+<td><strong>ASQ·럭셔리 몰</strong></td>
+<td>프라이버시 단지</td>
+<td style="text-align: left;">누리→루키</td>
+<td style="text-align: center;">4</td>
+<td>존엄·낯선인 최소</td>
+<td>S8 우드 향수 공방→마즐리스 배달</td>
+</tr>
+<tr>
+<td style="text-align: center;">3순위</td>
+<td><strong>Red Sea Global</strong></td>
+<td>무차량 유적·리조트</td>
+<td style="text-align: left;">누리</td>
+<td style="text-align: center;">4</td>
+<td>게이트–빌라 백오피스</td>
+<td>S7 유적지 복원 시료 (헤그라 등)</td>
+</tr>
+</tbody>
+</table>
+<h4>B2G 1차 타겟</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">접촉 순위</th>
+<th>기관</th>
+<th>사업 영역</th>
+<th style="text-align: left;">제품</th>
+<th style="text-align: center;">적합</th>
+<th>왜 지금인가</th>
+<th>연결 도메인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>Expo 2030 리야드 조직위</strong></td>
+<td>국가 박람회</td>
+<td style="text-align: left;">누리→루키</td>
+<td style="text-align: center;">5</td>
+<td>2030 마감 · 보행 구역 키트 공백</td>
+<td>S2 Expo 2030·월드컵 VIP 키트 배송</td>
+</tr>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>GEA</strong></td>
+<td>리야드 시즌·FIFA</td>
+<td style="text-align: left;">누리</td>
+<td style="text-align: center;">5</td>
+<td>연 1,600만+ 방문 · 보행자 전용 구역</td>
+<td>S2 Expo 2030·월드컵 VIP 키트 배송</td>
+</tr>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>Saudi Camel Club</strong></td>
+<td>낙타 축제·산업</td>
+<td style="text-align: left;">누리↔루키</td>
+<td style="text-align: center;">5</td>
+<td>3.8만 두 · 500억 리얄</td>
+<td>S3 낙타축제 · S1-sub VIP 냉장</td>
+</tr>
+<tr>
+<td style="text-align: center;">1순위</td>
+<td><strong>하지·움라 당국</strong></td>
+<td>대규모 순례</td>
+<td style="text-align: left;">누리</td>
+<td style="text-align: center;">4</td>
+<td>170만+ 순례 · 텐트 구역 보조</td>
+<td>S2 Expo 2030·월드컵 VIP 키트 배송</td>
+</tr>
+<tr>
+<td style="text-align: center;">2순위</td>
+<td><strong>RCU (알울라)</strong></td>
+<td>유적·관광</td>
+<td style="text-align: left;">누리→루키</td>
+<td style="text-align: center;">4</td>
+<td>무차량 구역</td>
+<td>S7 유적지 복원 시료 (헤그라 등)</td>
+</tr>
+<tr>
+<td style="text-align: center;">3순위</td>
+<td><strong>NHC (NAVER 합작)</strong></td>
+<td>5대 도시 DT</td>
+<td style="text-align: left;">루키+누리</td>
+<td style="text-align: center;">5</td>
+<td>DT 완성 후 로봇 레이어</td>
+<td>전 도메인 (S1~S8)</td>
+</tr>
+</tbody>
+</table>
+<h3>4.3 기회 영역 (OTE)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">OTE</th>
+<th>내용</th>
+<th style="text-align: center;">점수</th>
+<th>제품</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">B</td>
+<td>프라이버시 단지 (정문→집 문앞)</td>
+<td style="text-align: center;">4.80</td>
+<td>실외 누리→실내 루키</td>
+</tr>
+<tr>
+<td style="text-align: center;">C</td>
+<td>대규모 행사 (하지·엑스포·월드컵)</td>
+<td style="text-align: center;">4.70</td>
+<td>플릿+관제</td>
+</tr>
+<tr>
+<td style="text-align: center;">A</td>
+<td>극한 기후 (폭염·야외 작업 제한)</td>
+<td style="text-align: center;">4.65</td>
+<td>누리</td>
+</tr>
+<tr>
+<td style="text-align: center;">F</td>
+<td>실내외 한 번에 (옴니모달)</td>
+<td style="text-align: center;">4.55</td>
+<td>루키+누리+ARC</td>
+</tr>
+<tr>
+<td style="text-align: center;">D</td>
+<td>문화·스포츠 현장 운영</td>
+<td style="text-align: center;">4.20</td>
+<td>누리</td>
+</tr>
+<tr>
+<td style="text-align: center;">E</td>
+<td>산업·에너지 단지</td>
+<td style="text-align: center;">4.05</td>
+<td>누리</td>
+</tr>
+</tbody>
+</table>
+<h3>4.4 도메인 후보</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ID</th>
+<th>도메인</th>
+<th style="text-align: center;">제품</th>
+<th style="text-align: center;">등급</th>
+<th>왜 이 도메인인가</th>
+<th>연결 타겟</th>
+<th>결정 권자</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">S1</td>
+<td><strong>Nuri–Rookie Event Chain</strong> — 국가행사 백오피스 키트</td>
+<td style="text-align: center;">누리→루키</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td>VIP·미디어·운영 키트 · Works·ARC <strong>운영 OS</strong></td>
+<td>B2G: Expo·GEA</td>
+<td>Expo PMO·GEA · <strong>2주차 1안</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">S1-sub</td>
+<td>VIP 냉장·Sawani (콜드체인 축)</td>
+<td style="text-align: center;">누리→루키</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td>45°C 냉장 토트·온도 로그</td>
+<td>B2B: Sawani / B2G: SFDA</td>
+<td>Sawani·식품의약청</td>
+</tr>
+<tr>
+<td style="text-align: center;">S2</td>
+<td>Expo 2030·월드컵 (Event Chain 확장)</td>
+<td style="text-align: center;">누리→루키</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td>동일 플릿·인계·관제</td>
+<td>B2G: Expo·GEA</td>
+<td>Expo PMO·GEA</td>
+</tr>
+<tr>
+<td style="text-align: center;">S8</td>
+<td>우드 향수 공방→마즐리스 배달</td>
+<td style="text-align: center;">누리→루키</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td>프라이버시·낯선인 최소 접촉</td>
+<td>B2B: ASQ / B2G: NHC</td>
+<td>ASQ·몰 운영</td>
+</tr>
+<tr>
+<td style="text-align: center;">S3</td>
+<td>낙타 축제 심사·의료 키트</td>
+<td style="text-align: center;">누리↔루키</td>
+<td style="text-align: center;"><strong>우선</strong></td>
+<td>3.8만 마리 규모 행사 반복 운반</td>
+<td>B2G: Camel Club</td>
+<td>Camel Club</td>
+</tr>
+<tr>
+<td style="text-align: center;">S7</td>
+<td>유적지 복원 시료 (헤그라 등)</td>
+<td style="text-align: center;">누리→루키</td>
+<td style="text-align: center;">보류</td>
+<td>무차량 구역 복원 현장 백오피스</td>
+<td>B2G: RCU</td>
+<td>RCU</td>
+</tr>
+<tr>
+<td style="text-align: center;">S4</td>
+<td>칼왈라니 커피 시료 (유네스코 산지)</td>
+<td style="text-align: center;">누리→루키</td>
+<td style="text-align: center;">보류</td>
+<td>국가 커피 브랜드·시료 추적</td>
+<td>B2G: PIF·RCU</td>
+<td>PIF·RCU</td>
+</tr>
+<tr>
+<td style="text-align: center;">S6</td>
+<td>사냥용 매 조련·응급 키트</td>
+<td style="text-align: center;">누리↔루키</td>
+<td style="text-align: center;">보류</td>
+<td>수렵 문화·시즌 현장 지원</td>
+<td>B2G: Falcons Club</td>
+<td>Falcons Club</td>
+</tr>
+<tr>
+<td style="text-align: center;">S5</td>
+<td>아즈와 대추야시장 검체 키트</td>
+<td style="text-align: center;">누리→루키</td>
+<td style="text-align: center;">보류</td>
+<td>메디나 전통 시장 품질 검사 샘플</td>
+<td>B2G: 농축산환경부</td>
+<td>환경·농업부</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>2주차 1안:</strong> S1 <strong>Event Chain</strong> — 글로벌 행사 키트 사례·누리→루키 옴니모달 (<code>[WK2][00]</code>). <strong>구 후보</strong> 목장→가공 콜드체인은 <strong>현실성·당위성</strong> 부족으로 메인 <strong>탈락</strong> (<code>[WK1][05]</code> §5 · <code>[WK2][00]</code> §1.4). S1-sub=VIP 냉장·Sawani. S2·S3=발표 ②③④. <a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5312200967">임규은 신규도메인</a> 부록 참고.</p>
+</blockquote>
+<h3>4.5 도메인 비교 (사우디 · 전체)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ID</th>
+<th>도메인</th>
+<th style="text-align: center;">등급</th>
+<th style="text-align: center;">참신</th>
+<th style="text-align: center;">캠페인</th>
+<th style="text-align: center;">시장</th>
+<th style="text-align: center;">기술</th>
+<th style="text-align: center;">발표</th>
+<th style="text-align: center;">합계</th>
+<th>강점</th>
+<th>약점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">S1</td>
+<td><strong>Event Chain</strong></td>
+<td style="text-align: center;">우선</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;"><strong>26</strong></td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;"><strong>91</strong></td>
+<td>백오피스·플랫폼</td>
+<td>보안·인증</td>
+</tr>
+<tr>
+<td style="text-align: center;">S2</td>
+<td>Expo·행사</td>
+<td style="text-align: center;">우선</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">87</td>
+<td>S1 확장</td>
+<td>프로젝트성</td>
+</tr>
+<tr>
+<td style="text-align: center;">S8</td>
+<td>프라이버시</td>
+<td style="text-align: center;">우선</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">82</td>
+<td>OTE·존엄</td>
+<td>니치·DT</td>
+</tr>
+<tr>
+<td style="text-align: center;">S3</td>
+<td>낙타 축제</td>
+<td style="text-align: center;">우선</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">80</td>
+<td>헤리티지</td>
+<td>시즌(경계)</td>
+</tr>
+<tr>
+<td style="text-align: center;">S7</td>
+<td>유적 복원</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">70</td>
+<td>RCU 백오피스</td>
+<td>규모</td>
+</tr>
+<tr>
+<td style="text-align: center;">S4</td>
+<td>커피 시료</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">71</td>
+<td>유네스코</td>
+<td>니치</td>
+</tr>
+<tr>
+<td style="text-align: center;">S6</td>
+<td>매·응급</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">69</td>
+<td>문화 독특</td>
+<td>시즌</td>
+</tr>
+<tr>
+<td style="text-align: center;">S5</td>
+<td>대추 검체</td>
+<td style="text-align: center;">보류</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">65</td>
+<td>전통 시장</td>
+<td>S1·S3 대비 약함</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>등급</th>
+<th>도메인</th>
+<th>한 줄</th>
+<th>리스크</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>우선</td>
+<td>S1·S2·S8·S3</td>
+<td>폭염·행사·프라이버시·축제</td>
+<td>시즌·프로젝트·니치</td>
+</tr>
+<tr>
+<td>보류</td>
+<td>S7·S4·S6·S5</td>
+<td>유적·커피·매·대추</td>
+<td>규모·시즌·중복</td>
+</tr>
+</tbody>
+</table>
+<h3>4.6 위키·GTM 잔여 (G1 제외)</h3>
+<p>noon×Jahez · KSIA 공항 · 아람코 구내 식음 · ROSHN·KAFD 오피스 — <strong>6절</strong> 표 참고.</p>
+<hr />
+<h2>5. 3국 도메인 ↔ 타겟 연결 (요약)</h2>
+<blockquote>
+<p><strong>등급:</strong> 1.3절 · [우선]·[재검토]만 발표 앵커 후보. [보류]는 백업.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ID</th>
+<th style="text-align: center;">등급</th>
+<th>도메인</th>
+<th>B2B</th>
+<th>B2G</th>
+<th>B2C(간접)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">K2</td>
+<td style="text-align: center;">우선</td>
+<td>농협·RPC</td>
+<td>aT·RPC</td>
+<td>KIRIA·농협</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">K4</td>
+<td style="text-align: center;">우선</td>
+<td>아카이브</td>
+<td>—</td>
+<td>기록원·문화재청</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">K5</td>
+<td style="text-align: center;">우선</td>
+<td>지하철</td>
+<td>—</td>
+<td>코레일·교통공사</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">K9</td>
+<td style="text-align: center;">재검토</td>
+<td>K-Tour</td>
+<td>면세·호텔</td>
+<td>문체부·한관공</td>
+<td>인바운드</td>
+</tr>
+<tr>
+<td style="text-align: center;">K1</td>
+<td style="text-align: center;">보류</td>
+<td>전시</td>
+<td>COEX·KINTEX</td>
+<td>—</td>
+<td>참가사</td>
+</tr>
+<tr>
+<td style="text-align: center;">K8</td>
+<td style="text-align: center;">보류</td>
+<td>경매</td>
+<td>서울옥션</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">K3</td>
+<td style="text-align: center;">보류</td>
+<td>ODM</td>
+<td>콜마·코오롱</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">J8</td>
+<td style="text-align: center;">우선</td>
+<td>장례</td>
+<td>장례 체인</td>
+<td>—</td>
+<td>유족(옵트인)</td>
+</tr>
+<tr>
+<td style="text-align: center;">J4</td>
+<td style="text-align: center;">우선</td>
+<td>DT+로봇</td>
+<td>개발사</td>
+<td>NTT·지자체</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">J7</td>
+<td style="text-align: center;">재검토</td>
+<td>방재</td>
+<td>—</td>
+<td>방재과</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">J5·J1·J3</td>
+<td style="text-align: center;">보류</td>
+<td>Fab·철도·창고</td>
+<td>Fab·3PL</td>
+<td>JR</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">S1</td>
+<td style="text-align: center;">우선</td>
+<td><strong>Event Chain</strong></td>
+<td>Expo·GEA</td>
+<td>SFDA(냉장)</td>
+<td>행사 물류</td>
+</tr>
+<tr>
+<td style="text-align: center;">S2</td>
+<td style="text-align: center;">우선</td>
+<td>Expo·행사</td>
+<td>Oxagon</td>
+<td>Expo·GEA</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">S8</td>
+<td style="text-align: center;">우선</td>
+<td>프라이버시</td>
+<td>ASQ</td>
+<td>NHC</td>
+<td>거주 가족</td>
+</tr>
+<tr>
+<td style="text-align: center;">S3</td>
+<td style="text-align: center;">우선</td>
+<td>낙타 축제</td>
+<td>—</td>
+<td>Camel Club</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">S7·S4·S6·S5</td>
+<td style="text-align: center;">보류</td>
+<td>유적·커피·매·대추</td>
+<td>—</td>
+<td>RCU·PIF 등</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>상세: <a href="./[WK1][04B]_markets_gtm_targets.md"><code>[WK1][04B]</code></a> 4절.</p>
+<hr />
+<h2>6. G1 제외 — 타겟·도메인 (비교·부록용)</h2>
+<blockquote>
+<p><strong>단독 1안·1차 타겟으로 쓰지 않음.</strong> 위키·2차 조사에 남아 있으나 본 파이프라인(2–5절) 우선 표에서는 제외.<br />
+Rule: <code>no-generic-service-robot-ideas</code> · 평가: <code>naver-evaluation</code> <strong>독창성 ≤2</strong> (재정의 전).</p>
+</blockquote>
+<h3>6.1 왜 제외하는가 — 판정 기준</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">단계</th>
+<th>질문</th>
+<th>통과 못 하면</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>① 클리셰 유형</strong></td>
+<td>아래 6종 <strong>그대로</strong> 제안하는가?</td>
+<td>즉시 G1 제외</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>② 차별화 근거</strong></td>
+<td>아래 <strong>최소 1개</strong>가 도메인·타겟에 박혀 있는가?</td>
+<td>G1 제외 또는 부록만</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>③ 본문 적합</strong></td>
+<td>G3–G8(결정권자·빈도·ROI·NAVER·리스크)을 채울 수 있는가?</td>
+<td>우선 표 미포함</td>
+</tr>
+</tbody>
+</table>
+<p><strong>① 클리셰 6종</strong> (구글 「서비스 로봇 활용」 1페이지형)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th>유형</th>
+<th>예시 키워드</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>호텔</td>
+<td>룸서비스·호텔 배달</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>병원</td>
+<td>약품·검체·병동 일반 운반</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>오피스</td>
+<td>사무실 택배·문서·신사옥 FM 단독</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>라스트마일</td>
+<td>퀵커머스·편의점 야간·문 앞 배달</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>공항</td>
+<td>승객 안내·일반 화물 나열</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td>식당</td>
+<td>홀 서빙·구내 식음 배달</td>
+</tr>
+</tbody>
+</table>
+<p><strong>② 통과에 필요한 것 (최소 1개)</strong> — 같은 키워드라도 <strong>한 단계 구체화</strong>되면 재검토</p>
+<table>
+<thead>
+<tr>
+<th>근거</th>
+<th>의미</th>
+<th>예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1차 데이터</strong></td>
+<td><code>data/survey/</code> 인용·인터뷰</td>
+<td>RPC Decider Pain</td>
+</tr>
+<tr>
+<td><strong>NAVER 인프라</strong></td>
+<td>1784·ARC·Maps·PLATEAU·NHC 등 SI 대체 불가</td>
+<td>K2+KIRIA, J4+PLATEAU</td>
+</tr>
+<tr>
+<td><strong>역할 분리</strong></td>
+<td>안내·B2C가 아닌 <strong>백오피스·백스테이지</strong>만</td>
+<td>K4 수장고, J8 뒤 물류</td>
+</tr>
+<tr>
+<td><strong>비교·조합</strong></td>
+<td>제품·시장·타겟 축에서 재정의</td>
+<td>실내 루키↔실외 누리 핸드오프</td>
+</tr>
+</tbody>
+</table>
+<p><strong>③ 재도입 시 필수</strong> — 부록·비교표 수준은 가능, <strong>우선 도메인</strong>으로 올리려면 추가 충족</p>
+<ul>
+<li>Decider·계약 주체 <strong>한 문장</strong> 특정 (G3)</li>
+<li>1차 인용 <strong>3건+</strong> 또는 파일럿 MOU 가설</li>
+<li>NAVER 번들 스토리 <strong>1줄</strong> (예: 1784 동일 스택, NHC DT 레이어)</li>
+</ul>
+<h3>6.2 제외 목록 (정본)</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th style="text-align: center;">국가</th>
+<th style="text-align: center;">G1 유형</th>
+<th>제외 사유 (요약)</th>
+<th>재도입·대체</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>오피스 FM·신사옥 배달</td>
+<td style="text-align: center;">한·일·사</td>
+<td style="text-align: center;">3 오피스</td>
+<td>사무실 로봇 = 구글 1페이지</td>
+<td>1784·DT <strong>백오피스 전용 동선</strong> (J4 등)</td>
+</tr>
+<tr>
+<td>복지관·도서관 일상 배송 (K6·K7)</td>
+<td style="text-align: center;">한</td>
+<td style="text-align: center;">3·4</td>
+<td>공공 반복 배송 — 독창성 낮음</td>
+<td>K2 RPC · K4 아카이브 · K5 철도 FM</td>
+</tr>
+<tr>
+<td>편의점·드럭스 야간 (J9)</td>
+<td style="text-align: center;">일</td>
+<td style="text-align: center;">4 라스트마일</td>
+<td>퀵커머스·Neubie·배민형</td>
+<td><code>[WK1][03]</code> 9.2절 참고만</td>
+</tr>
+<tr>
+<td>오피스 빌딩 FM 단독 (J2)</td>
+<td style="text-align: center;">일</td>
+<td style="text-align: center;">3 오피스</td>
+<td>FM 차별만으로는 클리셰</td>
+<td><strong>J4 DT+로봇</strong>에 흡수</td>
+</tr>
+<tr>
+<td>주간 돌봄센터 (J6)</td>
+<td style="text-align: center;">일</td>
+<td style="text-align: center;">2·돌봄 일반론</td>
+<td>고령 돌봄 로봇 1페이지형</td>
+<td>J8 장례·J7 방재 등 <strong>역할 분리</strong></td>
+</tr>
+<tr>
+<td>스마트 실버타운 (J10)</td>
+<td style="text-align: center;">일</td>
+<td style="text-align: center;">2·돌봄</td>
+<td>실버 돌봄 로봇 일반론</td>
+<td>J8·J7 우선</td>
+</tr>
+<tr>
+<td>noon·Jahez 문 앞 배송</td>
+<td style="text-align: center;">사</td>
+<td style="text-align: center;">4 라스트마일</td>
+<td>퀵커머스 라스트마일</td>
+<td><strong>S8 프라이버시</strong> · <strong>S2 행사 키트</strong></td>
+</tr>
+<tr>
+<td>KSIA 공항 승객·일반 화물</td>
+<td style="text-align: center;">사</td>
+<td style="text-align: center;">5 공항</td>
+<td>공항 안내 로봇 클리셰</td>
+<td>화물 <strong>터미널 백오피스</strong>만 별도 검토(미포함)</td>
+</tr>
+<tr>
+<td>아람코 구내 식음·좌석</td>
+<td style="text-align: center;">사</td>
+<td style="text-align: center;">3·6</td>
+<td>사무실·식당형 서빙</td>
+<td>전용 5G·관제 <strong>번들</strong> 시 부록</td>
+</tr>
+<tr>
+<td>ROSHN·KAFD 오피스 체험</td>
+<td style="text-align: center;">사</td>
+<td style="text-align: center;">3 오피스</td>
+<td>로비→책상 오피스 택배</td>
+<td>NHC <strong>DT 완성 후</strong> 레이어 (S8과 분리)</td>
+</tr>
+<tr>
+<td>호텔·병원·식당 단독 1안</td>
+<td style="text-align: center;">3국</td>
+<td style="text-align: center;">1·2·6</td>
+<td>G1 정의 그대로</td>
+<td>비교표·제외 사유 부록만</td>
+</tr>
+<tr>
+<td>범용 B2C 배달 이용자</td>
+<td style="text-align: center;">3국</td>
+<td style="text-align: center;">4</td>
+<td>계약 주체 없음 · 선점 시장</td>
+<td>B2B·B2G 우선 (<code>[WK1][04B]</code>)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>위키 원문: 2.4절 · 3.4절 · 4.6절 · <a href="./[WK1][04B]_markets_gtm_targets.md"><code>[WK1][04B]</code></a> 0.1절</p>
+</blockquote>
+<h3>6.3 G1 통과 예 (같은 키워드도 「넘어선」 경우)</h3>
+<table>
+<thead>
+<tr>
+<th>뻔한 키워드</th>
+<th>본문에서 살린 방식</th>
+<th>근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>병원·시설</td>
+<td>K5 <strong>철도 백오피스</strong> · K4 <strong>수장고</strong> — 승객·유물 직접 X</td>
+<td>역할 분리 · G2</td>
+</tr>
+<tr>
+<td>사무실·빌딩</td>
+<td>J4 <strong>PLATEAU 가동률</strong> · 1784 실내 FM 스택</td>
+<td>NAVER 인프라 · G6</td>
+</tr>
+<tr>
+<td>라스트마일</td>
+<td>K2 <strong>RPC 산지 첫 구간</strong> · S8 <strong>프라이버시 단지</strong></td>
+<td>B2B·B2G · 1차/문화</td>
+</tr>
+<tr>
+<td>관광·인바운드</td>
+<td>K9 <strong>해설 X·짐·통역·페이 통합</strong> + B2G KPI</td>
+<td>NAVER 5축 · 역할 분리 (6.4절)</td>
+</tr>
+<tr>
+<td>공항·물류</td>
+<td>(제외) — 승객 안내 대신 <strong>산업 단지·행사 키트</strong>만</td>
+<td>S2·Oxagon</td>
+</tr>
+</tbody>
+</table>
+<h3>6.4 조건부 후보 — [재검토] (1.2절 게이트 미충족 · G1 아님)</h3>
+<blockquote>
+<p><strong>정의:</strong> 합계 <strong>≥75</strong>이지만 <strong>1.2절 [재검토] 조건</strong>(1차·정치·B2C·협회·deck)에 걸린 도메인. 승격 시 <strong>[우선]</strong> 으로 올린다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ID</th>
+<th style="text-align: center;">등급</th>
+<th style="text-align: center;">합계(100점)</th>
+<th style="text-align: center;">독창성</th>
+<th style="text-align: center;">NAVER 가치</th>
+<th style="text-align: center;">인프라 적합</th>
+<th style="text-align: center;">CX·지속가능성</th>
+<th style="text-align: center;">실행·1차 데이터</th>
+<th>승격·유지 조건</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>K9</strong></td>
+<td style="text-align: center;">재검토</td>
+<td style="text-align: center;">86</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td>가이드협회 1차 Quote · 종로 외부 동선 PoC · B2G KPI 프레이밍</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>J7</strong></td>
+<td style="text-align: center;">재검토</td>
+<td style="text-align: center;">76</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td>방재과 Decider 인터뷰 · RaaS 가동률 수치 · deck 스토리 보강</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>K9 상세: <code>deliverables/05-28/.../실외로봇 X 한국/</code> · <code>data/survey/interview_guide_ktour_3personas.md</code></p>
+</blockquote>
+<hr />
+<h2>7. 3국 한눈에 비교</h2>
+<blockquote>
+<p>3국 모두 <strong>B2B·B2G 계약</strong>이 먼저다. 아래는 2–4절 우선 후보를 기준으로, 시장마다 <strong>어디가 다르고 무엇을 내세울지</strong>만 정리한 표다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>비교 질문</th>
+<th>🇰🇷 한국</th>
+<th>🇯🇵 일본</th>
+<th>🇸🇦 사우디</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>이 시장의 핵심 맥락</strong></td>
+<td>KIRIA·국토부 <strong>실외 인증</strong> 관문 · 1784 실내 레퍼런스</td>
+<td>초고령·인력난 · <strong>사전 합의·시범</strong> 필수</td>
+<td>45°C·프라이버시 · <strong>국가 행사 마감</strong> (Expo·순례)</td>
+</tr>
+<tr>
+<td><strong>먼저 잡을 계약 상대</strong></td>
+<td>농협·RPC · 국립기록원 · 코레일 · COEX</td>
+<td>장례 체인 · NTT·지자체(DT) · 방재과</td>
+<td>Sawani · Expo·GEA · Camel Club</td>
+</tr>
+<tr>
+<td><strong>NAVER로 차별하는 근거</strong></td>
+<td>1784·Maps·ARC · KIRIA 실증 번들</td>
+<td>PLATEAU 실측 DT · ARC JPN · SusHi</td>
+<td>NHC 5대 도시 DT · 옴니모달(실외→실내)</td>
+</tr>
+<tr>
+<td><strong>어느 제품이 앞서나</strong></td>
+<td><strong>누리+루키</strong> (산지·전시 옴니모달)</td>
+<td><strong>루키</strong> (실내·관제·백오피스)</td>
+<td><strong>누리→루키</strong> (Event Chain·행사·VIP 냉장)</td>
+</tr>
+<tr>
+<td><strong>우선 도메인 (본문)</strong></td>
+<td>K2·K4·K5 · K9 재검토</td>
+<td>J8·J4 · J7 재검토</td>
+<td><strong>S1 Event Chain</strong>·S2·S8·S3</td>
+</tr>
+<tr>
+<td><strong>보류 (백업)</strong></td>
+<td>K1·K8·K3</td>
+<td>J5·J1·J3</td>
+<td>S7·S4·S6·S5</td>
+</tr>
+<tr>
+<td><strong>쓰지 않는 클리셰 (G1)</strong></td>
+<td>사무실·병원·일반 배달 → <strong>6절</strong></td>
+<td>+ CVS 야간·오피스 FM·실버타운 → <strong>6절</strong></td>
+<td>+ noon·공항 안내·로봇 도시 과장 → <strong>6절</strong></td>
+</tr>
+<tr>
+<td><strong>도입 시 자주 걸리는 것</strong></td>
+<td>국토부 인증·4사 경쟁 · B2G 입찰 6–18개월</td>
+<td>품의·합의 6–12개월 · 정서·광고 규제(J8)</td>
+<td>DT·현장 인증 · 종교·시즌성 · 프로젝트 종료 후 가동률</td>
+</tr>
+</tbody>
+</table>
+<p>상세 타겟·도메인 연결: <a href="./[WK1][04B]_markets_gtm_targets.md"><code>[WK1][04B]</code></a> · 심층: <a href="./[WK1][04A]_markets_domain_appendices.md"><code>[WK1][04A]</code></a></p>
+<hr />
+<h2>8. 3국 × 제품 매트릭스</h2>
+<table>
+<thead>
+<tr>
+<th>시장</th>
+<th>Rookie (루키) 중심</th>
+<th>Nuri (누리) 중심</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>한국</td>
+<td>문화재·기록 보존 · 지하철·철도 백오피스 · 경매 프리뷰</td>
+<td>RPC 첫 구간 · 전시 설치 · <strong>K-Tour 동행</strong>(재검토)</td>
+</tr>
+<tr>
+<td>일본</td>
+<td>DT 신도시 · 장례 백오피스 · 방재(재검토)</td>
+<td>(실외 별도)</td>
+</tr>
+<tr>
+<td>사우디</td>
+<td>Event Chain 백오피스 · 프라이버시 단지</td>
+<td>VIP 냉장 · Expo·행사 · 커피·대추 시료 · 유적 복원</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>9. 시장 규모 — 본문 범위外</h2>
+<blockquote>
+<p>2–8절은 <strong>어디에·누구와·무엇을</strong> 할지 비교한다. TAM·SAM·SOM <strong>달러·엔 규모</strong>는 여기 두지 않는다.<br />
+이유: G1 필터 이후 도메인(RPC·장례·낙타 등)과, 예전 <strong>오피스·병원 중심</strong> 글로벌 TAM 한 장이 <strong>서로 맞지 않음</strong>.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>정본</th>
+<th>무엇이 있나</th>
+<th>언제 쓰나</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>data/market/market_data.csv</code></strong></td>
+<td>제품×세그먼트 TAM·SAM·SOM (#1 마켓 에이전트)</td>
+<td>PM·<code>[WK1][05]</code> 통합·발표 전 교차 검증</td>
+</tr>
+<tr>
+<td><strong><code>[WK1][04A]</code></strong> 부록</td>
+<td>우선 도메인 <strong>앵커 수치</strong> (예: J8 약 1.86조 엔, DT $20억→$187억)</td>
+<td>도메인 설득·부록 인용 — <strong>국가 TAM 아님</strong></td>
+</tr>
+<tr>
+<td><strong><code>[WK1][05]</code></strong> 5절</td>
+<td>CSV ↔ 본문 도메인 연결·6/7 결정 전 점검</td>
+<td>주차 마감·deck</td>
+</tr>
+</tbody>
+</table>
+<p>후속: 우선 도메인(K2·J8·S1 등)별 SAM을 CSV 행으로 <strong>추가 매핑</strong> (<code>[WK1][05]</code> 30일 액션 #1).</p>
+<hr />
+<h2>10. 후속 리서치</h2>
+<table>
+<thead>
+<tr>
+<th>국가</th>
+<th>과제</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>한국</td>
+<td>K2·K4·K5 Decider 인터뷰 · <strong>K9</strong> 가이드협회 1차 · KIRIA·국토부 규정</td>
+</tr>
+<tr>
+<td>일본</td>
+<td>J8·J4 1순위 파일럿 · <strong>J7</strong> 방재과 RaaS 가동률 · J8 옵트인·PR</td>
+</tr>
+<tr>
+<td>사우디</td>
+<td>S1·S2 파일럿 · S3 시즌 가동률 · NHC DT 레이어</td>
+</tr>
+<tr>
+<td>공통</td>
+<td><code>[WK1][05]</code> 매트릭스 · <code>data/survey/</code> Quote 3건+ · <code>data/market/</code> SAM 행</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>11. 부록 — 도메인 심층 리서치</h2>
+<p>본문(2–4절)은 <strong>등급·비교 점수</strong>. 상세는 <code>[WK1][04A]</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">부록</th>
+<th>ID</th>
+<th style="text-align: center;">등급</th>
+<th>도메인</th>
+<th style="text-align: center;">합계</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">A</td>
+<td>K2</td>
+<td style="text-align: center;">우선</td>
+<td>농협·RPC</td>
+<td style="text-align: center;">89</td>
+</tr>
+<tr>
+<td style="text-align: center;">B</td>
+<td>K4</td>
+<td style="text-align: center;">우선</td>
+<td>아카이브·문화재</td>
+<td style="text-align: center;">82</td>
+</tr>
+<tr>
+<td style="text-align: center;">C</td>
+<td>K5</td>
+<td style="text-align: center;">우선</td>
+<td>지하철·철도</td>
+<td style="text-align: center;">81</td>
+</tr>
+<tr>
+<td style="text-align: center;">D</td>
+<td>K1</td>
+<td style="text-align: center;">보류</td>
+<td>전시·컨벤션</td>
+<td style="text-align: center;">78</td>
+</tr>
+<tr>
+<td style="text-align: center;">M</td>
+<td>K9</td>
+<td style="text-align: center;">재검토</td>
+<td>K-Tour 동행</td>
+<td style="text-align: center;">86</td>
+</tr>
+<tr>
+<td style="text-align: center;">E</td>
+<td>J8</td>
+<td style="text-align: center;">우선</td>
+<td>장례식장</td>
+<td style="text-align: center;">91</td>
+</tr>
+<tr>
+<td style="text-align: center;">F</td>
+<td>J4</td>
+<td style="text-align: center;">우선</td>
+<td>DT+로봇</td>
+<td style="text-align: center;">84</td>
+</tr>
+<tr>
+<td style="text-align: center;">G</td>
+<td>J7</td>
+<td style="text-align: center;">재검토</td>
+<td>방재 비축</td>
+<td style="text-align: center;">76</td>
+</tr>
+<tr>
+<td style="text-align: center;">H</td>
+<td>J5</td>
+<td style="text-align: center;">보류</td>
+<td>Fab 외곽</td>
+<td style="text-align: center;">71</td>
+</tr>
+<tr>
+<td style="text-align: center;">I</td>
+<td>S1</td>
+<td style="text-align: center;">우선</td>
+<td><strong>Event Chain</strong></td>
+<td style="text-align: center;">91</td>
+</tr>
+<tr>
+<td style="text-align: center;">I-sub</td>
+<td>S1-sub</td>
+<td style="text-align: center;">우선</td>
+<td>VIP 냉장</td>
+<td style="text-align: center;">89</td>
+</tr>
+<tr>
+<td style="text-align: center;">J</td>
+<td>S2</td>
+<td style="text-align: center;">우선</td>
+<td>Expo·행사</td>
+<td style="text-align: center;">87</td>
+</tr>
+<tr>
+<td style="text-align: center;">K</td>
+<td>S8</td>
+<td style="text-align: center;">우선</td>
+<td>프라이버시</td>
+<td style="text-align: center;">82</td>
+</tr>
+<tr>
+<td style="text-align: center;">L</td>
+<td>S3</td>
+<td style="text-align: center;">우선</td>
+<td>낙타 축제</td>
+<td style="text-align: center;">80</td>
+</tr>
+<tr>
+<td style="text-align: center;">N</td>
+<td>—</td>
+<td style="text-align: center;">보류</td>
+<td>K3·K8·J1·J3·S4~S7 일괄</td>
+<td style="text-align: center;">1.3절</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>J8 원문: <code>deliverables/05-29/team_research/[05.28][오성민] 루키x일본, 장례식장.html</code> · K9: <code>deliverables/05-28/.../실외로봇 X 한국/</code></p>
+</blockquote>
+<hr />
+<h2>12. 팀 위키 출처 (1조)</h2>
+<table>
+<thead>
+<tr>
+<th>위키 페이지</th>
+<th>담당</th>
+<th>본 문서 반영</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5309770871">류준하 루키×한국</a></td>
+<td>류준하</td>
+<td>2.4절 K8</td>
+</tr>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5312199001">변정훈 실외로봇×한국</a></td>
+<td>변정훈</td>
+<td>2.4절 · 6.4절 K9</td>
+</tr>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5292875639">오성민 CVS 야간</a></td>
+<td>오성민</td>
+<td>3.4절 · 6절 J9</td>
+</tr>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5305060557">류준하 실버타운</a></td>
+<td>류준하</td>
+<td>3.4절 · 6절 J10</td>
+</tr>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5295361990">임규은 사우디 GTM</a></td>
+<td>임규은</td>
+<td>4.2절</td>
+</tr>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5312200967">임규은 사우디 신규도메인</a></td>
+<td>임규은</td>
+<td>4.4절 S1·S3·S6</td>
+</tr>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5295362172">문유빈 일본 B2B</a></td>
+<td>문유빈</td>
+<td>3.2절 · <code>[WK1][04B]</code> 2절</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>프롬프트 2 · <code>naver-market-analysis</code> · <code>no-generic-service-robot-ideas</code> · 연계: <code>[WK1][03]</code> <code>[WK1][04A]</code> <code>[WK1][04B]</code> <code>[WK1][02]</code> <code>[WK1][05]</code></em></p>
+</main>
+</body>
+</html>
