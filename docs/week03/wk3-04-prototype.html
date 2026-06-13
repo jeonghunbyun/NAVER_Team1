@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[WK3][04] Prototype</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
+  line-height: 1.7; color: #1f2328; background: #f6f8fa;
+}
+main { max-width: 880px; margin: 0 auto; padding: 48px 28px 80px; background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+h1 { font-size: 1.7rem; border-bottom: 2px solid #03c75a; padding-bottom: .4em; margin-top: 0; }
+h2 { font-size: 1.3rem; margin-top: 2em; border-left: 4px solid #03c75a; padding-left: .5em; }
+h3 { font-size: 1.08rem; margin-top: 1.6em; color: #036b34; }
+blockquote { margin: 1em 0; padding: .8em 1.1em; background: #eef7f1; border-left: 4px solid #03c75a;
+  border-radius: 0 6px 6px 0; }
+table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: .93rem; }
+th, td { border: 1px solid #d0d7de; padding: 9px 13px; text-align: left; vertical-align: top; }
+th { background: #03c75a; color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: #f6f8fa; }
+code { background: #eaeef2; padding: .15em .4em; border-radius: 4px; font-size: .88em; }
+a { color: #036b34; }
+hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>[WK3][04] Prototype · Deck 비주얼 브리프 — NOVA</h1>
+<blockquote>
+<p><strong>최종 장표:</strong> <code>NOVA_1조_NAVER LABS.pdf</code> p31–57 · <code>[WK3][02]</code><br />
+<strong>스타일:</strong> designprompts · industrial/enterprise · NAVER Green <code>#03C75A</code></p>
+</blockquote>
+<hr />
+<h2>1. 비주얼 원칙</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>Do</th>
+<th>Don't</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>주인공</td>
+<td>백오피스·키트·인계·로그</td>
+<td>무대 위 관객·VIP 앞 로봇</td>
+</tr>
+<tr>
+<td>톤</td>
+<td>어두운 B2B · NAVER Green <code>#03C75A</code></td>
+<td>귀여운 캐릭터 상품화</td>
+</tr>
+<tr>
+<td>로봇</td>
+<td>「크루」·측면·이동 중</td>
+<td>VIP 응대·악수·안내</td>
+</tr>
+<tr>
+<td>행사</td>
+<td>「컨셉 목업」 배경</td>
+<td>Expo·FIFA 공식 로고 병치</td>
+</tr>
+<tr>
+<td>데이터</td>
+<td><code>(가설)</code> 뱃지</td>
+<td>확정 KPI처럼 표기</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Key Visual (1장)</h2>
+<p><strong>Concept:</strong> 행사장 <strong>단면도</strong> — 위 30% = 무대(흐릿) · 아래 70% = 백오피스 동선</p>
+<p><strong>Layers:</strong><br />
+1. 창고 · UAC · VAO · MPC · VIP Lounge (Backstage Kit Map)<br />
+2. T1 Nuri 경로 (실외, 점선)<br />
+3. T2 Rookie 경로 (실내, 점선)<br />
+4. T3 로그 아이콘 (Works·ARC)</p>
+<p><strong>Copy overlay:</strong> Backstage Moves the World. · NOVA logo mark</p>
+<p><strong>PPT:</strong> p24–29 Big Idea · p47–49 OOH</p>
+<hr />
+<h2>3. 도메인 근거 슬라이드 (p07–12) · 물량 + 사고</h2>
+<blockquote>
+<p><strong>목적:</strong> 「왜 키트 물류 도메인인가」— PPT Domain Discovery · <code>[WK2][01]</code> <strong>D1·D4</strong></p>
+</blockquote>
+<p><strong>Layout:</strong></p>
+<pre><code>┌────────────────────────────┬────────────────────────────┐
+│  물량·규모 (D1·D2)          │  실제 영향 (D4)             │
+│  600만㎡ · 4키트 · 허브맵    │  파리2024 │ 미디어 │ 유니폼  │
+├────────────────────────────┴────────────────────────────┤
+│  Bridge: 만든 뒤 이동·인계·기록 = 우리 도메인              │
+└─────────────────────────────────────────────────────────┘
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>요소</th>
+<th>시각</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>600만㎡·4키트</td>
+<td>큰 숫자 + 아이콘 4</td>
+</tr>
+<tr>
+<td>허브앤스포크 미니맵</td>
+<td>UAC→VAO→MPC→VIP</td>
+</tr>
+<tr>
+<td>파리 2024 카드</td>
+<td>헤드line + ESPN/AFP 각주</td>
+</tr>
+<tr>
+<td>출처 라벨</td>
+<td><code>(출처 확인됨)</code> / <code>(2차)</code> 색 구분</td>
+</tr>
+</tbody>
+</table>
+<p><strong>발표 45–60초</strong> · p09 동선 · <strong>p13 Blueprint와 D1·D4 중복 읽기 금지</strong></p>
+<hr />
+<h2>4. Service Blueprint 썸네일 (p14–18)</h2>
+<blockquote>
+<p><strong>목적:</strong> 8단계·5역할·2 Pain — PPT Insight 구간 썸네일 · Robot Last 증명</p>
+</blockquote>
+<p><strong>Layout (와이어):</strong></p>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│  로봇 이전에, 현장부터          Robot Last — As-Is → 2 Pain   │
+├──────────────────────────┬──────────────────────────────────┤
+│  D1–D8 데스크 리서치      │  8단계 · 5레이어 블루프린트        │
+│  [키트][동선][운영]…      │  [1][2][3][4][⑤⑥⑦][8]  F1–F6    │
+├──────────────────────────┼──────────────────────────────────┤
+│  5명 페르소나 카드         │  5×8 저니 히트맵                   │
+│  Decider + 현장 4        │  정보공백 │ 반복부담 (5·6·7열)    │
+└──────────────────────────┴──────────────────────────────────┘
+│  8 단계 · 5 레이어 · 5 페르소나 · D1–D8 · F6 · 2 Pain  (stat) │
+└─────────────────────────────────────────────────────────────┘
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>요소</th>
+<th>시각</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stat bar</td>
+<td><code>#03C75A</code> 큰 숫자 6개</td>
+</tr>
+<tr>
+<td>D1–D8 행</td>
+<td>8 아이콘 + 약어</td>
+</tr>
+<tr>
+<td>8단계 타임라인</td>
+<td>5·6·7 accent green</td>
+</tr>
+<tr>
+<td>5레이어</td>
+<td>축소 표 또는 <code>[02]</code> §2 캡처</td>
+</tr>
+<tr>
+<td>5명 페르소나</td>
+<td>5 role card</td>
+</tr>
+<tr>
+<td>저니 히트맵</td>
+<td>페르소나×단계 heat (green intensity)</td>
+</tr>
+<tr>
+<td>워터마크</td>
+<td><code>AS-IS RESEARCH · NO ROBOT</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>썸네일 소스:</strong> <code>docs/week02/</code> MD → PPT용 SVG/PNG · WK2 HTML 캡처 OK<br />
+<strong>발표:</strong> <strong>30초</strong> — stat bar 짚고 4칸은 읽지 말고 p19·p22 Pain으로</p>
+<hr />
+<h2>5. Hero Film (30s) · Storyboard — PPT p44–46</h2>
+<blockquote>
+<p><strong>컨셉:</strong> 무대 뒤 Nuri → Rookie → <strong>라커룸 유니폼</strong> → 그라운드 입장 (One-Pass 메타포)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Cut</th>
+<th>Visual</th>
+<th>Audio/VO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>무대 환호 (blur)</td>
+<td>(환경음)</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>창고·백오피스, 섞인 키트</td>
+<td>「키트는 무대 뒤에서 이미 움직입니다」</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>Nuri 실외 이동</td>
+<td>(엔진 저음)</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>게이트 — 사람 보안 인계</td>
+<td>「의전과 승인은 사람」</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>Rookie 실내 → <strong>라커룸</strong></td>
+<td>유니폼·키트 <strong>원패스</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td>선수·스태프 그라운드 입장</td>
+<td>「끊김 없는 경험 — Opens Values for ALL」</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td>Dashboard 로그 한 줄</td>
+<td>「기록은 NAVER」</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td>NOVA + 슬로건</td>
+<td>Backstage Moves the World.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output:</strong> <code>prototype/nova-hero/</code> 또는 MP4 placeholder + 8 stills</p>
+<hr />
+<h2>6. Demo Dashboard (목업)</h2>
+<p><strong>4-step click flow:</strong></p>
+<pre><code>[1] Works — 키트 요청 (VIP Box #12 · Press Kit Batch 3)
+[2] ARC — Nuri 배차 · 경로 Maps overlay
+[3] Handoff — 게이트 인계 · 보안 승인 (Human)
+[4] Log — 수령 확인 · timestamp · recipient
+</code></pre>
+<p><strong>UI ref:</strong> enterprise dashboard · dark sidebar · green status dots<br />
+<strong>Not:</strong> 실제 API 연동 · 가짜 데이터 OK · 「DEMO · CONCEPT」 watermark</p>
+<p><strong>Output:</strong> <code>prototype/nova-dashboard/</code> React or static HTML</p>
+<p><strong>PPT:</strong> p32–35 · One-Pager backup</p>
+<hr />
+<h2>7. PPT 디자인 시스템</h2>
+<blockquote>
+<p><em>(추후 추가 예정 — 디자인 토큰·템플릿 슬라이드는 별도 확정 후 채운다.)</em></p>
+</blockquote>
+<hr />
+<h2>8. IP 가이드 (Nuri · Rookie)</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Nuri</th>
+<th>Rookie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metaphor</td>
+<td>빛 · 실외 크루</td>
+<td>실내 라운지 크루</td>
+</tr>
+<tr>
+<td>Color accent</td>
+<td>warm highlight</td>
+<td>cool indoor</td>
+</tr>
+<tr>
+<td>Icon</td>
+<td>outdoor path</td>
+<td>door / lounge</td>
+</tr>
+<tr>
+<td>Copy</td>
+<td>「게이트까지」</td>
+<td>「마지막 구간까지」</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Extensions:</strong> 배지·스티커·Dashboard 아이콘 — <code>[WK2][05]</code> §10</p>
+<hr />
+<h2>9. prototype 폴더 구조 (제안)</h2>
+<pre><code>prototype/
+  nova-hero/              # Film storyboard or video (p44–46)
+  nova-dashboard/         # Demo UI — One-Pass 4-click (p31–42)
+  assets/                 # KV, icons, map SVG (p24–29, p47–49)
+</code></pre>
+<p><strong>3주차 v1 목표:</strong> dashboard <strong>또는</strong> hero storyboard 중 <strong>1개 완성</strong> + KV draft</p>
+<hr />
+<h2>10. designprompts 추천 태그</h2>
+<ul>
+<li><code>industrial</code> · <code>enterprise</code> · <code>dark mode</code> · <code>dashboard</code> · <code>logistics</code>  </li>
+<li>Avoid: <code>playful mascot</code> · <code>consumer app</code> · <code>food delivery</code></li>
+</ul>
+<p>→ Skill <code>naver-design-prompts</code> · <code>naver-prototype</code></p>
+<hr />
+<p><em>연계: <code>[WK3][02]</code> p07–12·p14–18·p31–57 · <code>references/DESIGN_PROMPTS.md</code></em></p>
+</main>
+</body>
+</html>
