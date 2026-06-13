@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[WK1][03] Physical AI 트렌드</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
+  line-height: 1.7; color: #1f2328; background: #f6f8fa;
+}
+main { max-width: 880px; margin: 0 auto; padding: 48px 28px 80px; background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+h1 { font-size: 1.7rem; border-bottom: 2px solid #03c75a; padding-bottom: .4em; margin-top: 0; }
+h2 { font-size: 1.3rem; margin-top: 2em; border-left: 4px solid #03c75a; padding-left: .5em; }
+h3 { font-size: 1.08rem; margin-top: 1.6em; color: #036b34; }
+blockquote { margin: 1em 0; padding: .8em 1.1em; background: #eef7f1; border-left: 4px solid #03c75a;
+  border-radius: 0 6px 6px 0; }
+table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: .93rem; }
+th, td { border: 1px solid #d0d7de; padding: 9px 13px; text-align: left; vertical-align: top; }
+th { background: #03c75a; color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: #f6f8fa; }
+code { background: #eaeef2; padding: .15em .4em; border-radius: 4px; font-size: .88em; }
+a { color: #036b34; }
+hr { border: none; border-top: 1px solid #e1e4e8; margin: 2.2em 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>[WK1][03] Physical AI·로보틱스 트렌드</h1>
+<p align="center"><strong style="font-size: 0.85em; letter-spacing: 0.06em;">핵심 인사이트</strong></p>
+
+<p align="center"><strong style="font-size: 1.22em; line-height: 1.75;">2025–2026년 Physical AI는 데모에서 현장 배치로 옮겨졌고, 도입 논의는 kg·속도보다 가동률·건당 비용·빌딩·맵·표준 정합성이 중심이다. 한국은 NVIDIA MOU·1784·국토부가 누리 관문이고, 일본은 보도 주행 합법화·로봇 친화 빌딩, 사우디는 DT 완성 뒤 로봇 레이어가 각각 다른 게이트다.</strong></p>
+
+<blockquote>
+<p><strong>담당:</strong> 한정현, 문유빈 · <strong>검증:</strong> 변정훈 · <strong>마감:</strong> 5/29 · <strong>트랙:</strong> B<br />
+<strong>상태:</strong> 심층 조사 (트렌드·가설만 · <strong>1안 확정 ❌</strong>)<br />
+<strong>조사일:</strong> 2026-05-29<br />
+<strong>문서 성격:</strong> <strong>글로벌·국가별 트렌드</strong> — 후속: <code>[WK1][04]</code> 도메인 · <code>[WK1][02]</code> 제품</p>
+</blockquote>
+<hr />
+<h2>0. 조사 범위 · 방법</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>목적</strong></td>
+<td>Physical AI·로보틱스 5대 트렌드를 정리하고 한·일·사 국가별 심화·캠페인 시사 도출</td>
+</tr>
+<tr>
+<td><strong>분석 축</strong></td>
+<td>① 글로벌 트렌드 5축 ② 루키·누리 매핑 ③ 국가별 정책·인프라 ④ 리서치 질문·가설</td>
+</tr>
+<tr>
+<td><strong>출처</strong></td>
+<td>IFR·NVIDIA·METI·2차 보도 · <strong>팀 위키</strong> <code>[수업중_1조]</code> · <code>data/market/</code></td>
+</tr>
+<tr>
+<td><strong>제외</strong></td>
+<td>TAM-SAM-SOM 상세(→<code>[WK1][04]</code>) · 도메인 후보 확정 · <strong>1안 확정</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>문서</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[WK1][01]</code></td>
+<td>NAVER·LABS <strong>인프라</strong></td>
+</tr>
+<tr>
+<td><code>[WK1][02]</code></td>
+<td>루키·누리 <strong>제품</strong></td>
+</tr>
+<tr>
+<td><strong><code>[WK1][03]</code> (본 문서)</strong></td>
+<td>Physical AI <strong>트렌드</strong> + 9절~10 국가별</td>
+</tr>
+<tr>
+<td><code>[WK1][04]</code></td>
+<td>3국 <strong>시장·도메인</strong> 후보</td>
+</tr>
+<tr>
+<td><code>[WK1][05]</code></td>
+<td>주차 <strong>통합 요약</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Physical AI</strong> = 센서로 현실을 인지하고 AI가 추론·계획한 뒤 로봇·차량이 행동하는 <strong>지각–추론–행동(Perceive–Reason–Act)</strong> 파이프라인.</p>
+</blockquote>
+<h3>0.1 트렌드 요약 (5축)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>트렌드</th>
+<th>한 줄 정의</th>
+<th>왜 중요한가</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Physical AI 상용화</td>
+<td>센서·AI·로봇이 <strong>현장에서 유료 운영</strong>되는 단계</td>
+<td>Decider는 데모가 아니라 <strong>가동·안전·ROI</strong>를 본다</td>
+</tr>
+<tr>
+<td>2</td>
+<td>VLA·파운데이션</td>
+<td>영상+지시 → <strong>로봇 동작</strong>을 한 모델로</td>
+<td>SW 경쟁이 <strong>데이터·파인튜닝</strong>으로 이동</td>
+</tr>
+<tr>
+<td>3</td>
+<td>클라우드·RaaS</td>
+<td>로봇을 <strong>구독·건당</strong>으로 쓰는 OPEX</td>
+<td>B2B 계약의 기본 언어가 <strong>가동률·건당 비용</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>로봇 친화 인프라</td>
+<td>엘리베이터·맵·<strong>SS 713</strong> 등 빌딩·도로 표준</td>
+<td>kg·속도보다 <strong>인프라 정합</strong>이 상용 게이트</td>
+</tr>
+<tr>
+<td>5</td>
+<td>월드 모델·DT</td>
+<td><strong>Sim2Real</strong> — 시뮬에서 배우고 현장에 투입</td>
+<td>인증·안전 검증 <strong>시간·비용</strong> 절감</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>1. Physical AI: 데모 → 산업·상용</h2>
+<h3>개념·정의</h3>
+<p><strong>Physical AI</strong>는 카메라·LiDAR·IMU 등 센서로 물리 세계를 인지하고, AI가 추론·계획한 뒤 로봇·차량·설비가 행동하는 <strong>지각–추론–행동</strong> 파이프라인이다.</p>
+<h3>시장·산업 동향</h3>
+<ul>
+<li><strong>IFR</strong>은 2026년 핵심 동력으로 <strong>AI 자율성·GenAI 시뮬레이션 학습</strong>을 제시</li>
+<li>물류·서비스 로봇은 <strong>시범 → 유료 운영</strong> 단계 진입</li>
+<li>로봇 구매(CAPEX)보다 <strong>운영·구독(OPEX)</strong> 논의 증가</li>
+</ul>
+<h3>주요 플레이어·사례</h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>플랫폼·칩</td>
+<td>NVIDIA, Qualcomm</td>
+</tr>
+<tr>
+<td>로봇 OEM</td>
+<td>Figure, Boston Dynamics, Universal Robots</td>
+</tr>
+<tr>
+<td>물류·배달</td>
+<td>Amazon Robotics, Serve Robotics</td>
+</tr>
+</tbody>
+</table>
+<h3>시사점</h3>
+<ul>
+<li>도입 기준: <strong>안전·규제·ROI</strong> 우선</li>
+<li><strong>시뮬·디지털 트윈</strong> 없이 대규모 배치는 리스크 큼</li>
+<li>팀 위키 <a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5295362172">문유빈 일본 B2B</a>: 일본 서비스 로봇 시장 CAGR <strong>32.7%</strong>(2024→2033) · METI 로봇 R&amp;D <strong>¥480억</strong>(FY2025–27) — <strong>정책+인력난</strong>이 동시에 작동하는 시장은 일본이 유일에 가깝다</li>
+</ul>
+<h3>루키·누리·네이버 연관</h3>
+<ul>
+<li><strong>네이버클라우드–NVIDIA MOU</strong>(2025.10): Physical AI 플랫폼 공동 개발</li>
+<li><strong>국토부 장관 1784 방문</strong>(2026.5): 루키·누리 시연, 상용화·규제 논의</li>
+<li>2026년 <strong>실외 커머스×로봇 배송</strong> 검증 계획</li>
+</ul>
+<h3>참고</h3>
+<ul>
+<li><a href="https://ifr.org/ifr-press-releases/news/top-5-global-robotics-trends-2026">Top 5 Global Robotics Trends 2026 – IFR</a></li>
+<li><a href="https://www.nvidia.com/en-us/glossary/physical-ai/">Physical AI – NVIDIA</a></li>
+<li><a href="https://www.businesskorea.co.kr/news/articleView.html?idxno=255402">Naver, Nvidia Partner – BusinessKorea</a></li>
+</ul>
+<hr />
+<h2>2. VLA·로보틱스 파운데이션 모델</h2>
+<h3>개념·정의</h3>
+<p><strong>VLA(Vision-Language-Action)</strong>는 <strong>영상 + 말(지시) → 로봇 동작</strong>을 한 AI 모델로 연결한다.</p>
+<h3>기술·연구 동향</h3>
+<ul>
+<li>Figure Helix, OpenVLA 등 대표 사례 증가</li>
+<li>학습·배포 <strong>파이프라인 표준화</strong> 논의</li>
+<li>한계: 시뮬과 실제 차이, 안전·설명 가능성</li>
+</ul>
+<h3>시장 영향</h3>
+<ul>
+<li>로봇 SW → <strong>파운데이션 모델 + 맞춤 학습</strong> 구조로 변화 가능</li>
+<li><strong>데이터</strong>가 경쟁력의 핵심</li>
+</ul>
+<h3>루키·누리·네이버 연관</h3>
+<ul>
+<li><strong>ARC Mind</strong>: 로봇 서비스를 만드는 웹 환경</li>
+<li><strong>루키</strong>: 클라우드(ARC)에서 AI를 돌리는 <strong>5G 브레인리스</strong> 구조</li>
+<li><strong>CroCo</strong>: 3D로 주변을 이해하는 기술(위치·이동)</li>
+</ul>
+<h3>참고</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Vision%E2%80%93language%E2%80%93action_model">VLA – Wikipedia</a></li>
+<li><a href="https://kraneshares.com/humanoid-robotics-in-2026-the-race-from-pilot-to-platform/">Humanoid Robotics 2026 – KraneShares</a></li>
+</ul>
+<hr />
+<h2>3. 클라우드 로보틱스 &amp; RaaS</h2>
+<h3>개념·정의</h3>
+<ul>
+<li><strong>클라우드 로보틱스</strong>: 지도·인지·관리를 클라우드에서 처리</li>
+<li><strong>RaaS</strong>: 로봇을 구독·건당으로 빌려 쓰는 모델</li>
+</ul>
+<h3>시장·산업 동향</h3>
+<ul>
+<li>RaaS 플릿 <strong>전년 대비 약 31% 성장</strong>(IFR)</li>
+<li>배달 로봇 2,000대+ 이후 <strong>가동률·건당 비용</strong> 중시</li>
+<li>5G·사내 전용망이 저지연 운영에 필요</li>
+</ul>
+<h3>기술·운영 이슈</h3>
+<table>
+<thead>
+<tr>
+<th>이슈</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>연결성</td>
+<td>망 끊기면 안전 정지</td>
+</tr>
+<tr>
+<td>보안</td>
+<td>원격 제어·지도 데이터</td>
+</tr>
+<tr>
+<td>단위경제</td>
+<td>유지비·충전·플랫폼 수수료</td>
+</tr>
+</tbody>
+</table>
+<h3>루키·누리·네이버 연관</h3>
+<ul>
+<li><strong>루키</strong>: ARC로 로봇 본체를 가볍게 → 비용·배터리 절감</li>
+<li><strong>1784</strong>: 5G + RoboPort + 로봇 엘리베이터 = 국내 RaaS 레퍼런스</li>
+<li><strong>누리</strong>: 실외 지도·안정성 검증 후 본격 서비스</li>
+</ul>
+<h3>참고</h3>
+<ul>
+<li><a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">Service robots – IFR</a></li>
+<li><a href="https://qsr.pro/articles/serve-robotics-2000-sidewalk-robots-autonomous-delivery-economics-2026">Serve Robotics 2,000 – QSR Pro</a></li>
+</ul>
+<hr />
+<h2>4. 로봇 친화형 빌딩·인프라 표준</h2>
+<h3>개념·정의</h3>
+<p>병목은 로봇 성능이 아니라 <strong>엘리베이터·문·지도·충전</strong>인 경우가 많다. <strong>Robot-Friendly Building</strong>은 처음부터 로봇을 고려해 짓는 접근이다.</p>
+<h3>정책·표준 동향</h3>
+<ul>
+<li>싱가포르 <strong>SS 713</strong>: 로봇–엘리베이터 연동 표준</li>
+<li>국내·해외 PoC·인증 사례 증가</li>
+<li>정밀 지도·층간 맵 표준화 필요</li>
+</ul>
+<h3>시장 구조</h3>
+<ul>
+<li>경쟁 축: 로봇 제조 → <strong>건물·도시 + 로봇 플릿</strong></li>
+<li>1784 vs 현대차 양재 등 국내 사례 비교</li>
+<li><strong>일본:</strong> 도쿄 포트시티 타케시바 <strong>ロボフレ(로봇 프렌들리)</strong> 실증 — 닛켄설계·소프트뱅크·동급부동산이 <strong>로봇 친화 레벨</strong> 평가 지표 도입 (<a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5295362172">문유빈 일본 B2B</a>)</li>
+<li><strong>일본 규제:</strong> 2023.04 도로교통법 개정 — 시속 <strong>6km/h 이하</strong> 원격조작 소형차 <strong>보도 주행 합법화</strong>(신고만으로 운행) — 누리 5.4km/h 스펙과 정합</li>
+</ul>
+<h3>루키·누리·네이버 연관</h3>
+<ul>
+<li><strong>루키 2</strong>: RoboPort, 엘리베이터·주문 앱 연동</li>
+<li>네이버랩스–국토부: 실외 로봇 표준·지도</li>
+<li><strong>1784</strong>: 국내 대표 실증 건물</li>
+</ul>
+<h3>참고</h3>
+<ul>
+<li><a href="https://www1.bca.gov.sg/regulatory-info/building-control/standards-codes-and-guides">SS 713 – BCA</a></li>
+<li><a href="https://www.asiae.co.kr/en/visual-news/article/2026051509514785973">Can a Building Become a Robot?</a></li>
+<li><a href="https://en.sedaily.com/technology/2026/05/27/land-minister-visits-naver-pledges-support-for-robot">Land Minister Visits Naver</a></li>
+</ul>
+<hr />
+<h2>5. 월드 파운데이션 모델·디지털 트윈</h2>
+<h3>개념·정의</h3>
+<ul>
+<li><strong>월드 모델</strong>: 환경을 예측·가상 데이터 생성</li>
+<li><strong>디지털 트윈</strong>: 실제 건물·도시의 디지털 복제본</li>
+</ul>
+<h3>기술·산업 동향</h3>
+<ul>
+<li>NVIDIA <strong>Cosmos</strong>: 시뮬·학습 데이터 생성</li>
+<li><strong>Sim2Real</strong>: 가상에서 배운 것을 실제 로봇에 적용</li>
+<li><strong>라이브 디지털 트윈</strong>: 실시간 운영 데이터 반영</li>
+</ul>
+<h3>시사점</h3>
+<ul>
+<li>현장 배치 전 <strong>가상에서 대량 검증</strong>이 필수에 가까움</li>
+<li>Omniverse·Isaac 등 통합 플랫폼 경쟁</li>
+</ul>
+<h3>루키·누리·네이버 연관</h3>
+<ul>
+<li>네이버–NVIDIA: Omniverse + 디지털 트윈</li>
+<li>사우디·일본 등 해외 PoC</li>
+<li><strong>1784</strong>: 디지털 트윈 + AIoT + 로봇 플릿 결합</li>
+</ul>
+<h3>참고</h3>
+<ul>
+<li><a href="https://www.nvidia.com/en-us/ai/cosmos/">NVIDIA Cosmos</a></li>
+<li><a href="https://www.gartner.com/en/information-technology/glossary/digital-twin">Digital Twin – Gartner</a></li>
+<li><a href="https://en.sedaily.com/technology/2026/02/06/naver-posts-record-revenue-of-12-trillion-won-expands-into">Naver Expands into Robotics</a></li>
+</ul>
+<hr />
+<h2>6. 트렌드 요약</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>트렌드</th>
+<th>한 줄 정의</th>
+<th>주요 적용 분야</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Physical AI 상용화</td>
+<td>데모 → <strong>유료 현장 운영</strong></td>
+<td>제조, 물류, FM</td>
+</tr>
+<tr>
+<td>2</td>
+<td>VLA·파운데이션</td>
+<td>영상+언어 → <strong>동작</strong></td>
+<td>휴머노이드, 범용 조작</td>
+</tr>
+<tr>
+<td>3</td>
+<td>클라우드·RaaS</td>
+<td><strong>OPEX</strong>·건당 원가</td>
+<td>배달, 창고, 시설</td>
+</tr>
+<tr>
+<td>4</td>
+<td>로봇 친화 인프라</td>
+<td>맵·엘리베이터·표준</td>
+<td>오피스, 스마트시티</td>
+</tr>
+<tr>
+<td>5</td>
+<td>월드 모델·DT</td>
+<td><strong>Sim2Real</strong> 검증</td>
+<td>로봇 학습·인증</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>7. 트렌드–제품 매핑 (루키·누리·네이버)</h2>
+<table>
+<thead>
+<tr>
+<th>트렌드</th>
+<th>루키(실내)</th>
+<th>누리(실외)</th>
+<th>네이버/랩스</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Physical AI 상용화</td>
+<td>1784 라이브 서비스</td>
+<td>국토부 협력·실외 PoC</td>
+<td>NVIDIA MOU</td>
+</tr>
+<tr>
+<td>VLA·파운데이션</td>
+<td>ARC + 로보틱스 FM</td>
+<td>정밀 지도·자율주행</td>
+<td>ARC Mind, CroCo</td>
+</tr>
+<tr>
+<td>클라우드·RaaS</td>
+<td>5G 브레인리스</td>
+<td>건당 경제성</td>
+<td>NCP·ARC Brain</td>
+</tr>
+<tr>
+<td>로봇 친화 빌딩</td>
+<td>RoboPort</td>
+<td>실외 표준</td>
+<td>1784·정부 협력</td>
+</tr>
+<tr>
+<td>월드 모델·DT</td>
+<td>실내 시뮬</td>
+<td>도심 맵</td>
+<td>Omniverse</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>8. 리서치 질문 · 인사이트 (검증 전)</h2>
+<h3>리서치 질문 (10)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>질문</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1</td>
+<td>Physical AI 도입에서 Decider가 <strong>먼저 보는 지표</strong>는 스펙인가, 가동률·ROI인가?</td>
+</tr>
+<tr>
+<td>Q2</td>
+<td>VLA·파운데이션 모델이 <strong>B2B 파일럿 계약</strong>에 실질 설득력이 있는가, 아니면 PoC 데모 수준인가?</td>
+</tr>
+<tr>
+<td>Q3</td>
+<td>RaaS에서 <strong>건당 단위경제</strong>가 맞기 전까지 상용 확장이 멈추는가?</td>
+</tr>
+<tr>
+<td>Q4</td>
+<td>로봇 친화 빌딩 없이 <strong>루키만</strong> 도입했을 때 CX·비용 곡선은 어떻게 변하는가?</td>
+</tr>
+<tr>
+<td>Q5</td>
+<td><strong>Sim2Real·디지털 트윈</strong>이 안전 인증·규제 대응 시간을 얼마나 줄이는가?</td>
+</tr>
+<tr>
+<td>Q6</td>
+<td>국내 <strong>실외 로봇 표준·정밀 지도</strong>가 누리 상용화의 <strong>결정적 게이트</strong>인가?</td>
+</tr>
+<tr>
+<td>Q7</td>
+<td>NVIDIA MOU가 NAVER 캠페인에서 <strong>차별 POI</strong>로 쓰일 수 있는가, 아니면 백엔드 스토리인가?</td>
+</tr>
+<tr>
+<td>Q8</td>
+<td>일본·사우디 PoC가 <strong>한국 1784 레퍼런스</strong>와 같은 내러티브로 이어지는가?</td>
+</tr>
+<tr>
+<td>Q9</td>
+<td>클라우드 브레인리스 구조가 <strong>망 장애 시</strong> B2B Decider의 Trying 장벽을 키우는가?</td>
+</tr>
+<tr>
+<td>Q10</td>
+<td><code>[WK1][02]</code> 타사 대비, <strong>인프라+트윌</strong> 번들이 Early Adopter를 끌어당기는가?</td>
+</tr>
+</tbody>
+</table>
+<h3>인사이트 (3건 · 1차 검증 전)</h3>
+<ol>
+<li><strong>인프라 게이트:</strong> 2026년 로봇 GTM의 승패는 로봇 kg·속도보다 <strong>빌딩·맵·5G·표준(SS 713류)</strong> 정합성에 좌우된다 → 루키·1784·국토부 협력 스토리가 <code>[WK1][01]</code>·<code>[WK1][04]</code>과 맞물린다.</li>
+<li><strong>OPEX 전환 가설:</strong> B2B Decider는 CAPEX 구매보다 <strong>RaaS·가동률·건당 비용</strong> 프레임을 선호한다 → Serve·Neubie 사례와 루키 ARC 구조를 같은 축에서 설명 가능.</li>
+<li><strong>실내→실외 핸드오프 가설:</strong> 루키로 <strong>실내 신뢰</strong>를 쌓은 뒤 누리·Lungo로 <strong>실외·지정 장소</strong>로 이어지는 옴니모달이 NAVER만의 패키지 후보다(단, 누리 스펙·상용 데이터는 <code>[WK1][02]</code> 한계 유지).</li>
+</ol>
+<hr />
+<h2>9. 국가별 심화 — 한국·일본·사우디</h2>
+<blockquote>
+<p><strong>이 절을 읽는 법</strong><br />
+- <strong>0.1절·6절의 글로벌 5대 트렌드</strong>가 먼저다. 여기서는 그 트렌드가 <strong>각 나라에서 어떤 정책·인프라·수요로 나타나는지</strong>를 풀어 쓴다.<br />
+- <strong>메가 트렌드(9.x.1)</strong> = 그 나라를 움직이는 <strong>거시 변화</strong>(왜 지금 로봇 이야기가 나오는가).<br />
+- <strong>기회 영역 OTE(9.x.2)</strong> = 트렌드가 만들어낸 <strong>로봇이 들어갈 수 있는 구체 장면</strong>(점수는 트렌드·인프라·NAVER 적합도 참고용, 1–5).<br />
+- <strong>플랫폼·디지털 축(9.x.3)</strong> = 앱·공공 IT·맵이 <strong>현장 마지막 구간</strong>과 어떻게 맞물리는가.<br />
+- 도메인·Decider·등급은 후속 <strong><code>[WK1][04]</code></strong> 에서 다룬다. 수치·정책명은 공식 자료로 재확인한다.</p>
+</blockquote>
+<hr />
+<h3>9.1 대한민국</h3>
+<p><strong>한 줄 요약:</strong> 정부는 <strong>실증 예산·실외 인증</strong>으로 문을 열고, 민간은 <strong>1784형 실내 레퍼런스</strong>로 경쟁한다. NAVER는 <strong>국토부 게이트 + NVIDIA DT</strong>에 걸려 있다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>지금 무슨 일이 일어나는가 (사실)</th>
+<th>로봇·캠페인에 왜 중요한가</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>정책</strong></td>
+<td>KIRIA <strong>2026 서비스로봇 실증</strong> 총 <strong>127억 원</strong> (공공·민간·해외·규제혁신·융합 실증) · K-문샷 AI 휴머노이드(2026–2030)</td>
+<td>B2G <strong>입찰·실증 창</strong>이 열려 있음 — Decider는 「예산·실증 성과」 프레임</td>
+</tr>
+<tr>
+<td><strong>실외 관문</strong></td>
+<td>국토부 <strong>실외이동로봇 안전인증·정밀지도·표준</strong> — 보도 통행 전제</td>
+<td><strong>누리</strong> 상용화 속도는 스펙이 아니라 <strong>인증·맵</strong>에 묶임</td>
+</tr>
+<tr>
+<td><strong>실내 레퍼런스</strong></td>
+<td><strong>1784·루키 100대+</strong>, 현대차 양재(DAL-e) 등 <strong>로봇 친화 빌딩</strong> 경쟁</td>
+<td>Decider 설득은 「데모」가 아니라 <strong>가동률·RoboPort·5G 브레인리스</strong> 증거</td>
+</tr>
+<tr>
+<td><strong>NAVER</strong></td>
+<td>NVIDIA MOU(Omniverse·Isaac) · <strong>2026.5 국토부 장관 1784 방문</strong> 시연</td>
+<td><strong>Physical AI + 실외 PoC</strong>를 한 내러티브로 묶을 수 있는 유일 국내 플레이어 후보</td>
+</tr>
+<tr>
+<td><strong>팀 위키</strong></td>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5309770871">류준하 루키×한국</a> · <a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5312199001">변정훈 K-Tour</a></td>
+<td>경매·관광 등 <strong>도메인 가설</strong> — <code>[WK1][04]</code> K2·K8·K9</td>
+</tr>
+</tbody>
+</table>
+<h4>9.1.1 한국 5대 메가 트렌드</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th>메가 트렌드</th>
+<th>무슨 일이 벌어지나</th>
+<th>이게 로봇 트렌드(0.1절)와 어떻게 연결되나</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>K-T1</strong></td>
+<td><strong>공공 실증·규제 샌드박스</strong></td>
+<td>KIRIA 127억·국토부 실외 인증 4사 경쟁 · 「실증 → 제도 근거」</td>
+<td><strong>트렌드 1·4</strong> — Physical AI가 <strong>법·표준 뒤</strong>에서 상용화</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>K-T2</strong></td>
+<td><strong>실내 레퍼런스 경쟁</strong></td>
+<td>1784 vs 양재 등 <strong>로봇 동선·엘리베이터·관제</strong> 내장 신축·리모델링</td>
+<td><strong>트렌드 4</strong> — 로봇 친화 인프라가 <strong>입찰·FM 차별</strong> 요소</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>K-T3</strong></td>
+<td><strong>OPEX·RaaS 전환</strong></td>
+<td>B2B Decider가 구매보다 <strong>가동률·건당 비용·SLA</strong>를 묻음</td>
+<td><strong>트렌드 3</strong> — 클라우드·ARC <strong>브레인리스</strong>가 비용 구조와 맞음</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>K-T4</strong></td>
+<td><strong>공공·산업 백오피스 물류</strong></td>
+<td>RPC 새벽 첫 구간·수장고·철도 야간 FM — <strong>승객·관광 안내가 아닌</strong> 반복 운반</td>
+<td><strong>트렌드 1·3</strong> — 빈도·ROI가 있는 <strong>B2G·B2B</strong> 장면</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>K-T5</strong></td>
+<td><strong>플랫폼×현장 핸드오프</strong></td>
+<td>네이버 <strong>지도·페이·파파고·Works</strong> + 현장 물류·관광 동선</td>
+<td><strong>트렌드 5</strong> — 디지털 주문·안내와 <strong>물리 이동</strong> 사이 병목</td>
+</tr>
+</tbody>
+</table>
+<h4>9.1.2 한국 6 OTE (기회 영역)</h4>
+<blockquote>
+<p>점수 = 트렌드 강도·인프라 준비·NAVER 번들 적합도 (1–5, 비교용). 도메인 등급 정본은 <code>[WK1][04]</code> 1.3절.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">OTE</th>
+<th>한 줄 (무엇이 기회인가)</th>
+<th style="text-align: center;">점수</th>
+<th>연계 도메인·근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>A [우선]</strong></td>
+<td><strong>농산물 RPC 첫 구간</strong> — 새벽 경매 전 병목, B2C 배달 아님</td>
+<td style="text-align: center;"><strong>4.75</strong></td>
+<td>K2 · KIRIA·국토부 실증</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>B [우선]</strong></td>
+<td><strong>국가기록·문화재 수장고</strong> — 온습도 구역 백오피스, 유물 직접 X</td>
+<td style="text-align: center;"><strong>4.55</strong></td>
+<td>K4 · 공공 독창 레퍼런스</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>C [우선]</strong></td>
+<td><strong>지하철·철도 FM</strong> — 역사·차량기지 야간, 1784와 동일 스택</td>
+<td style="text-align: center;"><strong>4.50</strong></td>
+<td>K5 · 코레일·교통공사</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>D [재검토]</strong></td>
+<td><strong>K-관광 핸드오프</strong> — 짐·동선·결제, 해설은 사람</td>
+<td style="text-align: center;"><strong>4.35</strong></td>
+<td>K9 · Maps·페이 5축 · 1차 부족</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>E</strong></td>
+<td><strong>전시·MICE 야간 설치</strong> — 하역장→홀 옴니모달, 시즌성</td>
+<td style="text-align: center;"><strong>4.10</strong></td>
+<td>K1 · COEX·KINTEX</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>F</strong></td>
+<td><strong>경매 프리뷰 백오피스</strong> — 봉인 로트만, SAM 극소</td>
+<td style="text-align: center;"><strong>3.85</strong></td>
+<td>K8 · 니치·1차 없음</td>
+</tr>
+</tbody>
+</table>
+<h4>9.1.3 한국 디지털·플랫폼 축</h4>
+<table>
+<thead>
+<tr>
+<th>서비스·인프라</th>
+<th>일상에서 하는 일</th>
+<th>로봇과의 연결 (왜 트렌드 K-T5와 맞는가)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>네이버 지도·Place</strong></td>
+<td>시설·동선·POI</td>
+<td>실외 <strong>누리</strong> 경로·관제·Decider <strong>가동 구역</strong> 정의</td>
+</tr>
+<tr>
+<td><strong>네이버페이·예약</strong></td>
+<td>결제·예약·정산</td>
+<td>B2G·B2B <strong>건당 비용·SLA</strong> 계약과 연결</td>
+</tr>
+<tr>
+<td><strong>파파고</strong></td>
+<td>통역·안내 텍스트</td>
+<td>K-Tour 등 <strong>외국인 동선</strong> — 로봇은 짐·이동만</td>
+</tr>
+<tr>
+<td><strong>WORKS·1784</strong></td>
+<td>사내 협업·실증 현장</td>
+<td><strong>루키</strong> 실내 PoC·관제 <strong>레퍼런스</strong></td>
+</tr>
+<tr>
+<td><strong>정부24·공공데이터</strong></td>
+<td>행정·실증 공고</td>
+<td>KIRIA·국토부 <strong>B2G 입찰</strong> 타이밍 포착</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>시사:</strong> 한국은 「앱은 됐는데 현장 물류가 병목」보다 <strong>「실증 창은 열렸는데 인증·레퍼런스가 관문」</strong> 에 가깝다. 설득 순서는 <strong>1784 실내 증거 → 국토부 실외 번들</strong>.</p>
+</blockquote>
+<hr />
+<h3>9.2 일본</h3>
+<p><strong>한 줄 요약:</strong> <strong>2023년 보도 합법화</strong>로 실외 문은 열렸지만, 상용 속도는 <strong>관제·합의·신축 DT</strong>가 좌우한다. HW는 강하고 <strong>FM·데이터·문화적 보수성</strong>이 게이트다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>지금 무슨 일이 일어나는가 (사실)</th>
+<th>로봇·캠페인에 왜 중요한가</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>정책</strong></td>
+<td>통합혁신전략 2025 · METI Physical AI · <strong>2027 휴머노이드 양산</strong> 목표(KyoHA 등) · <strong>SusHi Tech Tokyo 2026</strong></td>
+<td>정부가 <strong>제조·재난·물류</strong> 축으로 Physical AI를 밀어 올림</td>
+</tr>
+<tr>
+<td><strong>규제</strong></td>
+<td><strong>2023.04</strong> 도로교통법 — 보도 배송 로봇 <strong>≤6km/h</strong> 합법 · 원격 관제 필수</td>
+<td><strong>실외</strong>는 「가능」이지만 <strong>속도·관제 SLA</strong>가 계약 조건</td>
+</tr>
+<tr>
+<td><strong>인프라</strong></td>
+<td>순환도시개발법 — 공공건물 <strong>40% 스마트화(2030)</strong> · <strong>ロボフレ</strong>(로봇 친화 빌딩) 표준화</td>
+<td><strong>신축·DT</strong>에 로봇 동선을 <strong>처음부터</strong> 넣는 창</td>
+</tr>
+<tr>
+<td><strong>노동</strong></td>
+<td>초고령·구인난(장례 <strong>7.59배</strong> 등) · <strong>HCPS</strong>(사람 협업 Physical AI)</td>
+<td>반복·야간·중량 이동 — <strong>인력 대체</strong>가 아니라 <strong>보완</strong> 프레임 필요</td>
+</tr>
+<tr>
+<td><strong>NAVER</strong></td>
+<td>SusHi <strong>「AI as Social Infrastructure」</strong> · <strong>NTT東·PLATEAU·지자체 DT</strong> · 1784형 신규 개발 논의</td>
+<td>LY·LINE 분리 — <strong>국내 앱 그대로 확장 불가</strong> (<code>[WK1][01]</code>)</td>
+</tr>
+<tr>
+<td><strong>팀 위키</strong></td>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5295362172">문유빈 일본 B2B</a> · <a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5292875639">오성민 CVS</a> · <a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5305060557">류준하 실버타운</a></td>
+<td>Grade A 공실 <strong>~1%</strong> → <strong>차별화</strong> · 야간 매출 <strong>~18%</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>주의:</strong> 일본 Decider는 「신기술」보다 <strong>예측 가능한 동선·관제·6–12개월 시범</strong>을 먼저 본다.</p>
+</blockquote>
+<h4>9.2.1 일본 5대 메가 트렌드</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th>메가 트렌드</th>
+<th>무슨 일이 벌어지나</th>
+<th>이게 로봇 트렌드(0.1절)와 어떻게 연결되나</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>J-T1</strong></td>
+<td><strong>보도 실외 합법화·관제</strong></td>
+<td>6km/h 이하·원격 모니터링 · 중속 로봇은 <strong>로드맵 단계</strong></td>
+<td><strong>트렌드 1·4</strong> — Physical AI <strong>규제 속에서</strong> 단계적 상용</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>J-T2</strong></td>
+<td><strong>신축 DT + 로봇 친화 빌딩</strong></td>
+<td>미쓰이·미쓰비시 <strong>신도시·PLATEAU</strong> · 공공건물 스마트화</td>
+<td><strong>트렌드 4·5</strong> — 맵·DT <strong>완성 후</strong> 로봇 레이어</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>J-T3</strong></td>
+<td><strong>HCPS·인력난</strong></td>
+<td>Fab·장례·방재·물류 — <strong>사람과 공존</strong> 전제</td>
+<td><strong>트렌드 2·3</strong> — VLA·RaaS로 <strong>예측 가능 업무</strong>부터</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>J-T4</strong></td>
+<td><strong>B2G·재난·방재</strong></td>
+<td>비축 순환·지진 모드(Rookie2 일본향) · METI 물류 R&amp;D</td>
+<td><strong>트렌드 1·3</strong> — <strong>가동률 예측</strong>이 ROI 핵심</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>J-T5</strong></td>
+<td><strong>문화·존엄 서비스</strong></td>
+<td>장례 <strong>1.86조 엔</strong> 시장 · 유족 <strong>거부 38.4%</strong> — 역할 한정 필요</td>
+<td><strong>트렌드 1</strong> — 「안내 로봇」이 아니라 <strong>백오피스·옵트인</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>9.2.2 일본 6 OTE (기회 영역)</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">OTE</th>
+<th>한 줄 (무엇이 기회인가)</th>
+<th style="text-align: center;">점수</th>
+<th>연계 도메인·근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>A [우선]</strong></td>
+<td><strong>장례식장 백오피스·안내</strong> — 구인난·시장 규모, 감정 케어 분리</td>
+<td style="text-align: center;"><strong>4.85</strong></td>
+<td>J8 · 보전사·메이플 등</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>B [우선]</strong></td>
+<td><strong>DT 신도시 + 로봇</strong> — 로봇 동선 내장 신축</td>
+<td style="text-align: center;"><strong>4.70</strong></td>
+<td>J4 · NTT東·지자체</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>C [재검토]</strong></td>
+<td><strong>방재 비축 순환</strong> — 분기·월 스케줄, 재난 모드</td>
+<td style="text-align: center;"><strong>4.20</strong></td>
+<td>J7 · 방재과 B2G</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>D</strong></td>
+<td><strong>Fab 클린룸 외곽</strong> — 내부 AMHS와 분리</td>
+<td style="text-align: center;"><strong>3.95</strong></td>
+<td>J5 · METI 2027 휴머노이드 맥락</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>E</strong></td>
+<td><strong>창고 야간 토트</strong> — 물류 일반론 인접</td>
+<td style="text-align: center;"><strong>3.75</strong></td>
+<td>J3 · 야마토·사가와 연계</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>F</strong></td>
+<td><strong>철도·역 빌딩 FM</strong> — K5와 중복·차별 약</td>
+<td style="text-align: center;"><strong>3.60</strong></td>
+<td>J1 · JR·야간 저소음</td>
+</tr>
+</tbody>
+</table>
+<h4>9.2.3 일본 디지털·플랫폼 축</h4>
+<table>
+<thead>
+<tr>
+<th>서비스·인프라</th>
+<th>일상에서 하는 일</th>
+<th>로봇과의 연결 (왜 트렌드 J-T2와 맞는가)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PLATEAU·지자체 DT</strong></td>
+<td>3D 도시·건물 데이터</td>
+<td><strong>신축 FM</strong> PoC — Sim2Real·동선 검증</td>
+</tr>
+<tr>
+<td><strong>LINE·Pay (LY 분리 중)</strong></td>
+<td>메시지·결제</td>
+<td>NAVER <strong>직접 확장 제한</strong> — SusHi·NTT <strong>번들</strong> 필요</td>
+</tr>
+<tr>
+<td><strong>마이넘버·전자청약</strong></td>
+<td>행정·신원</td>
+<td>B2G <strong>합의·감사</strong> 문서화 — 시범 기간 명시</td>
+</tr>
+<tr>
+<td><strong>SusHi Tech·METI 실증</strong></td>
+<td>공공 시범·R&amp;D</td>
+<td><strong>Early Adopter</strong> 레퍼런스 확보 창</td>
+</tr>
+<tr>
+<td><strong>ARC JPN-4·야에스 빌딩</strong></td>
+<td>Rookie2 배달 테스트</td>
+<td><strong>수출 패키지</strong> 형식화 (<code>[WK1][02]</code> 부록)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>시사:</strong> 일본은 「로봇 도입」이 아니라 <strong>「신축·DT·FM 계약에 로봇 조항 넣기」</strong> 가 먼저다. <strong>관제·합의</strong> 없으면 Trying 장벽에서 멈춘다.</p>
+</blockquote>
+<hr />
+<h3>9.3 사우디아라비아</h3>
+<p><strong>한 줄 요약:</strong> <strong>NEOM 일부 조정</strong>으로 「로봇 도시」 환상은 약해졌고, <strong>항만·물류·DT 완성 후 로봇 레이어</strong>가 현실 축이다. 폭염·프라이버시·국가 행사가 수요를 만든다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>지금 무슨 일이 일어나는가 (사실)</th>
+<th>로봇·캠페인에 왜 중요한가</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>재편</strong></td>
+<td>NEOM The Line <strong>일부 중단·예산 재조정</strong>(2025–26 보도)</td>
+<td><strong>B2C 배달·로봇 도시</strong> 내러티브 과장 리스크</td>
+</tr>
+<tr>
+<td><strong>실행 축</strong></td>
+<td><strong>Oxagon·항만 IGV</strong> · DSV 물류 JV(약 <strong>100억 달러</strong> 언급) · HUMAIN AI DC</td>
+<td><strong>산업·물류 B2B</strong>가 먼저 — 관광 안내 로봇과 다른 층</td>
+</tr>
+<tr>
+<td><strong>NAVER</strong></td>
+<td><strong>5대 도시 DT</strong>(약 1억 달러 규모 언급) · <strong>NHC JV(2024.11)</strong> · New Murabba MOU</td>
+<td>로봇은 <strong>맵·DT 완성 뒤</strong> 올리는 <strong>2단계 레이어</strong></td>
+</tr>
+<tr>
+<td><strong>기후·문화</strong></td>
+<td>정오 <strong>WBGT 32.1°C+</strong> 실외 작업 제한 · Diyafa·Karama(환대·존엄)</td>
+<td><strong>폭염·낯선인 최소</strong> = 실외·실내 <strong>옴니</strong> 가치</td>
+</tr>
+<tr>
+<td><strong>팀 위키</strong></td>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5295361990">임규은 사우디 GTM</a> · <a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5312200967">신규도메인</a></td>
+<td>Oxagon·축제→연중 RaaS · 낙타·팔콘</td>
+</tr>
+</tbody>
+</table>
+<h4>9.3.1 사우디 5대 메가 트렌드</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th>메가 트렌드</th>
+<th>무슨 일이 벌어지나</th>
+<th>이게 로봇 트렌드(0.1절)와 어떻게 연결되나</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>S-T1</strong></td>
+<td><strong>Vision 2030 · 대형 인프라</strong></td>
+<td>움라·하지 <strong>~3,000만/년</strong> · ROSHN·Expo 2030 · 비석유 GDP</td>
+<td><strong>트렌드 4</strong> — 대형 부지 <strong>마지막 500m</strong> 물류</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S-T2</strong></td>
+<td><strong>극한 기후 · 노동 보호</strong></td>
+<td>45°C · 정오 실외 노동 제한 · 외국인 노동 <strong>44%</strong></td>
+<td><strong>트렌드 1·3</strong> — 저속 보도 로봇 = <strong>ESG·규제</strong> 스토리</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S-T3</strong></td>
+<td><strong>프라이버시·존엄</strong></td>
+<td>컴파운드·성별·게스트 규칙 · <strong>낯선인 최소</strong></td>
+<td><strong>트렌드 4</strong> — Gate-to-Home <strong>L→R</strong> 옴니</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S-T4</strong></td>
+<td><strong>문화·헤리티지 산업</strong></td>
+<td>Year of Camel · UNESCO 산지 · 낙타 축제</td>
+<td><strong>트렌드 1</strong> — 관광 안내 X, <strong>현장 백오피스</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S-T5</strong></td>
+<td><strong>디지털 정부·슈퍼앱</strong></td>
+<td>Absher·Nusuk·5G <strong>85%</strong> · ITU 디지털 준비도 1위(2025)</td>
+<td><strong>트렌드 5</strong> — 앱 <strong>주문</strong> + 로봇 <strong>투입</strong> = 마지막 미터</td>
+</tr>
+</tbody>
+</table>
+<h4>9.3.2 사우디 6 OTE (기회 영역)</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">OTE</th>
+<th>한 줄 (무엇이 기회인가)</th>
+<th style="text-align: center;">점수</th>
+<th>연계 도메인·근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>A [우선]</strong></td>
+<td><strong>프라이버시 단지 Gate-to-Home</strong> — 마즐리스·우드 공방</td>
+<td style="text-align: center;"><strong>4.80</strong></td>
+<td>S8 · OTE 최고</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>B [우선]</strong></td>
+<td><strong>국가 행사 키트</strong> — Expo·FIFA·Hajj 보행 구역</td>
+<td style="text-align: center;"><strong>4.70</strong></td>
+<td>S2 · 마감 고정</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>C [우선]</strong></td>
+<td><strong>국가행사 Event Chain</strong> — 백오피스 키트·옴니모달</td>
+<td style="text-align: center;"><strong>4.70</strong></td>
+<td>S1 · Expo·GEA · Works·ARC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>C-sub</strong></td>
+<td>VIP 냉장·Sawani (콜드체인 축)</td>
+<td style="text-align: center;"><strong>4.65</strong></td>
+<td>S1-sub · SFDA · <strong>목장→가공 메인은 2주차 탈락</strong> (<code>[WK2][00]</code> §1.4)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>D [우선]</strong></td>
+<td><strong>낙타 축제·현장 백오피스</strong> — 심사·의료 키트</td>
+<td style="text-align: center;"><strong>4.55</strong></td>
+<td>S3 · Camel Club</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>E</strong></td>
+<td><strong>옴니모달 One Journey</strong> — 정문→실내</td>
+<td style="text-align: center;"><strong>4.45</strong></td>
+<td>NHC DT 후 레이어</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>F</strong></td>
+<td><strong>산업 회랑·항만</strong> — Oxagon 백오피스</td>
+<td style="text-align: center;"><strong>4.05</strong></td>
+<td>S2·물류 · KSIA 공항형은 G1</td>
+</tr>
+</tbody>
+</table>
+<h4>9.3.3 사우디 정부·민간 슈퍼앱</h4>
+<table>
+<thead>
+<tr>
+<th>앱</th>
+<th>일상에서 하는 일</th>
+<th>로봇과의 연결 (왜 트렌드 S-T5와 맞는가)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Absher</strong></td>
+<td>신분·비자·차량·가족</td>
+<td>B2G <strong>Decider·허가</strong> — 로봇 운행 구역·시간</td>
+</tr>
+<tr>
+<td><strong>Tawakkalna</strong></td>
+<td>보건·출입</td>
+<td>시설 <strong>출입·안전</strong> 연동</td>
+</tr>
+<tr>
+<td><strong>Nusuk</strong></td>
+<td>하지·움라 예약</td>
+<td><strong>대규모 모임</strong> 물류 피크 — 행사 키트 OTE</td>
+</tr>
+<tr>
+<td><strong>Sakani</strong></td>
+<td>주택·모기지</td>
+<td>NHC <strong>단지 DT</strong> — 로봇은 2단계</td>
+</tr>
+<tr>
+<td><strong>Qiwa</strong></td>
+<td>노동·사우디화</td>
+<td>외국인 노동 대체 <strong>프레이밍</strong> 주의 — ESG·보완</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>시사:</strong> 사우디는 <strong>「앱은 됐는데 마지막 미터가 병목」</strong> 이 가장 분명하다. 단, <strong>DT·맵 없이 로봇만</strong> 팔면 신뢰가 떨어진다.</p>
+</blockquote>
+<hr />
+<h3>9.4 글로벌 5대 트렌드 × 3국 대응</h3>
+<blockquote>
+<p><strong>읽는 법:</strong> 가운데 열은 0.1절·6절의 <strong>트렌드 정의</strong>. 오른쪽 3열은 <strong>그 나라에서 실제로 보이는 사실</strong>. 마지막 열은 <strong>캠페인·도메인 선정 시 왜 이 조합이 중요한지</strong>.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>글로벌 트렌드 (핵심)</th>
+<th>🇰🇷 한국 — 구체적으로 무엇인가</th>
+<th>🇯🇵 일본 — 구체적으로 무엇인가</th>
+<th>🇸🇦 사우디 — 구체적으로 무엇인가</th>
+<th>왜 연관·중요한가</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>Physical AI 상용화</strong> — 데모→유료 운영</td>
+<td>KIRIA <strong>127억</strong> 실증 · 1784 <strong>100대+</strong> 가동</td>
+<td>SusHi 2026 · METI 보도 로봇 <strong>본격 상용</strong></td>
+<td>Oxagon·DSV <strong>항만 자동화</strong></td>
+<td>Decider는 「기술」이 아니라 <strong>현장 가동 증거</strong>를 본다</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>VLA·파운데이션</strong> — 영상+지시→동작</td>
+<td>K-문샷 휴머노이드 · <strong>ARC Mind</strong></td>
+<td><strong>2027 휴머노이드 양산</strong>·KyoHA</td>
+<td>HUMAIN·AI DC — <strong>PoC 단계</strong></td>
+<td>파일럿 설득용 <strong>백엔드 스토리</strong> — 단독 계약 사유는 아님</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>클라우드·RaaS</strong> — 가동률·건당 원가</td>
+<td><strong>5G 브레인리스 루키</strong> · ARC SLA</td>
+<td>물류·요양·Fab <strong>야간 RaaS</strong> 수요</td>
+<td><strong>IGV·산업 캠프</strong> 건당 물류</td>
+<td>B2B 계약은 <strong>OPEX·가동률</strong> 표가 없으면 멈춘다</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>로봇 친화 인프라</strong> — 맵·엘리베이터·표준</td>
+<td><strong>RoboPort·국토부 보도 인증</strong></td>
+<td><strong>ロボフレ·신축 DT</strong> 40% 목표</td>
+<td><strong>5대 도시 DT·NHC</strong> 단지</td>
+<td>로봇 kg보다 <strong>빌딩·맵 정합</strong>이 게이트</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>월드 모델·DT</strong> — Sim2Real</td>
+<td><strong>NVIDIA Omniverse MOU</strong></td>
+<td><strong>PLATEAU</strong> 합성 데이터</td>
+<td><strong>Balady·DataVolt</strong> DT</td>
+<td>인증·안전 <strong>시뮬 시간 단축</strong> — 해외 PoC 공통 축</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>10. 3국 비교 · 캠페인 시사</h2>
+<blockquote>
+<p><strong>이 절을 읽는 법:</strong> 9절의 국가별 사실을 <strong>Decider·메시지·제품</strong> 관점으로 압축한다. 「우선 도메인」은 <code>[WK1][04]</code> 1.3절을 본다.</p>
+</blockquote>
+<h3>10.1 Decider가 먼저 보는 것</h3>
+<table>
+<thead>
+<tr>
+<th>비교 질문</th>
+<th>🇰🇷 한국</th>
+<th>🇯🇵 일본</th>
+<th>🇸🇦 사우디</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>첫 설득 근거</strong></td>
+<td><strong>1784 가동·국토부 실외 실증</strong> — 「이미 돌아간다」</td>
+<td><strong>신축·DT·FM 계약</strong> — 「동선이 정해져 있다」</td>
+<td><strong>PIF·대형 인프라 ROI</strong> — 「DT·항만과 한 패키지」</td>
+</tr>
+<tr>
+<td><strong>숫자로 묻는 것</strong></td>
+<td>가동률·<strong>건당 이동 비용</strong>·인증 일정</td>
+<td><strong>관제 인력·시범 기간</strong>·민원 리스크</td>
+<td><strong>행사·단지 마감</strong>·폭염 일정</td>
+</tr>
+<tr>
+<td><strong>Trying 장벽</strong></td>
+<td>4사 <strong>실외 인증</strong> 경쟁 · 입찰 지연</td>
+<td><strong>합의·옵트인</strong>(장례 38.4% 거부)</td>
+<td><strong>종교·프라이버시</strong> · 로봇 도시 과장</td>
+</tr>
+<tr>
+<td><strong>NAVER가 줄 수 있는 것</strong></td>
+<td>Works·맵·1784·<strong>국토부 스토리</strong></td>
+<td><strong>SusHi·NTT·PLATEAU·ARC</strong></td>
+<td><strong>5도시 DT·NHC</strong> — 로봇은 2단계</td>
+</tr>
+</tbody>
+</table>
+<h3>10.2 피해야 할 뻔한 담론 (G1 인접)</h3>
+<table>
+<thead>
+<tr>
+<th>뻔한 말 (쓰면 안 되는 이유)</th>
+<th>🇰🇷</th>
+<th>🇯🇵</th>
+<th>🇸🇦</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>사무실·병원·일반 배달 로봇</td>
+<td>배민·뉴빌리티 <strong>선점</strong></td>
+<td>CVS 야간(J9) <strong>G1</strong></td>
+<td>noon·Jahez <strong>G1</strong></td>
+</tr>
+<tr>
+<td>호텔 룸서비스·공항 안내</td>
+<td>클리셰 6종</td>
+<td>+ <strong>호텔 객실</strong> 민감</td>
+<td><strong>NEOM 로봇 도시</strong> 과장</td>
+</tr>
+<tr>
+<td>대체 한 줄</td>
+<td>RPC·수장고·철도 <strong>백오피스</strong></td>
+<td>장례·DT <strong>역할 분리</strong></td>
+<td><strong>Event Chain</strong>·행사·VIP 냉장</td>
+</tr>
+</tbody>
+</table>
+<h3>10.3 제품 전략 — 루키 vs 누리</h3>
+<table>
+<thead>
+<tr>
+<th>전략 축</th>
+<th>🇰🇷 한국</th>
+<th>🇯🇵 일본</th>
+<th>🇸🇦 사우디</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1단계</strong></td>
+<td><strong>루키</strong> — 1784·RoboPort 실내 증거</td>
+<td><strong>루키</strong> — 역비·신축·장례 실내</td>
+<td><strong>DT·맵</strong> — NHC·Balady</td>
+</tr>
+<tr>
+<td><strong>2단계</strong></td>
+<td><strong>누리</strong> — RPC·국토부 보도</td>
+<td><strong>누리</strong> — 단거리·<strong>관제</strong> 보도</td>
+<td><strong>누리→루키</strong> Gate-to-Home</td>
+</tr>
+<tr>
+<td><strong>옴니 핸드오프</strong></td>
+<td>전시 K1·관광 K9 <strong>후보</strong></td>
+<td>J4 DT <strong>내장</strong></td>
+<td>S8·S2 <strong>핵심</strong></td>
+</tr>
+<tr>
+<td><strong>약점</strong></td>
+<td>실외 <strong>4사 인증</strong></td>
+<td>도입 <strong>느림</strong></td>
+<td><strong>프로젝트성</strong>·시즌</td>
+</tr>
+</tbody>
+</table>
+<h3>10.4 도메인 선정 전 체크 (3문항)</h3>
+<p>국가·도메인을 <code>[WK1][04]</code>에 올리기 전, 아래 <strong>3가지를 모두</strong> 한 문장으로 답할 수 있어야 한다.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>질문</th>
+<th>통과 예시 (한국 K2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>로봇 없이는 왜 안 되는가?</strong></td>
+<td>새벽 경매 전 RPC→경매장 <strong>첫 구간</strong> 인력 병목</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>얼마나 자주 도는가?</strong></td>
+<td><strong>매일 새벽</strong> 반복 — RaaS ROI 산출 가능</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>NAVER만 줄 수 있는가?</strong></td>
+<td>Maps·ARC·국토부 <strong>실증 번들</strong></td>
+</tr>
+</tbody>
+</table>
+<p>통과 못 하면 G1–G8 (<code>[WK1][04]</code> 1절·6절)에서 <strong>보류</strong>.</p>
+<hr />
+<h2>11. 문서 연계</h2>
+<table>
+<thead>
+<tr>
+<th>파일</th>
+<th>연계</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[WK1][02]</code></td>
+<td>루키·누리 스펙·CX — 본 문서 7절</td>
+</tr>
+<tr>
+<td><code>[WK1][04]</code></td>
+<td>3국 도메인 — 9절·10절과 교차</td>
+</tr>
+<tr>
+<td><code>[WK1][05]</code></td>
+<td>주차 통합 요약</td>
+</tr>
+<tr>
+<td><code>[WK2][00]</code></td>
+<td>문제 영역 후보</td>
+</tr>
+</tbody>
+</table>
+<h3>팀 위키 출처 (1조)</h3>
+<table>
+<thead>
+<tr>
+<th>위키 페이지</th>
+<th>담당</th>
+<th>본 문서 반영</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5295362172">문유빈 일본 B2B</a></td>
+<td>문유빈</td>
+<td>9.2절·9.2절.1–3</td>
+</tr>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5292875639">오성민 CVS 야간</a></td>
+<td>오성민</td>
+<td>9.2절</td>
+</tr>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5305060557">류준하 실버타운</a></td>
+<td>류준하</td>
+<td>9.2절</td>
+</tr>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5295361990">임규은 사우디 GTM</a></td>
+<td>임규은</td>
+<td>9.3절·9.3절.1–3</td>
+</tr>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5312200967">임규은 사우디 신규도메인</a></td>
+<td>임규은</td>
+<td>9.3절</td>
+</tr>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5309770871">류준하 루키×한국</a></td>
+<td>류준하</td>
+<td>9.1절</td>
+</tr>
+<tr>
+<td><a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5312199001">변정훈 K-Tour</a></td>
+<td>변정훈</td>
+<td>9.1절·9.1절.2</td>
+</tr>
+<tr>
+<td><code>[05.29][한정현] 트렌드리서치_JP_SA.md</code></td>
+<td>한정현</td>
+<td>9.2·9.3 보조 (J1·J4·질문·가설) — <code>deliverables/05-29/team_research/</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>12. 참고 자료</h2>
+<h3>산업·기관</h3>
+<ul>
+<li><a href="https://ifr.org/">IFR</a></li>
+<li><a href="https://ifr.org/worldrobotics/">World Robotics – IFR</a></li>
+<li><a href="https://www.ieee-ras.org/">IEEE RAS</a></li>
+<li><a href="https://www.openrobotics.org/">Open Robotics</a></li>
+</ul>
+<h3>네이버랩스·루키·누리</h3>
+<ul>
+<li><a href="https://www.naverlabs.com/en/rookie">NAVER LABS – Rookie</a></li>
+<li><a href="https://www.upi.com/Top_News/World-News/2026/04/17/tech-company-naver-ai-robot/7561776463519/">Naver AI robots – UPI</a></li>
+<li><a href="https://www.naverlabs.com/tech">NAVER LABS – Tech</a></li>
+<li><a href="https://www.naverlabs.com/story">NAVER LABS – Story</a></li>
+</ul>
+<hr />
+<p><em>프롬프트 2 · <code>naver-market-analysis</code> · 연계: <code>[WK1][04]</code> <code>[WK1][05]</code> · 위키 Parent: <a href="https://wiki.navercorp.com/pages/viewpage.action?pageId=5291752373">수업중_1조</a></em></p>
+</main>
+</body>
+</html>
