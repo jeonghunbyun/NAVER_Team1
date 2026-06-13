@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="NOVA — 교수님 면담용 진행 보고">
+  <title>교수님 면담 보고 | NOVA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111827;
+      --muted: #f3f4f6;
+      --border: #e5e7eb;
+      --naver: #03c75a;
+      --naver-dark: #02a84a;
+      --naver-soft: #e8faf0;
+      --naver-mid: #b8f0d0;
+      --dark: #111827;
+      --text-muted: #6b7280;
+      --amber: #f59e0b;
+      --amber-soft: #fef3c7;
+      --radius: 8px;
+      --max: 1120px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 72px;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--fg);
+      background: var(--bg);
+      word-break: keep-all;
+      -webkit-font-smoothing: antialiased;
+    }
+
+  /* Flat: no shadows */
+    a { color: var(--naver-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Top nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--dark);
+      color: #fff;
+      border-bottom: 4px solid var(--naver);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .nav-brand {
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
+      color: var(--naver);
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a {
+      color: #d1d5db;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links a:hover {
+      background: rgba(3, 199, 90, 0.15);
+      color: var(--naver);
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--naver);
+      color: #fff;
+      padding: clamp(48px, 8vw, 80px) 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-deco {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      pointer-events: none;
+    }
+    .hero-deco-1 { width: 320px; height: 320px; top: -80px; right: -60px; }
+    .hero-deco-2 { width: 180px; height: 180px; bottom: -40px; left: 8%; }
+    .hero-deco-3 {
+      width: 64px; height: 64px;
+      top: 30%; right: 18%;
+      border-radius: var(--radius);
+      transform: rotate(18deg);
+    }
+    .hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .tag-dark { background: var(--dark); color: #fff; }
+    .tag-white { background: #fff; color: var(--naver-dark); }
+    .hero h1 {
+      font-size: clamp(2rem, 5.5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      max-width: 18ch;
+    }
+    .hero-lead {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-weight: 500;
+      max-width: 42ch;
+      line-height: 1.5;
+      opacity: 0.95;
+      margin-bottom: 28px;
+    }
+    .hero-slogan {
+      display: grid;
+      gap: 8px;
+    }
+    .hero-slogan .en {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .hero-slogan .kr {
+      font-size: 1rem;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+    .hero-info {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .hero-info-item {
+      background: rgba(17,24,39,0.25);
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border-left: 4px solid var(--dark);
+    }
+    .hero-info-item .label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.75;
+      margin-bottom: 4px;
+    }
+    .hero-info-item .val { font-weight: 600; font-size: 0.95rem; }
+
+    /* Sections */
+    section { padding: clamp(48px, 7vw, 72px) 24px; }
+    section.alt { background: var(--muted); }
+    section.dark { background: var(--dark); color: #fff; }
+    section.green-soft { background: var(--naver-soft); }
+    .container { max-width: var(--max); margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--naver-dark);
+      margin-bottom: 8px;
+    }
+    section.dark .section-label { color: var(--naver); }
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 60ch;
+      margin-bottom: 36px;
+      font-size: 1.05rem;
+    }
+    section.dark .section-desc { color: #9ca3af; }
+
+    /* Cards — color block, no shadow */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      padding: 24px;
+      border-radius: var(--radius);
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: scale(1.02); }
+    .card-white { background: #fff; }
+    .card-green { background: var(--naver-soft); }
+    .card-dark { background: var(--dark); color: #fff; }
+    .card-amber { background: var(--amber-soft); }
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .card p, .card li { font-size: 0.95rem; line-height: 1.6; }
+    .card ul { padding-left: 18px; margin-top: 8px; }
+    .card-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: var(--naver);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    section.dark .card-num { background: var(--naver); }
+
+    /* Flow diagram */
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin: 24px 0;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .flow-step {
+      background: var(--naver);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 6px;
+    }
+    .flow-step.human {
+      background: var(--amber);
+      color: var(--dark);
+    }
+    .flow-step.muted {
+      background: var(--muted);
+      color: var(--fg);
+      border: 2px solid var(--border);
+    }
+    .flow-arrow { color: var(--text-muted); font-weight: 800; }
+
+    /* Tables */
+    .table-wrap { overflow-x: auto; margin: 20px 0; border-radius: var(--radius); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      background: #fff;
+    }
+    section.dark table { background: #1f2937; }
+    th {
+      background: var(--naver);
+      color: #fff;
+      font-weight: 700;
+      text-align: left;
+      padding: 14px 16px;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    section.dark th { background: var(--naver-dark); }
+    td {
+      padding: 14px 16px;
+      border-bottom: 2px solid var(--border);
+      vertical-align: top;
+    }
+    section.dark td { border-color: #374151; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: var(--muted); }
+    section.dark tr:nth-child(even) td { background: #111827; }
+
+    .badge-label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .badge-verified { background: var(--naver-soft); color: var(--naver-dark); }
+    .badge-infer { background: var(--amber-soft); color: #92400e; }
+    .badge-hypo { background: var(--muted); color: var(--text-muted); border: 2px solid var(--border); }
+
+    /* Split layout */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 768px) {
+      .split { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+
+    /* Do / Don't */
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 640px) { .do-dont { grid-template-columns: 1fr; } }
+    .do-box {
+      background: var(--naver-soft);
+      border-left: 6px solid var(--naver);
+      padding: 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .dont-box {
+      background: #fee2e2;
+      border-left: 6px solid #ef4444;
+      padding: 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .do-box h4, .dont-box h4 {
+      font-weight: 800;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .do-box h4 { color: var(--naver-dark); }
+    .dont-box h4 { color: #b91c1c; }
+    .do-box ul, .dont-box ul { padding-left: 18px; font-size: 0.92rem; }
+
+    /* Comms pipeline */
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+    @media (max-width: 640px) { .pipeline { grid-template-columns: 1fr; } }
+    .pipe-card {
+      padding: 24px;
+      border-radius: var(--radius);
+      text-align: center;
+    }
+    .pipe-card h4 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .pipe-card p { font-size: 0.88rem; color: var(--text-muted); }
+    .pipe-tease { background: var(--amber-soft); }
+    .pipe-reveal { background: var(--naver-soft); }
+    .pipe-proof { background: var(--dark); color: #fff; }
+    .pipe-proof p { color: #9ca3af; }
+    .pipe-audience {
+      margin-top: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #9ca3af;
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 0.88rem;
+    }
+    footer strong { color: var(--naver); }
+
+    /* Quote block */
+    .quote {
+      background: var(--dark);
+      color: #fff;
+      padding: 28px 32px;
+      border-radius: var(--radius);
+      border-left: 8px solid var(--naver);
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.55;
+      margin: 24px 0;
+    }
+    .quote cite {
+      display: block;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #9ca3af;
+      font-style: normal;
+    }
+
+    .killer-lines {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .killer-line {
+      background: var(--naver);
+      color: #fff;
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .killer-line span {
+      opacity: 0.7;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">NAVER LABS · Team 1</div>
+    <div class="nav-links">
+      <a href="#domain">도메인</a>
+      <a href="#target">타깃</a>
+      <a href="#pain">니즈·Pain</a>
+      <a href="#solution">해결 구조</a>
+      <a href="#comms">설득·커뮤</a>
+      <a href="#campaign">캠페인</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="hero-deco hero-deco-3"></div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="tag tag-dark">면담 보고</span>
+      <span class="tag tag-white">2026.06.08</span>
+      <span class="tag tag-dark">최세정 교수님</span>
+    </div>
+    <h1>NOVA</h1>
+    <p class="hero-lead">Expo·FIFA 사우디— 사람을 위해, 무대 뒤에서 키트가 움직인다.</p>
+    <div class="hero-slogan">
+      <div class="en">Backstage Moves the World.</div>
+      <div class="kr">Operates Vital Access · Opens Values for ALL</div>
+    </div>
+    <div class="hero-info">
+      <div class="hero-info-item">
+        <div class="label">보고</div>
+        <div class="val">NAVER LABS 글로벌 캠페인 1조 · PM 변정훈</div>
+      </div>
+      <div class="hero-info-item">
+        <div class="label">발표</div>
+        <div class="val">74p 완성 · 6/15~18 · 15분 · FROM LABS TO WORLD</div>
+      </div>
+      <div class="hero-info-item">
+        <div class="label">지금 단계</div>
+        <div class="val">PPT 완성 · `[FINAL][01]` 확정</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- DOMAIN -->
+<section id="domain">
+  <div class="container">
+    <div class="section-label">01 · Domain</div>
+    <h2 class="section-title">무엇이, 어디서, 어떻게 움직이나</h2>
+    <p class="section-desc">관람객 음식 배달이 아닙니다. 국가행사 <strong>무대 뒤(backstage)</strong>에서 VIP·미디어·운영 키트가 반복 이동할 때 생기는 불편을 다룹니다.</p>
+
+    <div class="quote">
+      문제는 키트를 <em>만드는 것</em>이 아니라, <em>옮기고 · 넘기고 · 기록하는</em> 구간에서 생깁니다.
+      <cite>— 팀 핵심 정의</cite>
+    </div>
+
+    <div class="card-grid" style="margin-bottom: 28px;">
+      <div class="card card-green">
+        <h3>다루는 행사</h3>
+        <ul>
+          <li>Expo 2030 Riyadh</li>
+          <li>FIFA World Cup 2034</li>
+          <li>낙타축제 · 국제 포럼</li>
+          <li>왕실·정부 VIP 행사</li>
+        </ul>
+      </div>
+      <div class="card card-white" style="border: 2px solid var(--border);">
+        <h3>다루는 물품 (키트)</h3>
+        <ul>
+          <li>VIP 웰컴박스 · 프레스 키트</li>
+          <li>인증 배지 · 유니폼</li>
+          <li>무전기 · QR 스캐너 · 통역 장비</li>
+          <li>폭염 대응 물품</li>
+        </ul>
+        <p style="margin-top:10px; font-size:0.85rem; color:var(--text-muted);">소·중형 — 한 사람이 들고 다니기 적당한 규모</p>
+      </div>
+      <div class="card card-amber">
+        <h3>왜 「아직 닿지 않은」 도메인인가</h3>
+        <p>창고 AGV·관람객 배달 로봇은 이미 많이 논의됩니다. 반면 <strong>창고 → 게이트 → 건물 안 여러 목적지</strong>까지 이어지는 행사 백오피스 키트 체인은 로봇과 플랫폼이 한 번에 다루는 사례가 아직 적습니다.</p>
+        <span class="badge-label badge-infer" style="margin-top:10px;">합리적 추론</span>
+      </div>
+    </div>
+
+    <h3 style="font-weight:800; margin-bottom:12px; font-size:1.1rem;">키트 이동 동선</h3>
+    <div class="flow">
+      <span class="flow-step muted">중앙 창고 · UAC</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step muted">보안 게이트 · 로딩존</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step muted">VIP 라운지</span>
+      <span class="flow-arrow">·</span>
+      <span class="flow-step muted">프레스센터</span>
+      <span class="flow-arrow">·</span>
+      <span class="flow-step muted">운영본부</span>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-box">
+        <h4>✅ 하는 일</h4>
+        <ul>
+          <li>반복 이동 줄이기</li>
+          <li>인계·수령을 한곳에 기록</li>
+          <li>폭염 구간 사람 노출 감소 <span class="badge-label badge-hypo">가설</span></li>
+        </ul>
+      </div>
+      <div class="dont-box">
+        <h4>❌ 하지 않는 일</h4>
+        <ul>
+          <li>VIP 대면 응대 · 보안 최종 승인</li>
+          <li>미디어 현장 응대</li>
+          <li>무인 행사 · 관람객 음식 배달</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section id="target" class="alt">
+  <div class="container">
+    <div class="section-label">02 · Target</div>
+    <h2 class="section-title">누구를 위한 캠페인인가</h2>
+    <p class="section-desc">B2G(정부·행사 당국) 성격의 <strong>고관여</strong> 의사결정. 현장 4 역할이 Pain을 겪고, Decider가 도입을 결정합니다.</p>
+
+    <div class="card-grid">
+      <div class="card card-dark">
+        <div class="card-num">D</div>
+        <h3>Decider · 결정권자</h3>
+        <p><strong>행사 운영 총괄</strong> (Venue Operations Manager)</p>
+        <p style="margin-top:8px; color:#9ca3af; font-size:0.9rem;">GEA · Expo PMO — 행사 허가·안전·운영 총괄</p>
+      </div>
+      <div class="card card-white" style="border: 2px solid var(--border);">
+        <h3>현장 4 타깃</h3>
+        <ul>
+          <li><strong>VIP 의전</strong> — 웰컴박스·대접 품질</li>
+          <li><strong>미디어</strong> — 프레스 키트·취재 시작</li>
+          <li><strong>물류 스태프</strong> — 반복 왕복·폭염</li>
+          <li><strong>보안·인증</strong> — 게이트·배지·인계</li>
+        </ul>
+      </div>
+      <div class="card card-green">
+        <h3>문화·환경 맥락</h3>
+        <ul>
+          <li><strong>디야파(Diyafa)</strong> — VIP·미디어 대접 = 국가 이미지 <span class="badge-label badge-infer">합리적 추론</span></li>
+          <li><strong>리야드 여름 40℃+</strong> — 정오 야외 작업 제한 <span class="badge-label badge-verified">2차 자료</span></li>
+          <li><strong>Vision 2030</strong> — 메가이벤트·스마트시티 맥락</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section id="pain" class="green-soft">
+  <div class="container">
+    <div class="section-label">03 · Needs & Pain</div>
+    <h2 class="section-title">니즈와 페인포인트</h2>
+    <p class="section-desc">운영 흐름에서 수렴한 <strong>두 가지 불편</strong>. 로봇·솔루션은 이 Pain이 확인된 뒤에 등장합니다.</p>
+
+    <div class="split">
+      <div class="card card-white" style="border: 2px solid var(--naver);">
+        <div class="card-num">1</div>
+        <h3>정보 공백</h3>
+        <p style="font-size:1.1rem; font-weight:700; margin-bottom:12px; color:var(--naver-dark);">「지금 어디?」「누가 받았지?」</p>
+        <ul>
+          <li>운영총괄·의전·미디어가 키트 위치를 한곳에서 알기 어렵다</li>
+          <li>VIP 도착 직전까지 불안 — 웰컴박스 위치 확신 없음</li>
+          <li>무전·수기·분산 기록 → 사후 입증 곤란</li>
+          <li>파리 2024 CrowdStrike — 전산 마비 시 수기 명단 후퇴</li>
+        </ul>
+        <p style="margin-top:12px; font-size:0.85rem;"><span class="badge-label badge-verified">출처 확인됨</span> 운영 사례 · <span class="badge-label badge-infer">합리적 추론</span> 팀 해석</p>
+      </div>
+      <div class="card card-white" style="border: 2px solid var(--amber);">
+        <div class="card-num" style="background:var(--amber); color:var(--dark);">2</div>
+        <h3>반복 부담</h3>
+        <p style="font-size:1.1rem; font-weight:700; margin-bottom:12px; color:#92400e;">분류가 풀리고, 같은 길을 반복한다</p>
+        <ul>
+          <li>폭염(43℃+) 속 창고↔현장 왕복 — 물류 스태프 부담</li>
+          <li>이동 중 등급·국가별 분류가 다시 풀림 → 재분류 중복</li>
+          <li>다지점(VIP·프레스·운영본부)으로 퍼지며 또 왕복</li>
+          <li>키트 오구성·지연 → 의전·보안 리스크로 확대</li>
+        </ul>
+        <p style="margin-top:12px; font-size:0.85rem;"><span class="badge-label badge-verified">출처 확인됨</span> HRSD 폭염 규정 · 운영 흐름 분석</p>
+      </div>
+    </div>
+
+    <div class="quote" style="margin-top:28px;">
+      사우디에선 키트 지연·오배송이 단순 물류 실수가 아니라 <strong>국가 행사 품질·환대 이미지</strong>에 직결됩니다.
+      <cite>디야파(Diyafa) 문화 맥락 · 합리적 추론</cite>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION (brief) -->
+<section id="solution">
+  <div class="container">
+    <div class="section-label">04 · Solution</div>
+    <h2 class="section-title">해결 구조 — NOVA · One-Pass Delivery</h2>
+    <p class="section-desc">로봇이 VIP를 맞이하는 게 아닙니다. <strong>게이트 앞뒤 반복 이동</strong>과 <strong>기록</strong>을 맡고, 보안·의전은 사람이 합니다.</p>
+
+    <div class="flow" style="justify-content:center; margin: 32px 0;">
+      <span class="flow-step">T1 · Nuri<br><small style="font-weight:500; opacity:0.85;">실외 이동</small></span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step human">Human<br><small style="font-weight:500;">보안·인계</small></span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">T2 · Rookie<br><small style="font-weight:500; opacity:0.85;">실내 전달</small></span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">T3 · Platform<br><small style="font-weight:500; opacity:0.85;">운영 로그</small></span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>구간</th>
+            <th>누가</th>
+            <th>무엇을</th>
+            <th>사람이 반드시 남는 일</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>실외 이동</strong></td>
+            <td>Nuri</td>
+            <td>창고·UAC → 게이트·로딩존 반복 운반</td>
+            <td>키트 내용물·품질 최종 확인</td>
+          </tr>
+          <tr>
+            <td><strong>경계 인계</strong></td>
+            <td><strong>사람</strong></td>
+            <td>게이트 검색·배지 확인·수령 자격</td>
+            <td>VIP·미디어 대면 응대</td>
+          </tr>
+          <tr>
+            <td><strong>실내 전달</strong></td>
+            <td>Rookie</td>
+            <td>게이트 → VIP·프레스·운영본부 전달</td>
+            <td>긴급 우선순위 판단</td>
+          </tr>
+          <tr>
+            <td><strong>운영 기록</strong></td>
+            <td>Works·ARC·Maps</td>
+            <td>누가·언제·어디서 받았는지 한 화면</td>
+            <td>분쟁 시 책임 확인·예외 처리</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- COMMS -->
+<section id="comms" class="dark">
+  <div class="container">
+    <div class="section-label">05 · Persuasion</div>
+    <h2 class="section-title">설득·커뮤니케이션</h2>
+    <p class="section-desc">말하는 대상마다 근거·채널·산출물을 나눕니다. 운영총괄·GEA에는 사례·숫자·Dashboard, 대중에는 Film·슬로건만.</p>
+
+  <div class="split" style="margin-bottom:32px;">
+      <div class="card card-dark" style="border: 2px solid var(--naver);">
+        <h3 style="color:var(--naver);">B2G · Operates Vital Access</h3>
+        <p style="color:#9ca3af; margin-bottom:12px;">GEA · Expo PMO · 운영총괄 · 보안</p>
+        <ul style="color:#d1d5db;">
+          <li><strong>목표:</strong> 「우리 행사에도 파일럿 써볼까?」</li>
+          <li><strong>이론:</strong> ELM 중심 경로 — 근거·논리·데모</li>
+          <li><strong>산출:</strong> D4 사례 1pager · Dashboard 4클릭 · One-Pager</li>
+        </ul>
+      </div>
+      <div class="card card-dark" style="border: 2px solid var(--amber);">
+        <h3 style="color:var(--amber);">B2C · Opens Values for ALL</h3>
+        <p style="color:#9ca3af; margin-bottom:12px;">관람객 · 미디어 · NAVER LABS 인지</p>
+        <ul style="color:#d1d5db;">
+          <li><strong>목표:</strong> 「NAVER는 무대 뒤까지 본다」</li>
+          <li><strong>이론:</strong> ELM 주변 경로 — 무대 앞/뒤·슬로건</li>
+          <li><strong>산출:</strong> Hero Film · OOH · Broadcast · Opening · Rookie Event · WEBTOON IP</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-weight:800; margin-bottom:16px; font-size:1.15rem;">타깃별 — 무엇을 · 어떻게 말하는가</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>타깃</th>
+            <th>이론</th>
+            <th>킬러 한 줄</th>
+            <th>채널 · 산출물</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GEA · Expo PMO</strong><br><small>Decider · 고관여</small></td>
+            <td>ELM 중심</td>
+            <td>키트는 많은데 <strong>기록이 흩어지면 행사가 멈춘다</strong></td>
+            <td>운영 워크숍 · D4 1pager · MOU 1동선</td>
+          </tr>
+          <tr>
+            <td><strong>운영 총괄</strong><br><small>Decider · 고관여</small></td>
+            <td>ELM 중심</td>
+            <td><strong>수령·인계가 한 화면</strong>에 남는 운영 구조</td>
+            <td>Dashboard 목업 · Decider One-Pager</td>
+          </tr>
+          <tr>
+            <td><strong>VIP 의전 · 미디어</strong><br><small>Influencer</small></td>
+            <td>Perception</td>
+            <td>박스가 늦거나 틀리면 <strong>대접·취재 실패</strong></td>
+            <td>Pain 슬라이드 · Film Human-Stay 컷</td>
+          </tr>
+          <tr>
+            <td><strong>물류 스태프</strong><br><small>User</small></td>
+            <td>Theory of Trying</td>
+            <td><strong>분류·판단은 그대로</strong>, 폭염 왕복만 줄인다</td>
+            <td>Film 이동 컷 · 「전면 무인화 아님」</td>
+          </tr>
+          <tr>
+            <td><strong>보안·인증</strong><br><small>Operator · 고관여</small></td>
+            <td>TRA</td>
+            <td><strong>검색·승인은 사람</strong>, 인계·수령 타임스탬프는 자동</td>
+            <td>Human-Stay 체크리스트 · 인계 프로토콜</td>
+          </tr>
+          <tr>
+            <td><strong>대중 · 브랜드</strong><br><small>저~중관여</small></td>
+            <td>ELM 주변</td>
+            <td><strong>Backstage Moves the World.</strong></td>
+            <td>15s Tease · 30s Film · KV</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="killer-lines">
+      <div class="killer-line"><span>01</span>키트는 많고, 기록이 흩어지면 행사가 멈춘다.</div>
+      <div class="killer-line"><span>02</span>의전·보안은 사람, 반복 이동·로그는 플랫폼.</div>
+      <div class="killer-line"><span>03</span>행사 자산은 다음 행사·도시로 <span class="badge-label badge-hypo" style="background:rgba(255,255,255,0.2); color:#fff; border-color:rgba(255,255,255,0.3);">가설</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPAIGN -->
+<section id="campaign" class="alt">
+  <div class="container">
+    <div class="section-label">06 · Campaign</div>
+    <h2 class="section-title">캠페인 실행안</h2>
+    <p class="section-desc">PPT p30–57 <strong>Advertise Plan</strong>. Tease → Reveal → Proof. B2G는 Dashboard·One-Pager, B2C는 Film·OOH·Broadcast·Opening·Rookie Event·Ecosystem·Country·WEBTOON.</p>
+
+    <div class="pipeline">
+      <div class="pipe-card pipe-tease">
+        <h4>Tease</h4>
+        <p>「무대 뒤는 준비됐을까?」<br>메가이벤트·사고 호기심</p>
+        <div class="pipe-audience" style="color:#92400e;">대중 ✅ · B2G —</div>
+        <p style="margin-top:8px; font-weight:600; color:var(--fg);">15s Film cut · 발표 오프닝</p>
+      </div>
+      <div class="pipe-card pipe-reveal">
+        <h4>Reveal</h4>
+        <p>슬로건 · Hero Film 30s<br>Key Visual</p>
+        <div class="pipe-audience" style="color:var(--naver-dark);">대중 ✅ · B2G 발표 1분</div>
+        <p style="margin-top:8px; font-weight:600; color:var(--fg);">Backstage Moves the World.</p>
+      </div>
+      <div class="pipe-card pipe-proof">
+        <h4>Proof</h4>
+        <p>Dashboard · One-Pager<br>MOU 초안</p>
+        <div class="pipe-audience" style="color:var(--naver);">대중 ❌ · B2G ✅</div>
+        <p style="margin-top:8px; font-weight:600; color:#fff;">GEA·운영총괄 미팅 전용</p>
+      </div>
+    </div>
+
+    <div class="card-grid" style="margin-top:36px;">
+      <div class="card card-green">
+        <h3>B2C 채널 (PPT p43–57)</h3>
+        <p>Hero Film · OOH · Broadcast · Opening Performance · Rookie Delivery Event · Maps/Place/Pay · Country Customization · WEBTOON IP</p>
+        <p style="margin-top:8px;"><span class="badge-label badge-hypo">컨셉 목업</span> 공식 파트너 아님</p>
+      </div>
+      <div class="card card-white" style="border:2px solid var(--border);">
+        <h3>Demo Dashboard</h3>
+        <p>Works 요청 → ARC 배차 → 게이트 인계(사람) → 수령 확인 — <strong>4클릭</strong> 시연</p>
+        <p style="margin-top:8px;">Decider용 Proof · 대중 광고 아님</p>
+      </div>
+      <div class="card card-white" style="border:2px solid var(--naver);">
+        <h3>Key Visual</h3>
+        <p>행사장 단면 — 위 30% 무대(흐릿) · 아래 70% 백오피스 동선 · T1·T2·T3 경로</p>
+        <p style="margin-top:8px;">OOH · deck · SNS · prototype hero</p>
+      </div>
+    </div>
+
+    <h3 style="font-weight:800; margin:36px 0 16px; font-size:1.1rem;">발표 오프닝 (20어절 Hook)</h3>
+    <div class="split">
+      <div class="card card-white" style="border-left:6px solid var(--naver);">
+        <p style="font-weight:700; font-size:1.05rem;">「2030 Expo, 2034 FIFA— <strong>사우디에 세계 행사가 한꺼번에 몰립니다.</strong>」</p>
+      </div>
+      <div class="card card-white" style="border-left:6px solid var(--naver);">
+        <p style="font-weight:700; font-size:1.05rem;">「관객은 무대 앞을 봅니다. <strong>오늘은 무대 뒤</strong>를 봅니다.」</p>
+      </div>
+    </div>
+
+    <div class="do-dont" style="margin-top:24px;">
+      <div class="dont-box">
+        <h4>전 타깃 공통 금지</h4>
+        <ul>
+          <li>VIP 로봇 응대 · 행사 무인화</li>
+          <li>Expo·FIFA 공식 파트너 표기</li>
+          <li>Pay를 핵심 계약처럼 말하기</li>
+          <li>숫자 없는 효과 — 반드시 <strong>(가설)</strong> 라벨</li>
+        </ul>
+      </div>
+      <div class="do-box">
+        <h4>NAVER 인프라 (왜 로봇만이 아닌가)</h4>
+        <ul>
+          <li><strong>Nuri + Rookie</strong> — 실외·실내 릴레이</li>
+          <li><strong>ARC · Works</strong> — 배차·기록 한 화면</li>
+          <li><strong>Maps · HD Map</strong> — 사우디 5개 도시 디지털 트윈</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>NAVER LABS 글로벌 캠페인 1조</strong> · PM 변정훈</p>
+  <p style="margin-top:8px;">FROM LABS TO WORLD · NOVA · 2026-06-08</p>
+</footer>
+
+<script>
+  (function () {
+    const sections = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('.nav-links a');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            links.forEach((a) => {
+              a.style.color = a.getAttribute('href') === '#' + entry.target.id ? '#03c75a' : '';
+            });
+          }
+        });
+      },
+      { rootMargin: '-40% 0px -50% 0px' }
+    );
+    sections.forEach((s) => observer.observe(s));
+  })();
+</script>
+</body>
+</html>
