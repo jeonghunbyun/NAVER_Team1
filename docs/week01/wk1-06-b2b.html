@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[05.26][변정훈] 한국 B2B 마케팅 전략_스마트병원</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    :root {
+      --s-1: 4px;
+      --s-2: 8px;
+      --s-3: 12px;
+      --s-4: 16px;
+      --s-5: 20px;
+      --s-6: 24px;
+      --s-8: 32px;
+      --s-10: 40px;
+      --s-12: 48px;
+      --s-16: 64px;
+      --naver-green: #03c75a;
+      --naver-green-dark: #02a84a;
+      --naver-green-glow: rgba(3, 199, 90, 0.18);
+      --naver-green-soft: rgba(3, 199, 90, 0.1);
+      --black: #000000;
+      --white: #ffffff;
+      --text: #ededed;
+      --text-muted: #8a8f98;
+      --border: rgba(255, 255, 255, 0.08);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --header-h: 64px;
+      --content-max-w: 960px;
+      --card-radius: 12px;
+      --live-green: #22e584;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif;
+      background: var(--black);
+      color: var(--text);
+    }
+
+    .viewport {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: radial-gradient(ellipse 100% 50% at 50% -8%, #141414 0%, var(--black) 42%);
+    }
+
+    .stream-grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.35;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(3, 199, 90, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(34, 229, 132, 0.08) 0%, transparent 35%),
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+      animation: gridDrift 24s linear infinite;
+    }
+
+    @keyframes gridDrift {
+      0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+      100% { background-position: 0 0, 0 0, 48px 48px, 48px 48px; }
+    }
+
+    .ambient { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+
+    .ambient-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      animation: float 12s ease-in-out infinite;
+    }
+
+    .ambient-blob.a {
+      width: 480px; height: 480px;
+      background: var(--naver-green);
+      top: -160px; left: 20%;
+      opacity: 0.1;
+    }
+
+    .ambient-blob.b {
+      width: 360px; height: 360px;
+      background: var(--naver-green);
+      bottom: 0; right: 16%;
+      opacity: 0.07;
+      animation-delay: -4s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); filter: blur(6px); }
+      to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    body.is-ready .reveal {
+      animation: fadeUp 0.65s var(--ease-out) backwards;
+    }
+
+    .reveal-d1 { animation-delay: 0.08s; }
+    .reveal-d2 { animation-delay: 0.16s; }
+
+    .live-strip {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--s-6);
+      flex-wrap: wrap;
+      padding: var(--s-2) var(--s-6);
+      font-size: 12px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s-2);
+      font-weight: 600;
+      color: var(--live-green);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+
+    .live-badge .pulse {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--live-green);
+      box-shadow: 0 0 12px var(--live-green);
+      animation: livePulse 1.4s ease-in-out infinite;
+    }
+
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .header {
+      flex: 0 0 var(--header-h);
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      padding: 0 var(--s-8);
+      gap: var(--s-4);
+      border-bottom: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(12px);
+    }
+
+    @media (min-width: 768px) {
+      .header { padding: 0 var(--s-12); }
+    }
+
+    .logo {
+      width: var(--s-8); height: var(--s-8);
+      background: var(--naver-green);
+      border-radius: var(--s-2);
+      box-shadow: 0 0 var(--s-5) var(--naver-green-glow);
+      flex-shrink: 0;
+    }
+
+    .header h1 {
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      line-height: 1.35;
+    }
+
+    .header .badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--naver-green);
+      border: 1px solid rgba(3, 199, 90, 0.32);
+      padding: var(--s-1) var(--s-3);
+      border-radius: var(--s-5);
+      background: var(--naver-green-soft);
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .header .meta {
+      margin-left: auto;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    @media (min-width: 640px) {
+      .header .meta { display: block; }
+    }
+
+    .main {
+      flex: 1;
+      position: relative;
+      z-index: 5;
+      padding: var(--s-8) var(--s-6) var(--s-12);
+    }
+
+    @media (min-width: 768px) {
+      .main { padding: var(--s-10) var(--s-8) var(--s-16); }
+    }
+
+    .main-inner {
+      max-width: var(--content-max-w);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: var(--s-4);
+    }
+
+    .section-label span { color: var(--naver-green); }
+
+    .source-doc {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: var(--s-6);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    @media (min-width: 768px) {
+      .source-doc { padding: var(--s-8); }
+    }
+
+    .source-doc h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: var(--s-4);
+      padding-bottom: var(--s-3);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .source-doc h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--naver-green);
+      margin: var(--s-6) 0 var(--s-2);
+    }
+
+    .source-doc h3:first-of-type { margin-top: var(--s-4); }
+
+    .source-doc h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      margin: var(--s-4) 0 var(--s-2);
+    }
+
+    .source-doc p,
+    .source-doc li {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: var(--s-2);
+    }
+
+    .source-doc ul,
+    .source-doc ol {
+      padding-left: var(--s-5);
+      margin-bottom: var(--s-4);
+    }
+
+    .source-doc li strong { color: var(--white); font-weight: 600; }
+
+    .source-doc .cover-quote {
+      font-size: 16px;
+      color: var(--white);
+      padding: var(--s-4);
+      border-left: 3px solid var(--naver-green);
+      margin-bottom: var(--s-5);
+      background: var(--naver-green-soft);
+      border-radius: 0 var(--s-2) var(--s-2) 0;
+      line-height: 1.55;
+    }
+
+    .source-doc .meta-table {
+      width: 100%;
+      font-size: 12px;
+      border-collapse: collapse;
+      margin-bottom: var(--s-5);
+    }
+
+    .source-doc .meta-table th,
+    .source-doc .meta-table td {
+      border: 1px solid var(--border);
+      padding: var(--s-2) var(--s-3);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .source-doc .meta-table th {
+      color: var(--text-muted);
+      font-weight: 500;
+      width: 108px;
+      white-space: nowrap;
+    }
+
+    .source-doc .meta-table td { color: var(--text); }
+
+    .source-doc .data-table {
+      width: 100%;
+      font-size: 12px;
+      border-collapse: collapse;
+      margin: var(--s-3) 0 var(--s-5);
+    }
+
+    .source-doc .data-table th,
+    .source-doc .data-table td {
+      border: 1px solid var(--border);
+      padding: var(--s-2) var(--s-3);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .source-doc .data-table th {
+      background: rgba(3, 199, 90, 0.08);
+      color: var(--naver-green);
+      font-weight: 600;
+    }
+
+    .source-doc .data-table td { color: var(--text-muted); }
+
+    .source-doc code {
+      font-size: 11px;
+      font-family: ui-monospace, "Consolas", monospace;
+      color: var(--naver-green);
+      background: var(--naver-green-soft);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    .source-doc .file-chip {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--naver-green);
+      background: var(--naver-green-soft);
+      border: 1px solid rgba(3, 199, 90, 0.2);
+      border-radius: var(--s-1);
+      padding: var(--s-1) var(--s-2);
+      margin: var(--s-1) var(--s-1) 0 0;
+      font-family: ui-monospace, monospace;
+    }
+
+    .source-doc .note-box {
+      margin: var(--s-4) 0;
+      padding: var(--s-3) var(--s-4);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--s-2);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .source-doc .note-box strong { color: var(--white); }
+
+    .source-doc hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: var(--s-6) 0;
+    }
+
+    .source-doc a {
+      color: var(--naver-green);
+      text-decoration: none;
+    }
+
+    .source-doc a:hover { text-decoration: underline; }
+
+    .footer {
+      flex: 0 0 auto;
+      padding: var(--s-6) var(--s-8);
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--s-3) var(--s-4);
+      font-size: 11px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.56);
+    }
+
+    .footer a {
+      color: var(--naver-green);
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+
+    @media print {
+      .stream-grid, .ambient, .live-strip { display: none; }
+      body, .viewport { background: #fff; color: #111; }
+      .source-doc { background: #fff; border: 1px solid #ddd; }
+      .source-doc h2, .source-doc h4, .source-doc li strong, .source-doc .cover-quote { color: #111; }
+      .source-doc h3, .source-doc .data-table th { color: #02a84a; }
+      .source-doc p, .source-doc li, .source-doc .data-table td { color: #444; }
+    }
+  </style>
+</head>
+<body class="is-ready">
+
+  <div class="stream-grid" aria-hidden="true"></div>
+
+  <div class="viewport">
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient-blob a"></div>
+      <div class="ambient-blob b"></div>
+    </div>
+
+    <div class="live-strip">
+      <span class="live-badge"><span class="pulse" aria-hidden="true"></span> STUDY LOG</span>
+      <span>NAVER LABS CX Campaign · Week01 B2B · 스마트병원 · 2026.05.26</span>
+    </div>
+
+    <header class="header">
+      <div class="logo" aria-hidden="true"></div>
+      <h1>[05.26][변정훈] 한국 B2B 마케팅 전략_스마트병원</h1>
+      <span class="badge">Week01 리서치</span>
+      <span class="meta">deliverables/02_SUBMISSION</span>
+    </header>
+
+    <main class="main">
+      <p class="section-label reveal">학습 보고 <span>· NAVER_team 1</span></p>
+
+      <div class="main-inner">
+        <article class="source-doc reveal reveal-d1">
+<p class="cover-quote"><strong>스마트 병원의 마지막 한 걸음</strong> — 환자 침대까지, 간호사는 환자 곁에. (루키 중심 · 누리 보조)</p><table class="meta-table"><tbody><tr><th>문서</th><td>[WK1][06] 한국 B2B 마케팅 전략 v4</td></tr><tr><th>작성</th><td>변정훈 · 2026-05-26</td></tr><tr><th>도메인</th><td>종합병원 · 삼성서울·세브란스</td></tr><tr><th>1차 데이터</th><td><code>data/survey/[05.26][변정훈] 인터뷰가이드_스마트병원.md</code></td></tr></tbody></table><hr /><h1>[WK1][06] 한국 B2B 마케팅 전략 — 스마트 병원에 루키·누리를 들일까?</h1>
+<blockquote>
+<p><strong>상태:</strong> 초안 v4 · 2026-05-26<br />
+<strong>제품:</strong> NAVER LABS <strong>루키</strong>(실내) · <strong>누리</strong>(실외·현관)<br />
+<strong>1순위 도메인:</strong> 종합병원·스마트병원 (삼성서울·세브란스 등)</p>
+</blockquote>
+<hr />
+<h2>Executive Summary</h2>
+<p>여러 분야를 비교한 뒤 <strong>대형 종합병원</strong>을 1순위로 잡았다. <strong>간호 인력은 줄고</strong>, <strong>약·식음·물품 심부름</strong>은 남으며, <strong>환자는 거동이 불편해</strong> 침대에서 기다리는 시간이 길다.</p>
+<p><strong>삼성서울병원</strong>은 AGV·병동로봇·스마트병원 인프라가 있어 <strong>기존 투자 위에 침대 last-mile</strong>를 얹기 좋다. <strong>세브란스</strong>도 동일 논리의 파일럿 후보다.</p>
+<ul>
+<li><strong>루키:</strong> 복도·엘리베이터·<strong>침대 옆</strong> (식음·약·편의품) — <strong>메인</strong>  </li>
+<li><strong>누리:</strong> 본관↔별관·정문 등 <strong>야외 연결</strong> — <strong>보조</strong>  </li>
+<li><strong>포지션:</strong> 「스마트 병원의 마지막 한 걸음 — 환자 침대까지」  </li>
+<li><strong>슬로건 (EN):</strong> <em>"To the bedside — so nurses stay with patients."</em></li>
+</ul>
+<hr />
+<h2>1. 용어</h2>
+<table class="data-table meta-table">
+<thead>
+<tr>
+<th>용어</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B2B</td>
+<td>병원·기관 대상 계약</td>
+</tr>
+<tr>
+<td>Decider</td>
+<td>도입 결정 (간호본부·시설·정보전산·경영)</td>
+</tr>
+<tr>
+<td>AGV</td>
+<td>약국·창고 → 병동 로비 등 무인 운반 (삼성서울 등)</td>
+</tr>
+<tr>
+<td>Last-mile (침대)</td>
+<td>로비·스테이션 이후 <strong>환자 침대까지</strong> 구간</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. 병원을 1순위로 한 이유</h2>
+<p><strong>현장:</strong> 지하 약국·창고 왕복, 식음·린넨·검체 이동이 겹침. 환자·보호자는 “움직이기 힘든데 기다린다”는 불만이 잦다. 병원 쪽도 단순 업무 로봇화 논의가 늘고 있다.</p>
+<p><strong>스마트병원:</strong> 삼성서울·세브란스는 전자차트·앱·물류 로봇이 있으나, <strong>침대까지 식음·약 배달</strong>은 여전히 사람 손인 구간이 남는다.</p>
+<p><strong>업무 단지(이전 1순위) 대비:</strong> 루키+누리 조합은 단지도 유리하나, <strong>간호·환자 서사·사회적 시급성</strong>은 병원이 더 크다.</p>
+<table class="data-table meta-table">
+<thead>
+<tr>
+<th>후보</th>
+<th>문제</th>
+<th>루키</th>
+<th>간호·환자 스토리</th>
+<th>합계(5점制)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>종합병원</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td><strong>20</strong></td>
+</tr>
+<tr>
+<td>업무 단지</td>
+<td>4</td>
+<td>5</td>
+<td>3</td>
+<td>16</td>
+</tr>
+<tr>
+<td>물류센터</td>
+<td>5</td>
+<td>4</td>
+<td>2</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<p>공항 FOD·호텔 등은 제품 적합도·스토리 이유로 1순위에서 제외했다.</p>
+<hr />
+<h2>3. 도메인 정의 · 타깃 병원</h2>
+<p><strong>한 줄:</strong> 입원 환자 <strong>침대까지</strong> 식음·약·편의품을 실내 로봇으로 배달하고, 간호사는 돌봄·회진에 집중하게 한다.</p>
+<table class="data-table meta-table">
+<thead>
+<tr>
+<th>병원</th>
+<th>공개된 기반</th>
+<th>제안 구간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>삼성서울병원</td>
+<td>AGV·병동로봇·HIMSS Stage 7</td>
+<td>창고→병동 이후 <strong>침대·식음 last-mile</strong></td>
+</tr>
+<tr>
+<td>세브란스병원</td>
+<td>스마트병원·디지털 의료</td>
+<td>본·별관 연결 + 입원 식음·약 파일럿</td>
+</tr>
+<tr>
+<td>서울아산·서울대 등</td>
+<td>상위 스마트병원</td>
+<td>2·3순위 파일럿 후보</td>
+</tr>
+</tbody>
+</table>
+<p><strong>역할:</strong> Decider — 간호본부·시설·정보전산·경영 / User — 간호사·입원 환자·보호자 / Influencer — 원내 식음·약국, 기존 병원 로봇·SI 사례.</p>
+<hr />
+<h2>4. 시나리오 (루키 중심)</h2>
+<p>7병동 입원 환자가 수술 다음 날 <strong>일어나기 어렵고</strong>, 보호자가 가져온 간식 전달이 <strong>간호 업무 밀림</strong>으로 늦어진다.</p>
+<p><strong>현재:</strong> AGV가 병동 로비까지 → 간호사가 카트로 <strong>병실 문 앞·침대</strong>까지.<br />
+<strong>제안:</strong> 로비에서 <strong>루키</strong>가 이어받아 엘리베이터·실내 맵으로 <strong>침대 옆</strong>까지. 간호사는 처치·관찰에 집중.<br />
+<strong>누리:</strong> 본관 식당가↔신관 병동처럼 <strong>야외 handoff</strong>가 길 때만. 1차 파일럿은 <strong>한 층·루키만</strong>으로 시작 가능.</p>
+<p><strong>1784:</strong> 오피스에서 검증된 실내 맵·승강 연동을 병원 규정에 맞게 적용한다는 <strong>기술 레퍼런스</strong>로 쓴다.</p>
+<hr />
+<h2>5. TAM · SAM · SOM</h2>
+<p>숫자는 <strong>추정·범위</strong>이며 1차 인터뷰·통계로 보강 예정.</p>
+<h2>TAM · SAM · SOM</h2>
+<table class="data-table meta-table">
+<thead>
+<tr>
+<th>구분</th>
+<th>참고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM</td>
+<td>한국 의료·서비스 로봇·스마트헬스 (출처별 상이, 서비스 로봇 약 23억 USD(2024) 등)</td>
+</tr>
+<tr>
+<td>SAM</td>
+<td>종합병원 입원·물류·식음 중 로봇 배달 가능 구간 <strong>3~5억 USD</strong> · 추가 검증 필요</td>
+</tr>
+<tr>
+<td>SOM</td>
+<td>3~5년 상급종합 2~3곳 파일럿 <strong>2,000만~4,000만 USD</strong> · 가설</td>
+</tr>
+</tbody>
+</table>
+<p>출처: <a href="https://marketsnxt.com/reports/country-reports/south-korea/south-korea-service-robotics-market/">MarketsNXT</a>, <a href="https://www.healthcarefinancenews.com/news/logistics-robots-bringing-samsung-medical-center-future">Healthcare Finance News</a>, <a href="http://www.docdocdoc.co.kr/news/articleView.html?idxno=3000535">청년의사</a></p>
+<hr />
+<h2>6. 마케팅 방향</h2>
+<p><strong>포지션:</strong> 스마트 병원의 마지막 한 걸음 — 환자 침대까지, 간호사는 환자 곁에.</p>
+<table class="data-table meta-table">
+<thead>
+<tr>
+<th>타깃</th>
+<th>메시지·근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>간호본부·경영</td>
+<td>복도 이동 절감 시나리오·TCO; “일자리 대체”가 아닌 <strong>간호 본연 업무</strong> [MCP: Attitude/4050000000105696116]</td>
+</tr>
+<tr>
+<td>환자·보호자</td>
+<td>거동 제약 시 <strong>침대 수령</strong> — 단순·따뜻한 톤 [MCP: Persuasion/4050000000105727782]</td>
+</tr>
+<tr>
+<td>간호사(현장)</td>
+<td>파일럿 시 업무 감소 체감 — 순천향·삼성서울 등 공개 사례와 병행</td>
+</tr>
+</tbody>
+</table>
+<p><strong>실행 순서:</strong> (1) 공개 사례·경쟁 정리 (2) 한 병동·4~8주 루키 파일럿 (3) 2번째 거점 확장.<br />
+<strong>수익 가설:</strong> 병동 월 구독 · 건당 배달 · RaaS.</p>
+<hr />
+<h2>7. 행동·리스크</h2>
+<ul>
+<li>거동 제약 시 <strong>대체 수단(로봇·앱)</strong> 수용 ↑ [MCP: Buying/4050000000105768010]  </li>
+<li>Decider 1순위: <strong>안전·감염·비상 대응</strong> — 저속·SLA·시범 데이터 필요  </li>
+<li>AGV·타사 실내 배송 <strong>이미 존재</strong> → “완전 신규”가 아니라 <strong>침대까지</strong>로 차별화  </li>
+<li>병원별 엘리베이터·감염 규정 → <strong>맞춤 비용</strong>  </li>
+<li><strong>1차 인터뷰 없이</strong> 숫자만으로는 설득력 한계</li>
+</ul>
+<hr />
+<h2>8. 인터뷰 계획 (시나리오형)</h2>
+<p>전문: <code>data/survey/[05.26][변정훈] 인터뷰가이드_스마트병원.md</code></p>
+<ul>
+<li><strong>대상:</strong> 입원 병동 간호사·간호조무사 3~5명 (삼성서울·세브란스 우선)  </li>
+<li><strong>원칙:</strong> 실도입 전제가 아닌 <strong>「만약 ~한다면, 어떻게 하시겠습니까?」</strong> 10문항  </li>
+<li><strong>예시:</strong> “만약 로비까지 AGV·침대까지 루키라면, 남는 간호 시간은 어디에 쓰시겠습니까?” / “만약 한 층 4주 파일럿이라면 식음·약·물품 중 무엇부터 맡기시겠습니까?”  </li>
+<li><strong>산출:</strong> <code>data/survey/interview_01_*.md</code> → 가설 지지·반박·인용구 → Week02 CX·전략 문서 반영</li>
+</ul>
+<hr />
+<h2>9. 이후 리서치</h2>
+<ul>
+<li>[ ] 삼성서울 vs 세브란스 <strong>파일럿 1병동</strong> 확정  </li>
+<li>[ ] 시나리오 인터뷰 3~5명  </li>
+<li>[ ] AGV vs 루키 <strong>역할 분담</strong> 정리  </li>
+<li>[ ] 간호 인력·병상 수 기반 <strong>SAM 재산출</strong>  </li>
+<li>[ ] 환자·보호자 짧은 설문 (침대 수령 니즈)  </li>
+<li>[ ] <code>naver-comparison</code> · <code>naver-cx</code> · <code>[FINAL][01]</code> 연결</li>
+</ul>
+<hr />
+<h2>Evidence Log</h2>
+<table class="data-table meta-table">
+<thead>
+<tr>
+<th>유형</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web</td>
+<td><a href="http://www.kmdianews.com/news/articleView.html?idxno=64205">삼성서울 스마트병원</a>, <a href="http://www.docdocdoc.co.kr/news/articleView.html?idxno=3000535">병원 로봇</a>, <a href="https://www.irobotnews.com/news/articleView.html?idxno=43304">SMC 병동로봇</a></td>
+</tr>
+<tr>
+<td>Web</td>
+<td><a href="https://inews24.com/view/1967936">카카오모빌리티</a>, <a href="https://www.healthcarefinancenews.com/news/logistics-robots-bringing-samsung-medical-center-future">삼성의료원 물류</a></td>
+</tr>
+<tr>
+<td>MCP</td>
+<td>Attitude <code>4050000000105696116</code>, Persuasion <code>4050000000105727782</code>, Buying <code>4050000000105768010</code></td>
+</tr>
+<tr>
+<td>Docs</td>
+<td><a href="https://www.naverlabs.com/">NAVER LABS</a></td>
+</tr>
+</tbody>
+</table>
+</article>
+      </div>
+    </main>
+
+  <footer class="footer">
+    <span>참고:</span>
+    <a href="https://www.naverlabs.com/" target="_blank" rel="noopener">NAVER LABS</a>
+    <a href="https://www.naverlabs.com/rookie" target="_blank" rel="noopener">Rookie</a>
+    <span>·</span>
+    <span>Design: N2 학습보고서 레이아웃 · Pretendard · #03c75a</span>
+  </footer>
+  </div>
+
+</body>
+</html>
